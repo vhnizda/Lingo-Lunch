@@ -234,6 +234,52 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 }
 .key--space { min-width: 104px; margin: 0 4px; }
 
+/* During a run, reserve the viewport for play rather than the title screen. */
+.app-shell.is-playing {
+  min-height: 100dvh;
+  padding: 8px;
+}
+.app-shell.is-playing .masthead {
+  height: 0;
+  margin: 0;
+}
+.app-shell.is-playing .masthead > :not(.fullscreen-button) { display: none; }
+.app-shell.is-playing .fullscreen-button {
+  position: fixed;
+  top: 8px;
+  right: auto;
+  left: 8px;
+  z-index: 4;
+}
+.app-shell.is-playing .game-screen {
+  display: grid;
+  grid-template-rows: auto auto auto minmax(229px, 1fr) auto;
+  height: calc(100dvh - 16px);
+  min-height: 560px;
+  padding: clamp(12px, 2vw, 22px);
+}
+.app-shell.is-playing .status-bar { padding: 0 0 8px; }
+.app-shell.is-playing .prompt-box { padding: 8px 14px; }
+.app-shell.is-playing .feedback { min-height: 28px; margin: 4px 0; }
+.app-shell.is-playing .board {
+  min-height: 229px;
+  grid-template-rows: repeat(4, minmax(52px, 1fr));
+}
+.app-shell.is-playing .tile { font-size: clamp(16px, 2.4vw, 31px); }
+.app-shell.is-playing .play-instructions { margin-top: 10px; }
+
+@media (max-height: 650px) {
+  .app-shell.is-playing .game-screen { padding: 12px; }
+  .app-shell.is-playing .status-bar { gap: 6px; font-size: 20px; }
+  .app-shell.is-playing .lives-panel { gap: 8px; }
+  .app-shell.is-playing .life-frog { width: 32px; height: 32px; }
+  .app-shell.is-playing .lives-panel .leave-button { min-width: 80px; min-height: 40px; }
+  .app-shell.is-playing .play-instructions { gap: 4px; margin-top: 6px; font-size: 16px; line-height: 1; }
+  .app-shell.is-playing .instruction-label { margin-bottom: 1px; font-size: 9px; }
+  .app-shell.is-playing .key { min-width: 24px; height: 22px; padding: 0 3px; }
+  .app-shell.is-playing .key--space { min-width: 80px; }
+}
+
 .app-shell.is-paused > :not(.pause-dialog) { filter: grayscale(.9) brightness(.45); pointer-events: none; }
 .app-shell.is-paused .fullscreen-button { pointer-events: auto; }
 .pause-dialog {

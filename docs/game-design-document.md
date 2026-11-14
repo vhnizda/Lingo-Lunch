@@ -69,6 +69,8 @@ A topic run starts with **three lives**. The game must display remaining lives a
 
 Mouse, touch, and keyboard input must drive the same focused-tile and explicit-Munch actions. The board has no on-screen arrow or Munch controls. Centered instructions below the board have separate **TOUCH OR MOUSE** and **KEYBOARD** sections: touch/mouse explains first tap/click selects, the second eats, and double-tap/double-click is faster; keyboard renders raised arrow-key symbols plus a long `Space` key. A connected keyboard remains fully usable on any device. Tapping a non-focused square moves focus only; tapping the already focused square is an explicit Munch action. A touch move plays the frog's jump-up animation at the destination; keyboard arrows use the matching directional jump animation.
 
+During a topic run, the game layout uses the browser's dynamic viewport height: the title masthead collapses, the game panel fills the viewport, and the 4×6 board takes the remaining space after status, prompt, feedback, and controls. The layout recomputes on resize, rotation, and full-screen changes. It preserves a 52 px minimum board row and uses a readable scrolling fallback only below the practical minimum play height (560 px).
+
 ## 4. Vocabulary and language requirements
 
 ### Canonical source

@@ -42,3 +42,13 @@ test('styles provide room for frog lives and keep the instructions centered', as
   assert.match(css, /\.play-instructions \{[^}]*text-align:\s*center/);
   assert.match(css, /\.key--space \{[^}]*min-width:/);
 });
+
+test('active play uses the viewport height and keeps a four-row board scalable', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(app, /appShell\.classList\.toggle\('is-playing', screen === screens\.game\)/);
+  assert.match(css, /\.app-shell\.is-playing \{[\s\S]*min-height:\s*100dvh/);
+  assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*height:\s*calc\(100dvh - 16px\)/);
+  assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*grid-template-rows:\s*auto auto auto minmax\(229px, 1fr\) auto/);
+});
