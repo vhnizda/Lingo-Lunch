@@ -212,6 +212,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 .pointer-instruction--touch { display: none; }
 .app-shell.is-touch-first .pointer-instruction--touch { display: inline; }
 .app-shell.is-touch-first .pointer-instruction--mouse { display: none; }
+.app-shell.is-touch-first .instruction--keyboard { display: none; }
 .instruction-label {
   display: block;
   margin-bottom: 4px;

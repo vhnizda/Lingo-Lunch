@@ -51,6 +51,7 @@ test('styles provide room for frog lives and keep the instructions centered', as
   assert.match(css, /\.life-frog \{/);
   assert.match(css, /\.play-instructions \{[^}]*text-align:\s*center/);
   assert.match(css, /\.key--space \{[^}]*min-width:/);
+  assert.match(css, /\.app-shell\.is-touch-first \.instruction--keyboard \{ display: none; \}/);
 });
 
 test('active play uses the viewport height and keeps a four-row board scalable', async () => {
