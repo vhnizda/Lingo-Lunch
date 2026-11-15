@@ -62,3 +62,11 @@ test('active play uses the viewport height and keeps a four-row board scalable',
   assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*height:\s*calc\(100dvh - 16px\)/);
   assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*grid-template-rows:\s*auto auto auto minmax\(229px, 1fr\) auto/);
 });
+
+test('short touch landscape screens use a compact orientation layout', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(css, /@media \(pointer: coarse\) and \(orientation: landscape\) and \(max-height: 520px\)/);
+  assert.match(css, /\.app-shell\.is-playing \.game-screen \{ min-height: 0; padding: 6px 10px; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.board \{ min-height: 152px; grid-template-rows: repeat\(4, minmax\(38px, 1fr\)\);/);
+});

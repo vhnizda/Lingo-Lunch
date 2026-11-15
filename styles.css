@@ -328,3 +328,31 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   .tile.focused::after { font-size: 6px; }
   .controls { gap: 10px; flex-wrap: wrap; }
 }
+
+/* Re-evaluated by the browser immediately when phones rotate to landscape. */
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
+  .app-shell.is-playing { padding: 4px; }
+  .app-shell.is-playing .game-screen { min-height: 0; padding: 6px 10px; }
+  .app-shell.is-playing .game-screen { grid-template-rows: auto auto auto minmax(152px, 1fr) auto; }
+  .app-shell.is-playing .fullscreen-button { display: none; }
+  .app-shell.is-playing .status-bar {
+    grid-template-columns: 1.4fr .8fr 1.4fr;
+    gap: 4px;
+    padding: 0 0 3px;
+    font-size: 17px;
+  }
+  .app-shell.is-playing .status-label { font-size: 9px; }
+  .app-shell.is-playing .lives-panel { grid-column: auto; gap: 5px; }
+  .app-shell.is-playing .life-frog { width: 26px; height: 26px; }
+  .app-shell.is-playing #lives { gap: 3px; min-height: 28px; }
+  .app-shell.is-playing .lives-panel .leave-button { min-width: 64px; min-height: 32px; padding: 4px; }
+  .app-shell.is-playing .prompt-box { padding: 3px 8px; border-width: 2px; }
+  .app-shell.is-playing .prompt-box h2 { margin-top: 1px; font-size: 17px; }
+  .app-shell.is-playing .feedback { min-height: 20px; margin: 2px 0; font-size: 18px; }
+  .app-shell.is-playing .board { min-height: 152px; grid-template-rows: repeat(4, minmax(38px, 1fr)); gap: 3px; }
+  .app-shell.is-playing .tile { border-width: 2px; padding: 2px; font-size: clamp(12px, 2vw, 18px); }
+  .app-shell.is-playing .play-instructions { gap: 2px; margin-top: 3px; font-size: 12px; line-height: .95; }
+  .app-shell.is-playing .instruction-label { margin-bottom: 0; font-size: 7px; }
+  .app-shell.is-playing .key { min-width: 18px; height: 17px; padding: 0 2px; border-width: 1px; }
+  .app-shell.is-playing .key--space { min-width: 54px; }
+}
