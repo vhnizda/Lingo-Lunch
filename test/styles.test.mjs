@@ -28,6 +28,14 @@ test('frog sprite window offsets the sheet 3 pixels up and 10 pixels left', asyn
   assert.match(rule, /left:\s*-10px/);
 });
 
+test('mobile portrait removes only the frog sprite left offset', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) \{([\s\S]*?)\n\}/)?.[1];
+
+  assert.ok(portraitRule, 'touch portrait media query must exist');
+  assert.match(portraitRule, /\.frog img \{ left:\s*0; \}/);
+});
+
 test('tile words use a dark outline above the frog sprite', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   const rule = css.match(/\.tile-text \{([^}]+)\}/)?.[1];
