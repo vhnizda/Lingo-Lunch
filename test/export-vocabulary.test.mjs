@@ -27,6 +27,8 @@ test('vocabulary export retains playable fields and omits notes', async () => {
       'czech',
       'german_standard',
       'portuguese_pt',
+      'spanish_standard',
+      'italian_standard',
     ]);
     assert.equal(vocabulary[1].czech, 'máma / matka');
     assert.equal('notes' in vocabulary[0], false);

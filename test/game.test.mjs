@@ -16,6 +16,8 @@ const TOPIC_ROWS = [
     czech: 'rodina',
     german_standard: 'die Familie',
     portuguese_pt: 'a família',
+    spanish_standard: 'la familia',
+    italian_standard: 'la famiglia',
   },
   {
     id: '002',
@@ -24,6 +26,8 @@ const TOPIC_ROWS = [
     czech: 'máma / matka',
     german_standard: 'die Mutter',
     portuguese_pt: 'a mãe',
+    spanish_standard: 'la madre',
+    italian_standard: 'la madre',
   },
   {
     id: '003',
@@ -32,6 +36,8 @@ const TOPIC_ROWS = [
     czech: 'táta / otec',
     german_standard: 'der Vater',
     portuguese_pt: 'o pai',
+    spanish_standard: 'el padre',
+    italian_standard: 'il padre',
   },
   {
     id: '004',
@@ -40,6 +46,8 @@ const TOPIC_ROWS = [
     czech: 'rodiče',
     german_standard: 'die Eltern',
     portuguese_pt: 'os pais',
+    spanish_standard: 'los padres',
+    italian_standard: 'i genitori',
   },
   {
     id: '005',
@@ -48,6 +56,8 @@ const TOPIC_ROWS = [
     czech: 'miminko',
     german_standard: 'das Baby',
     portuguese_pt: 'o bebé',
+    spanish_standard: 'el bebé',
+    italian_standard: 'il neonato',
   },
   {
     id: '006',
@@ -56,6 +66,8 @@ const TOPIC_ROWS = [
     czech: 'sourozenec',
     german_standard: 'das Geschwister',
     portuguese_pt: 'o irmão / a irmã',
+    spanish_standard: 'el hermano / la hermana',
+    italian_standard: 'il fratello / la sorella',
   },
 ];
 
@@ -73,16 +85,18 @@ test('createTopicRun returns every selected-topic concept exactly once in a shuf
 });
 
 test('buildBoard creates a valid 24-tile 10/14 board with eight tiles per language', () => {
+  const languages = ['czech', 'german_standard', 'portuguese_pt'];
   const board = buildBoard({
     topicRows: TOPIC_ROWS,
     prompt: TOPIC_ROWS[0],
+    languages,
     random: deterministicRandom([0.91, 0.22, 0.73, 0.44, 0.65, 0.36, 0.57, 0.18]),
   });
 
   assert.equal(board.tiles.length, 24);
   assert.equal(board.tiles.filter((tile) => tile.isCorrect).length, 10);
   assert.equal(board.tiles.filter((tile) => !tile.isCorrect).length, 14);
-  for (const language of ['czech', 'german_standard', 'portuguese_pt']) {
+  for (const language of languages) {
     assert.equal(board.tiles.filter((tile) => tile.language === language).length, 8);
     assert.ok(board.tiles.some((tile) => tile.language === language && tile.isCorrect));
   }
@@ -141,6 +155,25 @@ test('buildBoard supports a single selected language', () => {
   assert.ok(isBoardValid(board));
 });
 
+test('buildBoard supports all five target languages on the 24-tile board', () => {
+  const languages = ['czech', 'german_standard', 'portuguese_pt', 'spanish_standard', 'italian_standard'];
+  const board = buildBoard({
+    topicRows: TOPIC_ROWS,
+    prompt: TOPIC_ROWS[0],
+    languages,
+    random: deterministicRandom([0.91, 0.22, 0.73, 0.44, 0.65, 0.36, 0.57, 0.18]),
+  });
+
+  assert.equal(board.tiles.length, 24);
+  assert.equal(board.tiles.filter((tile) => tile.isCorrect).length, 10);
+  for (const language of languages) {
+    const languageTiles = board.tiles.filter((tile) => tile.language === language);
+    assert.ok([4, 5].includes(languageTiles.length));
+    assert.equal(languageTiles.filter((tile) => tile.isCorrect).length, 2);
+  }
+  assert.ok(isBoardValid(board));
+});
+
 test('buildBoard keeps articles and alternatives together as the full CSV field', () => {
   const board = buildBoard({
     topicRows: TOPIC_ROWS,
@@ -157,6 +190,7 @@ test('buildBoard repeats a deliberately small distractor pool', () => {
   const board = buildBoard({
     topicRows: TOPIC_ROWS,
     prompt: TOPIC_ROWS[0],
+    languages: ['czech', 'german_standard', 'portuguese_pt'],
     random: deterministicRandom([0.99, 0.01, 0.8, 0.2, 0.6, 0.4]),
   });
   const distractorKeys = board.tiles

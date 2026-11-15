@@ -32,6 +32,8 @@ const LANGUAGE_OPTIONS = [
   { key: 'czech', flag: 'assets/flags/cz.svg', label: 'Czech' },
   { key: 'german_standard', flag: 'assets/flags/de.svg', label: 'German' },
   { key: 'portuguese_pt', flag: 'assets/flags/pt.svg', label: 'Portuguese' },
+  { key: 'spanish_standard', flag: 'assets/flags/es.svg', label: 'Spanish' },
+  { key: 'italian_standard', flag: 'assets/flags/it.svg', label: 'Italian' },
 ];
 
 let state = null;

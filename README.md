@@ -20,8 +20,8 @@ Touch/pointer and connected keyboards use the same move-then-munch interaction. 
 ## MVP rules
 
 - Select one vocabulary topic; its 20 concepts are shuffled and played once each.
-- At the topic menu, toggle the Czech, German, and `pt-PT` local SVG flags. They do not rely on browser emoji support, so they render in Brave as well. At least one language remains enabled; the final selected flag stays coloured and clickable, but clicking it leaves it enabled. The selection is fixed for that topic run and can be changed again only after returning to the topic menu.
-- Each 24-tile board has 10 correct answers and 14 distractors—about 42% correct / 58% distractors. The active languages still share the 24 board positions evenly: 24 tiles for one language, 12 each for two languages, or eight each for all three.
+- At the topic menu, toggle Czech, German, `pt-PT` Portuguese, Spanish, and Italian local SVG flags. They do not rely on browser emoji support, so they render in Brave as well. At least one language remains enabled; the final selected flag stays coloured and clickable, but clicking it leaves it enabled. The selection is fixed for that topic run and can be changed again only after returning to the topic menu.
+- Each 24-tile board has 10 correct answers and 14 distractors—about 42% correct / 58% distractors. Tiles and correct answers are distributed as evenly as possible among the active languages. With all five enabled, each language has either four or five tiles and exactly two correct translations.
 - Correct answers repeat intentionally and are mixed across the board. Distractors are drawn from a small per-language pool and intentionally repeat as well; there are no language labels or positional language patterns.
 - A run starts with three resting-frog life icons. A wrong answer shows its English meaning for one second, then clears only the word content and costs one life. The board square remains available for frog movement but cannot be eaten again.
 - Progress is stored only in the browser's local storage. Version 1 has no sound.
@@ -32,7 +32,7 @@ The canonical source remains the private [`vhnizda/vaclav-language-learning-path
 
 - [`vocabulary/first-300-family-life.csv`](https://github.com/vhnizda/vaclav-language-learning-path/blob/main/vocabulary/first-300-family-life.csv)
 
-`data/vocabulary.json` is a reviewed playable export of the CSV. It includes only `id`, `group`, `english`, `czech`, `german_standard`, and `portuguese_pt`; the source `notes` field is intentionally omitted. Each target-language field is shown as one indivisible tile, including articles and written alternatives.
+`data/vocabulary.json` is a reviewed playable export of the CSV. It contains 301 concepts and includes only `id`, `group`, `english`, `czech`, `german_standard`, `portuguese_pt`, `spanish_standard`, and `italian_standard`; the source `notes` field is intentionally omitted. Each target-language field is shown as one indivisible tile, including articles and written alternatives.
 
 Regenerate the export from an authorized local checkout with:
 

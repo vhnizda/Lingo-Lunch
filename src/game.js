@@ -1,4 +1,10 @@
-const LANGUAGES = ['czech', 'german_standard', 'portuguese_pt'];
+const LANGUAGES = [
+  'czech',
+  'german_standard',
+  'portuguese_pt',
+  'spanish_standard',
+  'italian_standard',
+];
 const BOARD_COLUMNS = 6;
 const BOARD_ROWS = 4;
 const BOARD_SIZE = BOARD_COLUMNS * BOARD_ROWS;
@@ -64,12 +70,12 @@ function buildCandidateTiles({ topicRows, prompt, languages, random }) {
   }
 
   const tiles = [];
+  const tileCounts = distributeCount(BOARD_SIZE, activeLanguages, random);
   const correctCounts = distributeCount(CORRECT_TILE_COUNT, activeLanguages, random);
-  const tilesPerLanguage = BOARD_SIZE / activeLanguages.length;
   let sequence = 0;
   for (const language of activeLanguages) {
     const correctCount = correctCounts.get(language);
-    const distractorCount = tilesPerLanguage - correctCount;
+    const distractorCount = tileCounts.get(language) - correctCount;
     for (let count = 0; count < correctCount; count += 1) {
       tiles.push(createTile({ concept: prompt, language, isCorrect: true, sequence: sequence++ }));
     }
@@ -128,14 +134,16 @@ export function isBoardValid(board) {
     return false;
   }
 
-  const tilesPerLanguage = BOARD_SIZE / activeLanguages.length;
+  const minimumTilesPerLanguage = Math.floor(BOARD_SIZE / activeLanguages.length);
+  const maximumTilesPerLanguage = Math.ceil(BOARD_SIZE / activeLanguages.length);
   const minimumCorrectTilesPerLanguage = Math.floor(CORRECT_TILE_COUNT / activeLanguages.length);
   const maximumCorrectTilesPerLanguage = Math.ceil(CORRECT_TILE_COUNT / activeLanguages.length);
   for (const language of activeLanguages) {
     const languageTiles = board.tiles.filter((tile) => tile.language === language);
     const languageCorrectTiles = languageTiles.filter((tile) => tile.isCorrect).length;
     if (
-      languageTiles.length !== tilesPerLanguage
+      languageTiles.length < minimumTilesPerLanguage
+      || languageTiles.length > maximumTilesPerLanguage
       || languageCorrectTiles < minimumCorrectTilesPerLanguage
       || languageCorrectTiles > maximumCorrectTilesPerLanguage
     ) {

@@ -7,9 +7,9 @@
 
 Language Munchers is a single-player vocabulary-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* and *Word Munchers* games.
 
-A frog occupies a grid of word tiles. Each round shows an English prompt at the top of the screen. Every tile displays exactly one target-language word or phrase—Czech, Standard German, or European Portuguese (`pt-PT`)—never a grouped multilingual answer. The player deliberately eats every tile whose single displayed value translates the English prompt. Tiles with other meanings are distractors.
+A frog occupies a grid of word tiles. Each round shows an English prompt at the top of the screen. Every tile displays exactly one target-language word or phrase—Czech, Standard German, European Portuguese (`pt-PT`), Standard Spanish, or Standard Italian—never a grouped multilingual answer. The player deliberately eats every tile whose single displayed value translates the English prompt. Tiles with other meanings are distractors.
 
-The game teaches recognition of one concept across three target languages while preserving a short, spatial action loop. It will use an original frog, art direction, sound, UI, names, and implementation. It must not copy protected assets, interface layouts, audio, characters, terminology, or code from the Munchers games.
+The game teaches recognition of one concept across five target languages while preserving a short, spatial action loop. It will use an original frog, art direction, sound, UI, names, and implementation. It must not copy protected assets, interface layouts, audio, characters, terminology, or code from the Munchers games.
 
 ## 2. Research findings and design consequences
 
@@ -41,11 +41,11 @@ Eat all and only the tiles that correctly translate the current English prompt.
 
 ### Required round loop
 
-1. From the choice menu, read **“Eat your way to language mastery. Pick a topic below and complete all the levels.”** Select one CSV `group` (topic) and enable one or more target-language flags: Czech, Standard German, and/or `pt-PT`. The flags are local SVG assets rather than font emoji so they render consistently in browsers including Brave. The `LANGUAGES` label explains the controls; an enabled flag is normal, while a disabled flag carries a red × centered over its icon. At least one language must be enabled. The final enabled language remains coloured and clickable, but clicking it leaves it enabled.
+1. From the choice menu, read **“Eat your way to language mastery. Pick a topic below and complete all the levels.”** Select one CSV `group` (topic) and enable one or more target-language flags: Czech, Standard German, `pt-PT` Portuguese, Standard Spanish, and/or Standard Italian. The flags are local SVG assets rather than font emoji so they render consistently in browsers including Brave. The `LANGUAGES` label explains the controls; an enabled flag is normal, while a disabled flag carries a red × centered over its icon. At least one language must be enabled. The final enabled language remains coloured and clickable, but clicking it leaves it enabled.
 2. Freeze that language selection for the topic run; it may be changed only after returning to the choice menu.
 3. At the start of the run, create one randomized order containing every concept in that topic exactly once.
 4. Select the next unfinished concept in the run and display its English value as the prompt.
-5. Build a 4-row × 6-column board with exactly 10 correct translations and 14 distractors using the active languages only. Distribute all 24 tiles evenly across active languages; correct tiles divide as evenly as possible, with a randomly assigned remainder.
+5. Build a 4-row × 6-column board with exactly 10 correct translations and 14 distractors using the active languages only. Distribute all 24 tiles as evenly as possible across active languages; correct tiles divide as evenly as possible, with randomly assigned remainders. With five active languages, tile counts are four or five per language and every language has two correct tiles.
 6. Let the player move the frog one grid square at a time without evaluating the tile.
 7. Show a clear focus state and the frog at the center of its focused tile.
 8. On an explicit **Munch** action, evaluate the focused tile.
@@ -79,7 +79,7 @@ The first corpus is the private [`vhnizda/vaclav-language-learning-path`](https:
 
 [`vocabulary/first-300-family-life.csv`](https://github.com/vhnizda/vaclav-language-learning-path/blob/main/vocabulary/first-300-family-life.csv)
 
-The inspected source is a 300-row, stable-ID CSV with this schema:
+The inspected source is a 301-row, stable-ID CSV with this schema:
 
 | Field | Game use |
 |---|---|
@@ -89,6 +89,8 @@ The inspected source is a 300-row, stable-ID CSV with this schema:
 | `czech` | Candidate tile text. |
 | `german_standard` | Candidate tile text. |
 | `portuguese_pt` | Candidate tile text. |
+| `spanish_standard` | Candidate tile text. |
+| `italian_standard` | Candidate tile text. |
 | `notes` | Ignored in version 1; not exported to a playable tile or used by board generation. |
 
 The corpus has 15 situational groups, from family and people through questions and connectors.
@@ -96,12 +98,12 @@ The corpus has 15 situational groups, from family and people through questions a
 ### Content fidelity
 
 - English is the prompt language for the initial game.
-- Tile languages are Czech, Standard German, and European Portuguese only.
-- Every tile displays exactly one source field in exactly one target language; it must never group Czech, German, and Portuguese on one tile.
+- Tile languages are Czech, Standard German, European Portuguese, Standard Spanish, and Standard Italian only.
+- Every tile displays exactly one source field in exactly one target language; it must never group multiple languages on one tile.
 - Tiles provide **no language hints** in version 1: no explicit language labels, flags, language-specific colours, or language-specific styling. The player must recognize each displayed word independently. A later version may add optional hints as an accessibility or learning setting.
 - Standard German must retain the corpus's Swiss-context spelling and vocabulary where provided.
 - Portuguese must remain `pt-PT`; Brazilian Portuguese must not be substituted.
-- German and Portuguese articles are part of the answer text and must remain visible.
+- German, Portuguese, Spanish, and Italian articles are part of the answer text and must remain visible.
 - Written gender alternatives and slash-separated alternatives must remain intact inside one indivisible tile; do not split them into separately selectable answers.
 - Each tile displays the complete value of its target-language CSV field exactly as written, including articles and alternatives.
 - The `notes` field is ignored in version 1: it must not be rendered, used for answer validation, or used in board generation.
@@ -111,7 +113,7 @@ The corpus has 15 situational groups, from family and people through questions a
 
 Target-language pronunciation remains a planned differentiator after the MVP, but **version 1 has no sound**: no pronunciation playback, music, or sound effects. The MVP must validate the visual vocabulary-recognition loop first.
 
-In a later version, whenever the frog eats a tile—whether correct or wrong—the game should play the displayed tile's pronunciation in Czech, Standard German, or European Portuguese. That pronunciation must correspond to the exact displayed form, including articles and written alternatives.
+In a later version, whenever the frog eats a tile—whether correct or wrong—the game should play the displayed tile's pronunciation in its active target language. That pronunciation must correspond to the exact displayed form, including articles and written alternatives.
 
 When this feature is introduced, each playable tile must resolve to a reviewed pronunciation asset using its `conceptId`, `language`, and `displayText`; the board generator must not place a tile with no matching asset. The source, licensing, voice standard, and asset-production pipeline remain future implementation decisions.
 
@@ -120,7 +122,7 @@ A generated tile must retain display content, language, and concept provenance:
 
 ```text
 conceptId: "001"
-language: "czech" | "german_standard" | "portuguese_pt"
+language: "czech" | "german_standard" | "portuguese_pt" | "spanish_standard" | "italian_standard"
 displayText: "rodina"
 ```
 
@@ -133,7 +135,7 @@ Before a board is shown, the generator must create and validate a board manifest
 - each tile's correct/incorrect status;
 - the count and positions of all correct tiles.
 
-The manifest must include the active target-language set. It must guarantee at least one correct tile in **each active** language, more than three correct tiles overall, and at least one intentionally repeated correct translation. It must target roughly 40% correct answers and 60% distractors. For the 24-tile MVP board, that is an exact 10 correct / 14 distractor split (about 42% / 58%). The 24 board positions stay evenly distributed across active languages; correct tiles divide as evenly as possible, with any one-tile remainder assigned randomly. For each active language, choose a deliberately small pool of up to three distractor concepts and repeat its tile values as needed to fill that language's distractor slots. Repeated distractors are intentional learning pressure, not a validation error. After construction, language and concept positions must be shuffled across the full grid: no language or concept may occupy a dedicated row, column, quadrant, or other predictable region. The grid structure remains stable for the entire round: a correct tile's word content clears only after its 540 ms eat animation, and an incorrect tile's word content clears after one second of feedback.
+The manifest must include the active target-language set. It must guarantee at least one correct tile in **each active** language, more than three correct tiles overall, and at least one intentionally repeated correct translation. It must target roughly 40% correct answers and 60% distractors. For the 24-tile MVP board, that is an exact 10 correct / 14 distractor split (about 42% / 58%). The 24 board positions and 10 correct tiles divide as evenly as possible across active languages, with any remainders assigned randomly. For each active language, choose a deliberately small pool of up to three distractor concepts and repeat its tile values as needed to fill that language's distractor slots. Repeated distractors are intentional learning pressure, not a validation error. After construction, language and concept positions must be shuffled across the full grid: no language or concept may occupy a dedicated row, column, quadrant, or other predictable region. The grid structure remains stable for the entire round: a correct tile's word content clears only after its 540 ms eat animation, and an incorrect tile's word content clears after one second of feedback.
 
 ## 5. Practice configuration and modes
 
@@ -143,7 +145,7 @@ The pre-game session setup should be deliberately small:
 |---|---|
 | Topic | One CSV `group`, selected from the choice menu. |
 | Run length and order | One level per concept in the selected topic; create a fresh randomized order at the start of each run, with every concept appearing exactly once. |
-| Tile languages | Toggle Czech, Standard German, and `pt-PT` independently through local SVG flag assets at the choice menu. At least one is required; the active set stays fixed for the topic run. The final selection is never greyed out or disabled, but cannot be removed. Each tile displays exactly one active language. |
+| Tile languages | Toggle Czech, Standard German, `pt-PT` Portuguese, Standard Spanish, and Standard Italian independently through local SVG flag assets at the choice menu. At least one is required; the active set stays fixed for the topic run. The final selection is never greyed out or disabled, but cannot be removed. Each tile displays exactly one active language. |
 | Correct answers | Every board targets roughly 40% correct answers and 60% distractors: 10 correct / 14 distractors on the 24-tile MVP board. It contains at least one correct tile in each active language, more than three correct tiles overall, and intentional repeats of one or more correct translations. |
 | Pace | **Calm** by default; **Mastery** remains future work. |
 
@@ -157,7 +159,7 @@ A later mastery mode may add original hazards or a timer after the calm loop is 
 
 ## 6. Board design
 
-The source games demonstrate that a compact, fully visible grid supports scan-and-decide play. Their exact board dimensions and presentation are not a requirement for this game. The Language Munchers grid must instead be sized around the longest expected Czech, German, and Portuguese strings at the minimum supported laptop viewport.
+The source games demonstrate that a compact, fully visible grid supports scan-and-decide play. Their exact board dimensions and presentation are not a requirement for this game. The Language Munchers grid must instead be sized around the longest expected Czech, German, Portuguese, Spanish, and Italian strings at the minimum supported laptop viewport.
 
 Each board must:
 
@@ -169,7 +171,7 @@ Each board must:
 - distribute languages and concepts across the whole grid rather than by row, column, quadrant, or other recognizable region;
 - expose remaining lives, `correct eaten / correct total`, and `word n / total words` without revealing which unselected tiles are correct.
 
-The game starts one topic run at a time: the player selects one CSV `group` and plays every concept in that group before returning to the choice menu. It does not begin with all 300 concepts at once.
+The game starts one topic run at a time: the player selects one CSV `group` and plays every concept in that group before returning to the choice menu. It does not begin with all 301 concepts at once.
 
 ### Initial MVP board layout
 
@@ -179,10 +181,10 @@ The MVP uses the following board:
 - one prompt concept;
 - 10 correct tiles: at least one in each active language, with the prompt's translations intentionally repeated;
 - 14 distractors drawn from the same study group;
-- active-language totals divided evenly: 24 tiles for one active language, 12 each for two, or eight each for all three, with positions randomized across the full grid;
+- active-language totals divided as evenly as possible: 24 tiles for one active language, 12 each for two, eight each for three, six each for four, or four/five each for five, with positions randomized across the full grid;
 - Calm mode; three lives per topic run; keyboard controls; explicit Munch action; no score pressure.
 
-A 4-row × 6-column board is the initial MVP layout. Its 24 tiles provide 10 correct answers and 14 distractors—approximately a 40/60 ratio—while dividing the active languages evenly, and its landscape shape suits wider-than-tall screens. Tile text may wrap to multiple lines; character limits and minimum font-size tuning are implementation refinements to validate once the game is playable. The generator must shuffle every active language and concept across the whole grid with no dedicated language or concept region.
+A 4-row × 6-column board is the initial MVP layout. Its 24 tiles provide 10 correct answers and 14 distractors—approximately a 40/60 ratio—while distributing the active languages as evenly as possible, and its landscape shape suits wider-than-tall screens. Tile text may wrap to multiple lines; character limits and minimum font-size tuning are implementation refinements to validate once the game is playable. The generator must shuffle every active language and concept across the whole grid with no dedicated language or concept region.
 
 ## 7. Feedback, progression, and learning intent
 
@@ -199,7 +201,7 @@ The first release should prioritize accurate recognition, repeated exposure, and
 ### Proposed progression path
 
 1. One selected target language; one complete topic run; Calm mode.
-2. Mixed Czech, German, and Portuguese correct tiles.
+2. Mixed correct tiles from any selected target languages.
 3. More confusable distractors within the selected topic.
 4. Review boards selected from recent mistakes or weak concepts.
 5. Optional Mastery mode, only after the calm learning loop tests well.

@@ -5,7 +5,9 @@
     "english": "family",
     "czech": "rodina",
     "german_standard": "die Familie",
-    "portuguese_pt": "a família"
+    "portuguese_pt": "a família",
+    "spanish_standard": "la familia",
+    "italian_standard": "la famiglia"
   },
   {
     "id": "002",
@@ -13,7 +15,9 @@
     "english": "mother",
     "czech": "máma / matka",
     "german_standard": "die Mutter",
-    "portuguese_pt": "a mãe"
+    "portuguese_pt": "a mãe",
+    "spanish_standard": "la madre",
+    "italian_standard": "la madre"
   },
   {
     "id": "003",
@@ -21,7 +25,9 @@
     "english": "father",
     "czech": "táta / otec",
     "german_standard": "der Vater",
-    "portuguese_pt": "o pai"
+    "portuguese_pt": "o pai",
+    "spanish_standard": "el padre",
+    "italian_standard": "il padre"
   },
   {
     "id": "004",
@@ -29,7 +35,9 @@
     "english": "parents",
     "czech": "rodiče",
     "german_standard": "die Eltern",
-    "portuguese_pt": "os pais"
+    "portuguese_pt": "os pais",
+    "spanish_standard": "los padres",
+    "italian_standard": "i genitori"
   },
   {
     "id": "005",
@@ -37,7 +45,9 @@
     "english": "baby",
     "czech": "miminko",
     "german_standard": "das Baby",
-    "portuguese_pt": "o bebé"
+    "portuguese_pt": "o bebé",
+    "spanish_standard": "el bebé",
+    "italian_standard": "il bebè"
   },
   {
     "id": "006",
@@ -45,7 +55,9 @@
     "english": "child",
     "czech": "dítě",
     "german_standard": "das Kind",
-    "portuguese_pt": "a criança"
+    "portuguese_pt": "a criança",
+    "spanish_standard": "el niño / la niña",
+    "italian_standard": "il bambino / la bambina"
   },
   {
     "id": "007",
@@ -53,7 +65,9 @@
     "english": "grandmother",
     "czech": "babička",
     "german_standard": "die Grossmutter",
-    "portuguese_pt": "a avó"
+    "portuguese_pt": "a avó",
+    "spanish_standard": "la abuela",
+    "italian_standard": "la nonna"
   },
   {
     "id": "008",
@@ -61,7 +75,9 @@
     "english": "grandfather",
     "czech": "dědeček",
     "german_standard": "der Grossvater",
-    "portuguese_pt": "o avô"
+    "portuguese_pt": "o avô",
+    "spanish_standard": "el abuelo",
+    "italian_standard": "il nonno"
   },
   {
     "id": "009",
@@ -69,7 +85,9 @@
     "english": "grandparents",
     "czech": "prarodiče",
     "german_standard": "die Grosseltern",
-    "portuguese_pt": "os avós"
+    "portuguese_pt": "os avós",
+    "spanish_standard": "los abuelos",
+    "italian_standard": "i nonni"
   },
   {
     "id": "010",
@@ -77,7 +95,9 @@
     "english": "aunt",
     "czech": "teta",
     "german_standard": "die Tante",
-    "portuguese_pt": "a tia"
+    "portuguese_pt": "a tia",
+    "spanish_standard": "la tía",
+    "italian_standard": "la zia"
   },
   {
     "id": "011",
@@ -85,7 +105,9 @@
     "english": "uncle",
     "czech": "strýc",
     "german_standard": "der Onkel",
-    "portuguese_pt": "o tio"
+    "portuguese_pt": "o tio",
+    "spanish_standard": "el tío",
+    "italian_standard": "lo zio"
   },
   {
     "id": "012",
@@ -93,7 +115,9 @@
     "english": "cousin",
     "czech": "bratranec / sestřenice",
     "german_standard": "der Cousin / die Cousine",
-    "portuguese_pt": "o primo / a prima"
+    "portuguese_pt": "o primo / a prima",
+    "spanish_standard": "el primo / la prima",
+    "italian_standard": "il cugino / la cugina"
   },
   {
     "id": "013",
@@ -101,7 +125,9 @@
     "english": "brother",
     "czech": "bratr",
     "german_standard": "der Bruder",
-    "portuguese_pt": "o irmão"
+    "portuguese_pt": "o irmão",
+    "spanish_standard": "el hermano",
+    "italian_standard": "il fratello"
   },
   {
     "id": "014",
@@ -109,7 +135,9 @@
     "english": "sister",
     "czech": "sestra",
     "german_standard": "die Schwester",
-    "portuguese_pt": "a irmã"
+    "portuguese_pt": "a irmã",
+    "spanish_standard": "la hermana",
+    "italian_standard": "la sorella"
   },
   {
     "id": "015",
@@ -117,7 +145,9 @@
     "english": "husband",
     "czech": "manžel",
     "german_standard": "der Ehemann",
-    "portuguese_pt": "o marido"
+    "portuguese_pt": "o marido",
+    "spanish_standard": "el marido",
+    "italian_standard": "il marito"
   },
   {
     "id": "016",
@@ -125,7 +155,9 @@
     "english": "wife",
     "czech": "manželka",
     "german_standard": "die Ehefrau",
-    "portuguese_pt": "a esposa"
+    "portuguese_pt": "a mulher",
+    "spanish_standard": "la esposa",
+    "italian_standard": "la moglie"
   },
   {
     "id": "017",
@@ -133,7 +165,9 @@
     "english": "friend",
     "czech": "kamarád / kamarádka",
     "german_standard": "der Freund / die Freundin",
-    "portuguese_pt": "o amigo / a amiga"
+    "portuguese_pt": "o amigo / a amiga",
+    "spanish_standard": "el amigo / la amiga",
+    "italian_standard": "l'amico / l'amica"
   },
   {
     "id": "018",
@@ -141,7 +175,9 @@
     "english": "person",
     "czech": "osoba",
     "german_standard": "die Person",
-    "portuguese_pt": "a pessoa"
+    "portuguese_pt": "a pessoa",
+    "spanish_standard": "la persona",
+    "italian_standard": "la persona"
   },
   {
     "id": "019",
@@ -149,7 +185,9 @@
     "english": "man",
     "czech": "muž",
     "german_standard": "der Mann",
-    "portuguese_pt": "o homem"
+    "portuguese_pt": "o homem",
+    "spanish_standard": "el hombre",
+    "italian_standard": "l'uomo"
   },
   {
     "id": "020",
@@ -157,7 +195,9 @@
     "english": "woman",
     "czech": "žena",
     "german_standard": "die Frau",
-    "portuguese_pt": "a mulher"
+    "portuguese_pt": "a mulher",
+    "spanish_standard": "la mujer",
+    "italian_standard": "la donna"
   },
   {
     "id": "021",
@@ -165,7 +205,9 @@
     "english": "head",
     "czech": "hlava",
     "german_standard": "der Kopf",
-    "portuguese_pt": "a cabeça"
+    "portuguese_pt": "a cabeça",
+    "spanish_standard": "la cabeza",
+    "italian_standard": "la testa"
   },
   {
     "id": "022",
@@ -173,7 +215,9 @@
     "english": "hair",
     "czech": "vlasy",
     "german_standard": "die Haare",
-    "portuguese_pt": "o cabelo"
+    "portuguese_pt": "o cabelo",
+    "spanish_standard": "el pelo",
+    "italian_standard": "i capelli"
   },
   {
     "id": "023",
@@ -181,7 +225,9 @@
     "english": "face",
     "czech": "obličej",
     "german_standard": "das Gesicht",
-    "portuguese_pt": "o rosto"
+    "portuguese_pt": "o rosto",
+    "spanish_standard": "la cara",
+    "italian_standard": "il viso"
   },
   {
     "id": "024",
@@ -189,7 +235,9 @@
     "english": "eye",
     "czech": "oko",
     "german_standard": "das Auge",
-    "portuguese_pt": "o olho"
+    "portuguese_pt": "o olho",
+    "spanish_standard": "el ojo",
+    "italian_standard": "l'occhio"
   },
   {
     "id": "025",
@@ -197,7 +245,9 @@
     "english": "ear",
     "czech": "ucho",
     "german_standard": "das Ohr",
-    "portuguese_pt": "o ouvido"
+    "portuguese_pt": "o ouvido",
+    "spanish_standard": "la oreja",
+    "italian_standard": "l'orecchio"
   },
   {
     "id": "026",
@@ -205,7 +255,9 @@
     "english": "nose",
     "czech": "nos",
     "german_standard": "die Nase",
-    "portuguese_pt": "o nariz"
+    "portuguese_pt": "o nariz",
+    "spanish_standard": "la nariz",
+    "italian_standard": "il naso"
   },
   {
     "id": "027",
@@ -213,7 +265,9 @@
     "english": "mouth",
     "czech": "ústa",
     "german_standard": "der Mund",
-    "portuguese_pt": "a boca"
+    "portuguese_pt": "a boca",
+    "spanish_standard": "la boca",
+    "italian_standard": "la bocca"
   },
   {
     "id": "028",
@@ -221,7 +275,9 @@
     "english": "tooth",
     "czech": "zub",
     "german_standard": "der Zahn",
-    "portuguese_pt": "o dente"
+    "portuguese_pt": "o dente",
+    "spanish_standard": "el diente",
+    "italian_standard": "il dente"
   },
   {
     "id": "029",
@@ -229,7 +285,9 @@
     "english": "tongue",
     "czech": "jazyk",
     "german_standard": "die Zunge",
-    "portuguese_pt": "a língua"
+    "portuguese_pt": "a língua",
+    "spanish_standard": "la lengua",
+    "italian_standard": "la lingua"
   },
   {
     "id": "030",
@@ -237,7 +295,9 @@
     "english": "neck",
     "czech": "krk",
     "german_standard": "der Hals",
-    "portuguese_pt": "o pescoço"
+    "portuguese_pt": "o pescoço",
+    "spanish_standard": "el cuello",
+    "italian_standard": "il collo"
   },
   {
     "id": "031",
@@ -245,7 +305,9 @@
     "english": "arm",
     "czech": "paže",
     "german_standard": "der Arm",
-    "portuguese_pt": "o braço"
+    "portuguese_pt": "o braço",
+    "spanish_standard": "el brazo",
+    "italian_standard": "il braccio"
   },
   {
     "id": "032",
@@ -253,7 +315,9 @@
     "english": "hand",
     "czech": "ruka",
     "german_standard": "die Hand",
-    "portuguese_pt": "a mão"
+    "portuguese_pt": "a mão",
+    "spanish_standard": "la mano",
+    "italian_standard": "la mano"
   },
   {
     "id": "033",
@@ -261,7 +325,9 @@
     "english": "finger",
     "czech": "prst",
     "german_standard": "der Finger",
-    "portuguese_pt": "o dedo"
+    "portuguese_pt": "o dedo",
+    "spanish_standard": "el dedo",
+    "italian_standard": "il dito"
   },
   {
     "id": "034",
@@ -269,7 +335,9 @@
     "english": "leg",
     "czech": "noha",
     "german_standard": "das Bein",
-    "portuguese_pt": "a perna"
+    "portuguese_pt": "a perna",
+    "spanish_standard": "la pierna",
+    "italian_standard": "la gamba"
   },
   {
     "id": "035",
@@ -277,7 +345,9 @@
     "english": "foot",
     "czech": "chodidlo",
     "german_standard": "der Fuss",
-    "portuguese_pt": "o pé"
+    "portuguese_pt": "o pé",
+    "spanish_standard": "el pie",
+    "italian_standard": "il piede"
   },
   {
     "id": "036",
@@ -285,7 +355,9 @@
     "english": "belly",
     "czech": "břicho",
     "german_standard": "der Bauch",
-    "portuguese_pt": "a barriga"
+    "portuguese_pt": "a barriga",
+    "spanish_standard": "la barriga",
+    "italian_standard": "la pancia"
   },
   {
     "id": "037",
@@ -293,7 +365,9 @@
     "english": "back",
     "czech": "záda",
     "german_standard": "der Rücken",
-    "portuguese_pt": "as costas"
+    "portuguese_pt": "as costas",
+    "spanish_standard": "la espalda",
+    "italian_standard": "la schiena"
   },
   {
     "id": "038",
@@ -301,7 +375,9 @@
     "english": "heart",
     "czech": "srdce",
     "german_standard": "das Herz",
-    "portuguese_pt": "o coração"
+    "portuguese_pt": "o coração",
+    "spanish_standard": "el corazón",
+    "italian_standard": "il cuore"
   },
   {
     "id": "039",
@@ -309,7 +385,9 @@
     "english": "skin",
     "czech": "kůže",
     "german_standard": "die Haut",
-    "portuguese_pt": "a pele"
+    "portuguese_pt": "a pele",
+    "spanish_standard": "la piel",
+    "italian_standard": "la pelle"
   },
   {
     "id": "040",
@@ -317,7 +395,9 @@
     "english": "pain",
     "czech": "bolest",
     "german_standard": "der Schmerz",
-    "portuguese_pt": "a dor"
+    "portuguese_pt": "a dor",
+    "spanish_standard": "el dolor",
+    "italian_standard": "il dolore"
   },
   {
     "id": "041",
@@ -325,7 +405,9 @@
     "english": "nappy / diaper",
     "czech": "plena",
     "german_standard": "die Windel",
-    "portuguese_pt": "a fralda"
+    "portuguese_pt": "a fralda",
+    "spanish_standard": "el pañal",
+    "italian_standard": "il pannolino"
   },
   {
     "id": "042",
@@ -333,7 +415,9 @@
     "english": "wipes",
     "czech": "vlhčené ubrousky",
     "german_standard": "die Feuchttücher",
-    "portuguese_pt": "as toalhitas"
+    "portuguese_pt": "as toalhitas",
+    "spanish_standard": "las toallitas húmedas",
+    "italian_standard": "le salviettine umidificate"
   },
   {
     "id": "043",
@@ -341,7 +425,9 @@
     "english": "bath",
     "czech": "koupel",
     "german_standard": "das Bad",
-    "portuguese_pt": "o banho"
+    "portuguese_pt": "o banho",
+    "spanish_standard": "el baño",
+    "italian_standard": "il bagno"
   },
   {
     "id": "044",
@@ -349,7 +435,9 @@
     "english": "soap",
     "czech": "mýdlo",
     "german_standard": "die Seife",
-    "portuguese_pt": "o sabonete"
+    "portuguese_pt": "o sabonete",
+    "spanish_standard": "el jabón",
+    "italian_standard": "il sapone"
   },
   {
     "id": "045",
@@ -357,7 +445,9 @@
     "english": "towel",
     "czech": "ručník",
     "german_standard": "das Handtuch",
-    "portuguese_pt": "a toalha"
+    "portuguese_pt": "a toalha",
+    "spanish_standard": "la toalla",
+    "italian_standard": "l'asciugamano"
   },
   {
     "id": "046",
@@ -365,7 +455,9 @@
     "english": "clothes",
     "czech": "oblečení",
     "german_standard": "die Kleidung",
-    "portuguese_pt": "a roupa"
+    "portuguese_pt": "a roupa",
+    "spanish_standard": "la ropa",
+    "italian_standard": "i vestiti"
   },
   {
     "id": "047",
@@ -373,7 +465,9 @@
     "english": "high chair",
     "czech": "jídelní židlička",
     "german_standard": "der Hochstuhl",
-    "portuguese_pt": "a cadeira alta"
+    "portuguese_pt": "a cadeira alta",
+    "spanish_standard": "la trona",
+    "italian_standard": "il seggiolone"
   },
   {
     "id": "048",
@@ -381,7 +475,9 @@
     "english": "pushchair / stroller",
     "czech": "kočárek",
     "german_standard": "der Kinderwagen",
-    "portuguese_pt": "o carrinho de bebé"
+    "portuguese_pt": "o carrinho de bebé",
+    "spanish_standard": "el cochecito de bebé",
+    "italian_standard": "il passeggino"
   },
   {
     "id": "049",
@@ -389,7 +485,9 @@
     "english": "cot / crib",
     "czech": "dětská postýlka",
     "german_standard": "das Kinderbett",
-    "portuguese_pt": "o berço"
+    "portuguese_pt": "o berço",
+    "spanish_standard": "la cuna",
+    "italian_standard": "il lettino"
   },
   {
     "id": "050",
@@ -397,7 +495,9 @@
     "english": "blanket",
     "czech": "deka",
     "german_standard": "die Decke",
-    "portuguese_pt": "a manta"
+    "portuguese_pt": "a manta",
+    "spanish_standard": "la manta",
+    "italian_standard": "la coperta"
   },
   {
     "id": "051",
@@ -405,7 +505,9 @@
     "english": "pacifier",
     "czech": "dudlík",
     "german_standard": "der Schnuller",
-    "portuguese_pt": "a chucha"
+    "portuguese_pt": "a chucha",
+    "spanish_standard": "el chupete",
+    "italian_standard": "il ciuccio"
   },
   {
     "id": "052",
@@ -413,7 +515,9 @@
     "english": "bottle (feeding)",
     "czech": "kojenecká láhev",
     "german_standard": "die Babyflasche",
-    "portuguese_pt": "o biberão"
+    "portuguese_pt": "o biberão",
+    "spanish_standard": "el biberón",
+    "italian_standard": "il biberon"
   },
   {
     "id": "053",
@@ -421,7 +525,9 @@
     "english": "spoon",
     "czech": "lžíce",
     "german_standard": "der Löffel",
-    "portuguese_pt": "a colher"
+    "portuguese_pt": "a colher",
+    "spanish_standard": "la cuchara",
+    "italian_standard": "il cucchiaio"
   },
   {
     "id": "054",
@@ -429,7 +535,9 @@
     "english": "bib",
     "czech": "bryndák",
     "german_standard": "das Lätzchen",
-    "portuguese_pt": "o babete"
+    "portuguese_pt": "o babete",
+    "spanish_standard": "el babero",
+    "italian_standard": "il bavaglino"
   },
   {
     "id": "055",
@@ -437,7 +545,9 @@
     "english": "potty",
     "czech": "nočník",
     "german_standard": "das Töpfchen",
-    "portuguese_pt": "o bacio"
+    "portuguese_pt": "o bacio",
+    "spanish_standard": "el orinal",
+    "italian_standard": "il vasino"
   },
   {
     "id": "056",
@@ -445,7 +555,9 @@
     "english": "sleep",
     "czech": "spát",
     "german_standard": "schlafen",
-    "portuguese_pt": "dormir"
+    "portuguese_pt": "dormir",
+    "spanish_standard": "dormir",
+    "italian_standard": "dormire"
   },
   {
     "id": "057",
@@ -453,7 +565,9 @@
     "english": "wake up",
     "czech": "vzbudit se",
     "german_standard": "aufwachen",
-    "portuguese_pt": "acordar"
+    "portuguese_pt": "acordar",
+    "spanish_standard": "despertarse",
+    "italian_standard": "svegliarsi"
   },
   {
     "id": "058",
@@ -461,7 +575,9 @@
     "english": "change",
     "czech": "měnit",
     "german_standard": "wechseln",
-    "portuguese_pt": "mudar"
+    "portuguese_pt": "mudar",
+    "spanish_standard": "cambiar",
+    "italian_standard": "cambiare"
   },
   {
     "id": "059",
@@ -469,7 +585,9 @@
     "english": "sing",
     "czech": "zpívat",
     "german_standard": "singen",
-    "portuguese_pt": "cantar"
+    "portuguese_pt": "cantar",
+    "spanish_standard": "cantar",
+    "italian_standard": "cantare"
   },
   {
     "id": "060",
@@ -477,7 +595,9 @@
     "english": "read",
     "czech": "číst",
     "german_standard": "lesen",
-    "portuguese_pt": "ler"
+    "portuguese_pt": "ler",
+    "spanish_standard": "leer",
+    "italian_standard": "leggere"
   },
   {
     "id": "061",
@@ -485,7 +605,9 @@
     "english": "food",
     "czech": "jídlo",
     "german_standard": "das Essen",
-    "portuguese_pt": "a comida"
+    "portuguese_pt": "a comida",
+    "spanish_standard": "la comida",
+    "italian_standard": "il cibo"
   },
   {
     "id": "062",
@@ -493,7 +615,9 @@
     "english": "meal",
     "czech": "jídlo / chod",
     "german_standard": "die Mahlzeit",
-    "portuguese_pt": "a refeição"
+    "portuguese_pt": "a refeição",
+    "spanish_standard": "la comida",
+    "italian_standard": "il pasto"
   },
   {
     "id": "063",
@@ -501,7 +625,9 @@
     "english": "water",
     "czech": "voda",
     "german_standard": "das Wasser",
-    "portuguese_pt": "a água"
+    "portuguese_pt": "a água",
+    "spanish_standard": "el agua",
+    "italian_standard": "l'acqua"
   },
   {
     "id": "064",
@@ -509,7 +635,9 @@
     "english": "milk",
     "czech": "mléko",
     "german_standard": "die Milch",
-    "portuguese_pt": "o leite"
+    "portuguese_pt": "o leite",
+    "spanish_standard": "la leche",
+    "italian_standard": "il latte"
   },
   {
     "id": "065",
@@ -517,7 +645,9 @@
     "english": "bread",
     "czech": "chléb",
     "german_standard": "das Brot",
-    "portuguese_pt": "o pão"
+    "portuguese_pt": "o pão",
+    "spanish_standard": "el pan",
+    "italian_standard": "il pane"
   },
   {
     "id": "066",
@@ -525,15 +655,19 @@
     "english": "fruit",
     "czech": "ovoce",
     "german_standard": "das Obst",
-    "portuguese_pt": "a fruta"
+    "portuguese_pt": "a fruta",
+    "spanish_standard": "la fruta",
+    "italian_standard": "la frutta"
   },
   {
     "id": "067",
     "group": "Food and drink",
-    "english": "vegetable",
+    "english": "vegetables",
     "czech": "zelenina",
     "german_standard": "das Gemüse",
-    "portuguese_pt": "o legume"
+    "portuguese_pt": "os legumes",
+    "spanish_standard": "las verduras",
+    "italian_standard": "le verdure"
   },
   {
     "id": "068",
@@ -541,7 +675,9 @@
     "english": "soup",
     "czech": "polévka",
     "german_standard": "die Suppe",
-    "portuguese_pt": "a sopa"
+    "portuguese_pt": "a sopa",
+    "spanish_standard": "la sopa",
+    "italian_standard": "la zuppa"
   },
   {
     "id": "069",
@@ -549,7 +685,9 @@
     "english": "meat",
     "czech": "maso",
     "german_standard": "das Fleisch",
-    "portuguese_pt": "a carne"
+    "portuguese_pt": "a carne",
+    "spanish_standard": "la carne",
+    "italian_standard": "la carne"
   },
   {
     "id": "070",
@@ -557,7 +695,9 @@
     "english": "fish",
     "czech": "ryba",
     "german_standard": "der Fisch",
-    "portuguese_pt": "o peixe"
+    "portuguese_pt": "o peixe",
+    "spanish_standard": "el pescado",
+    "italian_standard": "il pesce"
   },
   {
     "id": "071",
@@ -565,7 +705,9 @@
     "english": "egg",
     "czech": "vejce",
     "german_standard": "das Ei",
-    "portuguese_pt": "o ovo"
+    "portuguese_pt": "o ovo",
+    "spanish_standard": "el huevo",
+    "italian_standard": "l'uovo"
   },
   {
     "id": "072",
@@ -573,7 +715,9 @@
     "english": "cheese",
     "czech": "sýr",
     "german_standard": "der Käse",
-    "portuguese_pt": "o queijo"
+    "portuguese_pt": "o queijo",
+    "spanish_standard": "el queso",
+    "italian_standard": "il formaggio"
   },
   {
     "id": "073",
@@ -581,7 +725,9 @@
     "english": "yoghurt",
     "czech": "jogurt",
     "german_standard": "der Joghurt",
-    "portuguese_pt": "o iogurte"
+    "portuguese_pt": "o iogurte",
+    "spanish_standard": "el yogur",
+    "italian_standard": "lo yogurt"
   },
   {
     "id": "074",
@@ -589,7 +735,9 @@
     "english": "rice",
     "czech": "rýže",
     "german_standard": "der Reis",
-    "portuguese_pt": "o arroz"
+    "portuguese_pt": "o arroz",
+    "spanish_standard": "el arroz",
+    "italian_standard": "il riso"
   },
   {
     "id": "075",
@@ -597,7 +745,9 @@
     "english": "pasta",
     "czech": "těstoviny",
     "german_standard": "die Teigwaren",
-    "portuguese_pt": "a massa"
+    "portuguese_pt": "a massa",
+    "spanish_standard": "la pasta",
+    "italian_standard": "la pasta"
   },
   {
     "id": "076",
@@ -605,7 +755,9 @@
     "english": "potato",
     "czech": "brambora",
     "german_standard": "die Kartoffel",
-    "portuguese_pt": "a batata"
+    "portuguese_pt": "a batata",
+    "spanish_standard": "la patata",
+    "italian_standard": "la patata"
   },
   {
     "id": "077",
@@ -613,7 +765,9 @@
     "english": "apple",
     "czech": "jablko",
     "german_standard": "der Apfel",
-    "portuguese_pt": "a maçã"
+    "portuguese_pt": "a maçã",
+    "spanish_standard": "la manzana",
+    "italian_standard": "la mela"
   },
   {
     "id": "078",
@@ -621,7 +775,9 @@
     "english": "banana",
     "czech": "banán",
     "german_standard": "die Banane",
-    "portuguese_pt": "a banana"
+    "portuguese_pt": "a banana",
+    "spanish_standard": "el plátano",
+    "italian_standard": "la banana"
   },
   {
     "id": "079",
@@ -629,7 +785,9 @@
     "english": "biscuit / cookie",
     "czech": "sušenka",
     "german_standard": "der Keks",
-    "portuguese_pt": "a bolacha"
+    "portuguese_pt": "a bolacha",
+    "spanish_standard": "la galleta",
+    "italian_standard": "il biscotto"
   },
   {
     "id": "080",
@@ -637,7 +795,9 @@
     "english": "juice",
     "czech": "džus",
     "german_standard": "der Saft",
-    "portuguese_pt": "o sumo"
+    "portuguese_pt": "o sumo",
+    "spanish_standard": "el zumo",
+    "italian_standard": "il succo"
   },
   {
     "id": "081",
@@ -645,7 +805,9 @@
     "english": "house",
     "czech": "dům",
     "german_standard": "das Haus",
-    "portuguese_pt": "a casa"
+    "portuguese_pt": "a casa",
+    "spanish_standard": "la casa",
+    "italian_standard": "la casa"
   },
   {
     "id": "082",
@@ -653,7 +815,9 @@
     "english": "flat / apartment",
     "czech": "byt",
     "german_standard": "die Wohnung",
-    "portuguese_pt": "o apartamento"
+    "portuguese_pt": "o apartamento",
+    "spanish_standard": "el piso",
+    "italian_standard": "l'appartamento"
   },
   {
     "id": "083",
@@ -661,7 +825,9 @@
     "english": "room",
     "czech": "pokoj",
     "german_standard": "das Zimmer",
-    "portuguese_pt": "o quarto"
+    "portuguese_pt": "o quarto",
+    "spanish_standard": "la habitación",
+    "italian_standard": "la stanza"
   },
   {
     "id": "084",
@@ -669,7 +835,9 @@
     "english": "kitchen",
     "czech": "kuchyně",
     "german_standard": "die Küche",
-    "portuguese_pt": "a cozinha"
+    "portuguese_pt": "a cozinha",
+    "spanish_standard": "la cocina",
+    "italian_standard": "la cucina"
   },
   {
     "id": "085",
@@ -677,7 +845,9 @@
     "english": "bathroom",
     "czech": "koupelna",
     "german_standard": "das Badezimmer",
-    "portuguese_pt": "a casa de banho"
+    "portuguese_pt": "a casa de banho",
+    "spanish_standard": "el cuarto de baño",
+    "italian_standard": "il bagno"
   },
   {
     "id": "086",
@@ -685,7 +855,9 @@
     "english": "table",
     "czech": "stůl",
     "german_standard": "der Tisch",
-    "portuguese_pt": "a mesa"
+    "portuguese_pt": "a mesa",
+    "spanish_standard": "la mesa",
+    "italian_standard": "il tavolo"
   },
   {
     "id": "087",
@@ -693,7 +865,9 @@
     "english": "chair",
     "czech": "židle",
     "german_standard": "der Stuhl",
-    "portuguese_pt": "a cadeira"
+    "portuguese_pt": "a cadeira",
+    "spanish_standard": "la silla",
+    "italian_standard": "la sedia"
   },
   {
     "id": "088",
@@ -701,7 +875,9 @@
     "english": "bed",
     "czech": "postel",
     "german_standard": "das Bett",
-    "portuguese_pt": "a cama"
+    "portuguese_pt": "a cama",
+    "spanish_standard": "la cama",
+    "italian_standard": "il letto"
   },
   {
     "id": "089",
@@ -709,7 +885,9 @@
     "english": "door",
     "czech": "dveře",
     "german_standard": "die Tür",
-    "portuguese_pt": "a porta"
+    "portuguese_pt": "a porta",
+    "spanish_standard": "la puerta",
+    "italian_standard": "la porta"
   },
   {
     "id": "090",
@@ -717,7 +895,9 @@
     "english": "window",
     "czech": "okno",
     "german_standard": "das Fenster",
-    "portuguese_pt": "a janela"
+    "portuguese_pt": "a janela",
+    "spanish_standard": "la ventana",
+    "italian_standard": "la finestra"
   },
   {
     "id": "091",
@@ -725,7 +905,9 @@
     "english": "light",
     "czech": "světlo",
     "german_standard": "das Licht",
-    "portuguese_pt": "a luz"
+    "portuguese_pt": "a luz",
+    "spanish_standard": "la luz",
+    "italian_standard": "la luce"
   },
   {
     "id": "092",
@@ -733,7 +915,9 @@
     "english": "key",
     "czech": "klíč",
     "german_standard": "der Schlüssel",
-    "portuguese_pt": "a chave"
+    "portuguese_pt": "a chave",
+    "spanish_standard": "la llave",
+    "italian_standard": "la chiave"
   },
   {
     "id": "093",
@@ -741,7 +925,9 @@
     "english": "phone",
     "czech": "telefon",
     "german_standard": "das Telefon",
-    "portuguese_pt": "o telefone"
+    "portuguese_pt": "o telefone",
+    "spanish_standard": "el teléfono",
+    "italian_standard": "il telefono"
   },
   {
     "id": "094",
@@ -749,7 +935,9 @@
     "english": "book",
     "czech": "kniha",
     "german_standard": "das Buch",
-    "portuguese_pt": "o livro"
+    "portuguese_pt": "o livro",
+    "spanish_standard": "el libro",
+    "italian_standard": "il libro"
   },
   {
     "id": "095",
@@ -757,7 +945,9 @@
     "english": "cup / glass",
     "czech": "sklenice",
     "german_standard": "das Glas",
-    "portuguese_pt": "o copo"
+    "portuguese_pt": "o copo",
+    "spanish_standard": "la taza / el vaso",
+    "italian_standard": "la tazza / il bicchiere"
   },
   {
     "id": "096",
@@ -765,7 +955,9 @@
     "english": "plate",
     "czech": "talíř",
     "german_standard": "der Teller",
-    "portuguese_pt": "o prato"
+    "portuguese_pt": "o prato",
+    "spanish_standard": "el plato",
+    "italian_standard": "il piatto"
   },
   {
     "id": "097",
@@ -773,7 +965,9 @@
     "english": "fork",
     "czech": "vidlička",
     "german_standard": "die Gabel",
-    "portuguese_pt": "o garfo"
+    "portuguese_pt": "o garfo",
+    "spanish_standard": "el tenedor",
+    "italian_standard": "la forchetta"
   },
   {
     "id": "098",
@@ -781,7 +975,9 @@
     "english": "knife",
     "czech": "nůž",
     "german_standard": "das Messer",
-    "portuguese_pt": "a faca"
+    "portuguese_pt": "a faca",
+    "spanish_standard": "el cuchillo",
+    "italian_standard": "il coltello"
   },
   {
     "id": "099",
@@ -789,7 +985,9 @@
     "english": "fridge",
     "czech": "lednice",
     "german_standard": "der Kühlschrank",
-    "portuguese_pt": "o frigorífico"
+    "portuguese_pt": "o frigorífico",
+    "spanish_standard": "el frigorífico",
+    "italian_standard": "il frigorifero"
   },
   {
     "id": "100",
@@ -797,7 +995,9 @@
     "english": "rubbish / trash",
     "czech": "odpad",
     "german_standard": "der Abfall",
-    "portuguese_pt": "o lixo"
+    "portuguese_pt": "o lixo",
+    "spanish_standard": "la basura",
+    "italian_standard": "la spazzatura"
   },
   {
     "id": "101",
@@ -805,7 +1005,9 @@
     "english": "T-shirt",
     "czech": "tričko",
     "german_standard": "das T-Shirt",
-    "portuguese_pt": "a t-shirt"
+    "portuguese_pt": "a t-shirt",
+    "spanish_standard": "la camiseta",
+    "italian_standard": "la maglietta"
   },
   {
     "id": "102",
@@ -813,7 +1015,9 @@
     "english": "trousers / pants",
     "czech": "kalhoty",
     "german_standard": "die Hose",
-    "portuguese_pt": "as calças"
+    "portuguese_pt": "as calças",
+    "spanish_standard": "los pantalones",
+    "italian_standard": "i pantaloni"
   },
   {
     "id": "103",
@@ -821,7 +1025,9 @@
     "english": "jumper / sweater",
     "czech": "svetr",
     "german_standard": "der Pullover",
-    "portuguese_pt": "a camisola"
+    "portuguese_pt": "a camisola",
+    "spanish_standard": "el jersey",
+    "italian_standard": "il maglione"
   },
   {
     "id": "104",
@@ -829,7 +1035,9 @@
     "english": "jacket",
     "czech": "bunda",
     "german_standard": "die Jacke",
-    "portuguese_pt": "o casaco"
+    "portuguese_pt": "o casaco",
+    "spanish_standard": "la chaqueta",
+    "italian_standard": "la giacca"
   },
   {
     "id": "105",
@@ -837,7 +1045,9 @@
     "english": "coat",
     "czech": "kabát",
     "german_standard": "der Mantel",
-    "portuguese_pt": "o sobretudo"
+    "portuguese_pt": "o sobretudo",
+    "spanish_standard": "el abrigo",
+    "italian_standard": "il cappotto"
   },
   {
     "id": "106",
@@ -845,7 +1055,9 @@
     "english": "shoes",
     "czech": "boty",
     "german_standard": "die Schuhe",
-    "portuguese_pt": "os sapatos"
+    "portuguese_pt": "os sapatos",
+    "spanish_standard": "los zapatos",
+    "italian_standard": "le scarpe"
   },
   {
     "id": "107",
@@ -853,7 +1065,9 @@
     "english": "socks",
     "czech": "ponožky",
     "german_standard": "die Socken",
-    "portuguese_pt": "as meias"
+    "portuguese_pt": "as meias",
+    "spanish_standard": "los calcetines",
+    "italian_standard": "i calzini"
   },
   {
     "id": "108",
@@ -861,7 +1075,9 @@
     "english": "hat / beanie",
     "czech": "čepice",
     "german_standard": "die Mütze",
-    "portuguese_pt": "o gorro"
+    "portuguese_pt": "o gorro",
+    "spanish_standard": "el gorro",
+    "italian_standard": "il berretto"
   },
   {
     "id": "109",
@@ -869,7 +1085,9 @@
     "english": "scarf",
     "czech": "šála",
     "german_standard": "der Schal",
-    "portuguese_pt": "o cachecol"
+    "portuguese_pt": "o cachecol",
+    "spanish_standard": "la bufanda",
+    "italian_standard": "la sciarpa"
   },
   {
     "id": "110",
@@ -877,7 +1095,9 @@
     "english": "gloves",
     "czech": "rukavice",
     "german_standard": "die Handschuhe",
-    "portuguese_pt": "as luvas"
+    "portuguese_pt": "as luvas",
+    "spanish_standard": "los guantes",
+    "italian_standard": "i guanti"
   },
   {
     "id": "111",
@@ -885,7 +1105,9 @@
     "english": "dress",
     "czech": "šaty",
     "german_standard": "das Kleid",
-    "portuguese_pt": "o vestido"
+    "portuguese_pt": "o vestido",
+    "spanish_standard": "el vestido",
+    "italian_standard": "il vestito"
   },
   {
     "id": "112",
@@ -893,7 +1115,9 @@
     "english": "skirt",
     "czech": "sukně",
     "german_standard": "der Rock",
-    "portuguese_pt": "a saia"
+    "portuguese_pt": "a saia",
+    "spanish_standard": "la falda",
+    "italian_standard": "la gonna"
   },
   {
     "id": "113",
@@ -901,7 +1125,9 @@
     "english": "pyjamas",
     "czech": "pyžamo",
     "german_standard": "der Pyjama",
-    "portuguese_pt": "o pijama"
+    "portuguese_pt": "o pijama",
+    "spanish_standard": "el pijama",
+    "italian_standard": "il pigiama"
   },
   {
     "id": "114",
@@ -909,7 +1135,9 @@
     "english": "boots",
     "czech": "kozačky",
     "german_standard": "die Stiefel",
-    "portuguese_pt": "as botas"
+    "portuguese_pt": "as botas",
+    "spanish_standard": "las botas",
+    "italian_standard": "gli stivali"
   },
   {
     "id": "115",
@@ -917,7 +1145,9 @@
     "english": "slippers",
     "czech": "pantofle",
     "german_standard": "die Hausschuhe",
-    "portuguese_pt": "os chinelos"
+    "portuguese_pt": "os chinelos",
+    "spanish_standard": "las zapatillas de casa",
+    "italian_standard": "le pantofole"
   },
   {
     "id": "116",
@@ -925,7 +1155,9 @@
     "english": "raincoat",
     "czech": "pláštěnka",
     "german_standard": "die Regenjacke",
-    "portuguese_pt": "a capa de chuva"
+    "portuguese_pt": "a capa de chuva",
+    "spanish_standard": "el impermeable",
+    "italian_standard": "l'impermeabile"
   },
   {
     "id": "117",
@@ -933,7 +1165,9 @@
     "english": "zip / zipper",
     "czech": "zip",
     "german_standard": "der Reissverschluss",
-    "portuguese_pt": "o fecho-éclair"
+    "portuguese_pt": "o fecho",
+    "spanish_standard": "la cremallera",
+    "italian_standard": "la cerniera"
   },
   {
     "id": "118",
@@ -941,7 +1175,9 @@
     "english": "button",
     "czech": "knoflík",
     "german_standard": "der Knopf",
-    "portuguese_pt": "o botão"
+    "portuguese_pt": "o botão",
+    "spanish_standard": "el botón",
+    "italian_standard": "il bottone"
   },
   {
     "id": "119",
@@ -949,7 +1185,9 @@
     "english": "bag",
     "czech": "taška",
     "german_standard": "die Tasche",
-    "portuguese_pt": "a mala"
+    "portuguese_pt": "a mala",
+    "spanish_standard": "la bolsa",
+    "italian_standard": "la borsa"
   },
   {
     "id": "120",
@@ -957,7 +1195,9 @@
     "english": "backpack",
     "czech": "batoh",
     "german_standard": "der Rucksack",
-    "portuguese_pt": "a mochila"
+    "portuguese_pt": "a mochila",
+    "spanish_standard": "la mochila",
+    "italian_standard": "lo zaino"
   },
   {
     "id": "121",
@@ -965,7 +1205,9 @@
     "english": "eat",
     "czech": "jíst",
     "german_standard": "essen",
-    "portuguese_pt": "comer"
+    "portuguese_pt": "comer",
+    "spanish_standard": "comer",
+    "italian_standard": "mangiare"
   },
   {
     "id": "122",
@@ -973,7 +1215,9 @@
     "english": "drink",
     "czech": "pít",
     "german_standard": "trinken",
-    "portuguese_pt": "beber"
+    "portuguese_pt": "beber",
+    "spanish_standard": "beber",
+    "italian_standard": "bere"
   },
   {
     "id": "123",
@@ -981,7 +1225,9 @@
     "english": "wash",
     "czech": "mýt",
     "german_standard": "waschen",
-    "portuguese_pt": "lavar"
+    "portuguese_pt": "lavar",
+    "spanish_standard": "lavar",
+    "italian_standard": "lavare"
   },
   {
     "id": "124",
@@ -989,7 +1235,9 @@
     "english": "get dressed",
     "czech": "oblékat se",
     "german_standard": "sich anziehen",
-    "portuguese_pt": "vestir-se"
+    "portuguese_pt": "vestir-se",
+    "spanish_standard": "vestirse",
+    "italian_standard": "vestirsi"
   },
   {
     "id": "125",
@@ -997,7 +1245,9 @@
     "english": "go",
     "czech": "jít",
     "german_standard": "gehen",
-    "portuguese_pt": "ir"
+    "portuguese_pt": "ir",
+    "spanish_standard": "ir",
+    "italian_standard": "andare"
   },
   {
     "id": "126",
@@ -1005,7 +1255,9 @@
     "english": "come",
     "czech": "přijít",
     "german_standard": "kommen",
-    "portuguese_pt": "vir"
+    "portuguese_pt": "vir",
+    "spanish_standard": "venir",
+    "italian_standard": "venire"
   },
   {
     "id": "127",
@@ -1013,7 +1265,9 @@
     "english": "sit",
     "czech": "sedět",
     "german_standard": "sitzen",
-    "portuguese_pt": "sentar-se"
+    "portuguese_pt": "sentar-se",
+    "spanish_standard": "sentarse",
+    "italian_standard": "sedersi"
   },
   {
     "id": "128",
@@ -1021,7 +1275,9 @@
     "english": "stand",
     "czech": "stát",
     "german_standard": "stehen",
-    "portuguese_pt": "estar de pé"
+    "portuguese_pt": "estar de pé",
+    "spanish_standard": "estar de pie",
+    "italian_standard": "stare in piedi"
   },
   {
     "id": "129",
@@ -1029,7 +1285,9 @@
     "english": "walk",
     "czech": "chůze / jít pěšky",
     "german_standard": "zu Fuss gehen",
-    "portuguese_pt": "andar"
+    "portuguese_pt": "andar",
+    "spanish_standard": "caminar",
+    "italian_standard": "camminare"
   },
   {
     "id": "130",
@@ -1037,7 +1295,9 @@
     "english": "run",
     "czech": "běhat",
     "german_standard": "rennen",
-    "portuguese_pt": "correr"
+    "portuguese_pt": "correr",
+    "spanish_standard": "correr",
+    "italian_standard": "correre"
   },
   {
     "id": "131",
@@ -1045,7 +1305,9 @@
     "english": "play",
     "czech": "hrát si",
     "german_standard": "spielen",
-    "portuguese_pt": "brincar"
+    "portuguese_pt": "brincar",
+    "spanish_standard": "jugar",
+    "italian_standard": "giocare"
   },
   {
     "id": "132",
@@ -1053,7 +1315,9 @@
     "english": "listen",
     "czech": "poslouchat",
     "german_standard": "zuhören",
-    "portuguese_pt": "ouvir"
+    "portuguese_pt": "ouvir",
+    "spanish_standard": "escuchar",
+    "italian_standard": "ascoltare"
   },
   {
     "id": "133",
@@ -1061,7 +1325,9 @@
     "english": "speak",
     "czech": "mluvit",
     "german_standard": "sprechen",
-    "portuguese_pt": "falar"
+    "portuguese_pt": "falar",
+    "spanish_standard": "hablar",
+    "italian_standard": "parlare"
   },
   {
     "id": "134",
@@ -1069,7 +1335,9 @@
     "english": "look",
     "czech": "dívat se",
     "german_standard": "schauen",
-    "portuguese_pt": "olhar"
+    "portuguese_pt": "olhar",
+    "spanish_standard": "mirar",
+    "italian_standard": "guardare"
   },
   {
     "id": "135",
@@ -1077,7 +1345,9 @@
     "english": "give",
     "czech": "dát",
     "german_standard": "geben",
-    "portuguese_pt": "dar"
+    "portuguese_pt": "dar",
+    "spanish_standard": "dar",
+    "italian_standard": "dare"
   },
   {
     "id": "136",
@@ -1085,7 +1355,9 @@
     "english": "take",
     "czech": "vzít",
     "german_standard": "nehmen",
-    "portuguese_pt": "levar"
+    "portuguese_pt": "levar",
+    "spanish_standard": "tomar",
+    "italian_standard": "prendere"
   },
   {
     "id": "137",
@@ -1093,7 +1365,9 @@
     "english": "open",
     "czech": "otevřít",
     "german_standard": "öffnen",
-    "portuguese_pt": "abrir"
+    "portuguese_pt": "abrir",
+    "spanish_standard": "abrir",
+    "italian_standard": "aprire"
   },
   {
     "id": "138",
@@ -1101,7 +1375,9 @@
     "english": "close",
     "czech": "zavřít",
     "german_standard": "schliessen",
-    "portuguese_pt": "fechar"
+    "portuguese_pt": "fechar",
+    "spanish_standard": "cerrar",
+    "italian_standard": "chiudere"
   },
   {
     "id": "139",
@@ -1109,7 +1385,9 @@
     "english": "wait",
     "czech": "čekat",
     "german_standard": "warten",
-    "portuguese_pt": "esperar"
+    "portuguese_pt": "esperar",
+    "spanish_standard": "esperar",
+    "italian_standard": "aspettare"
   },
   {
     "id": "140",
@@ -1117,7 +1395,9 @@
     "english": "help",
     "czech": "pomoci",
     "german_standard": "helfen",
-    "portuguese_pt": "ajudar"
+    "portuguese_pt": "ajudar",
+    "spanish_standard": "ayudar",
+    "italian_standard": "aiutare"
   },
   {
     "id": "141",
@@ -1125,7 +1405,9 @@
     "english": "good / okay",
     "czech": "dobrý / v pořádku",
     "german_standard": "gut / in Ordnung",
-    "portuguese_pt": "bem"
+    "portuguese_pt": "bom / boa",
+    "spanish_standard": "bueno / buena; está bien",
+    "italian_standard": "buono / buona; va bene"
   },
   {
     "id": "142",
@@ -1133,7 +1415,9 @@
     "english": "happy",
     "czech": "šťastný",
     "german_standard": "glücklich",
-    "portuguese_pt": "feliz"
+    "portuguese_pt": "feliz",
+    "spanish_standard": "feliz",
+    "italian_standard": "felice"
   },
   {
     "id": "143",
@@ -1141,7 +1425,9 @@
     "english": "sad",
     "czech": "smutný",
     "german_standard": "traurig",
-    "portuguese_pt": "triste"
+    "portuguese_pt": "triste",
+    "spanish_standard": "triste",
+    "italian_standard": "triste"
   },
   {
     "id": "144",
@@ -1149,7 +1435,9 @@
     "english": "tired",
     "czech": "unavený",
     "german_standard": "müde",
-    "portuguese_pt": "cansado / cansada"
+    "portuguese_pt": "cansado / cansada",
+    "spanish_standard": "cansado / cansada",
+    "italian_standard": "stanco / stanca"
   },
   {
     "id": "145",
@@ -1157,7 +1445,9 @@
     "english": "hungry",
     "czech": "hladový",
     "german_standard": "hungrig",
-    "portuguese_pt": "com fome"
+    "portuguese_pt": "com fome",
+    "spanish_standard": "tener hambre",
+    "italian_standard": "avere fame"
   },
   {
     "id": "146",
@@ -1165,7 +1455,9 @@
     "english": "thirsty",
     "czech": "žíznivý",
     "german_standard": "durstig",
-    "portuguese_pt": "com sede"
+    "portuguese_pt": "com sede",
+    "spanish_standard": "tener sed",
+    "italian_standard": "avere sete"
   },
   {
     "id": "147",
@@ -1173,7 +1465,9 @@
     "english": "hot",
     "czech": "horký",
     "german_standard": "heiss",
-    "portuguese_pt": "quente"
+    "portuguese_pt": "quente",
+    "spanish_standard": "caliente",
+    "italian_standard": "caldo / calda"
   },
   {
     "id": "148",
@@ -1181,7 +1475,9 @@
     "english": "cold",
     "czech": "studený",
     "german_standard": "kalt",
-    "portuguese_pt": "frio / fria"
+    "portuguese_pt": "frio / fria",
+    "spanish_standard": "frío / fría",
+    "italian_standard": "freddo / fredda"
   },
   {
     "id": "149",
@@ -1189,7 +1485,9 @@
     "english": "ill",
     "czech": "nemocný",
     "german_standard": "krank",
-    "portuguese_pt": "doente"
+    "portuguese_pt": "doente",
+    "spanish_standard": "enfermo / enferma",
+    "italian_standard": "malato / malata"
   },
   {
     "id": "150",
@@ -1197,7 +1495,9 @@
     "english": "scared",
     "czech": "vystrašený",
     "german_standard": "ängstlich",
-    "portuguese_pt": "assustado / assustada"
+    "portuguese_pt": "assustado / assustada",
+    "spanish_standard": "asustado / asustada",
+    "italian_standard": "spaventato / spaventata"
   },
   {
     "id": "151",
@@ -1205,7 +1505,9 @@
     "english": "calm",
     "czech": "klidný",
     "german_standard": "ruhig",
-    "portuguese_pt": "calmo / calma"
+    "portuguese_pt": "calmo / calma",
+    "spanish_standard": "tranquilo / tranquila",
+    "italian_standard": "calmo / calma"
   },
   {
     "id": "152",
@@ -1213,7 +1515,9 @@
     "english": "big",
     "czech": "velký",
     "german_standard": "gross",
-    "portuguese_pt": "grande"
+    "portuguese_pt": "grande",
+    "spanish_standard": "grande",
+    "italian_standard": "grande"
   },
   {
     "id": "153",
@@ -1221,7 +1525,9 @@
     "english": "small",
     "czech": "malý",
     "german_standard": "klein",
-    "portuguese_pt": "pequeno / pequena"
+    "portuguese_pt": "pequeno / pequena",
+    "spanish_standard": "pequeño / pequeña",
+    "italian_standard": "piccolo / piccola"
   },
   {
     "id": "154",
@@ -1229,7 +1535,9 @@
     "english": "clean",
     "czech": "čistý",
     "german_standard": "sauber",
-    "portuguese_pt": "limpo / limpa"
+    "portuguese_pt": "limpo / limpa",
+    "spanish_standard": "limpio / limpia",
+    "italian_standard": "pulito / pulita"
   },
   {
     "id": "155",
@@ -1237,7 +1545,9 @@
     "english": "dirty",
     "czech": "špinavý",
     "german_standard": "schmutzig",
-    "portuguese_pt": "sujo / suja"
+    "portuguese_pt": "sujo / suja",
+    "spanish_standard": "sucio / sucia",
+    "italian_standard": "sporco / sporca"
   },
   {
     "id": "156",
@@ -1245,7 +1555,9 @@
     "english": "full",
     "czech": "plný",
     "german_standard": "voll",
-    "portuguese_pt": "cheio / cheia"
+    "portuguese_pt": "cheio / cheia",
+    "spanish_standard": "lleno / llena",
+    "italian_standard": "pieno / piena"
   },
   {
     "id": "157",
@@ -1253,7 +1565,9 @@
     "english": "empty",
     "czech": "prázdný",
     "german_standard": "leer",
-    "portuguese_pt": "vazio / vazia"
+    "portuguese_pt": "vazio / vazia",
+    "spanish_standard": "vacío / vacía",
+    "italian_standard": "vuoto / vuota"
   },
   {
     "id": "158",
@@ -1261,7 +1575,9 @@
     "english": "ready",
     "czech": "připravený",
     "german_standard": "bereit",
-    "portuguese_pt": "pronto / pronta"
+    "portuguese_pt": "pronto / pronta",
+    "spanish_standard": "listo / lista",
+    "italian_standard": "pronto / pronta"
   },
   {
     "id": "159",
@@ -1269,7 +1585,9 @@
     "english": "careful",
     "czech": "opatrně",
     "german_standard": "vorsichtig",
-    "portuguese_pt": "com cuidado"
+    "portuguese_pt": "com cuidado",
+    "spanish_standard": "con cuidado",
+    "italian_standard": "con attenzione"
   },
   {
     "id": "160",
@@ -1277,7 +1595,9 @@
     "english": "need",
     "czech": "potřebovat",
     "german_standard": "brauchen",
-    "portuguese_pt": "precisar"
+    "portuguese_pt": "precisar",
+    "spanish_standard": "necesitar",
+    "italian_standard": "avere bisogno di"
   },
   {
     "id": "161",
@@ -1285,7 +1605,9 @@
     "english": "hello",
     "czech": "ahoj / dobrý den",
     "german_standard": "hallo / guten Tag",
-    "portuguese_pt": "olá"
+    "portuguese_pt": "olá",
+    "spanish_standard": "hola",
+    "italian_standard": "ciao"
   },
   {
     "id": "162",
@@ -1293,7 +1615,9 @@
     "english": "goodbye",
     "czech": "nashledanou",
     "german_standard": "auf Wiedersehen",
-    "portuguese_pt": "adeus"
+    "portuguese_pt": "adeus",
+    "spanish_standard": "adiós",
+    "italian_standard": "arrivederci"
   },
   {
     "id": "163",
@@ -1301,7 +1625,9 @@
     "english": "thank you",
     "czech": "děkuji",
     "german_standard": "danke",
-    "portuguese_pt": "obrigado / obrigada"
+    "portuguese_pt": "obrigado / obrigada",
+    "spanish_standard": "gracias",
+    "italian_standard": "grazie"
   },
   {
     "id": "164",
@@ -1309,7 +1635,9 @@
     "english": "please",
     "czech": "prosím",
     "german_standard": "bitte",
-    "portuguese_pt": "por favor"
+    "portuguese_pt": "por favor",
+    "spanish_standard": "por favor",
+    "italian_standard": "per favore"
   },
   {
     "id": "165",
@@ -1317,7 +1645,9 @@
     "english": "sorry",
     "czech": "promiň",
     "german_standard": "entschuldigung",
-    "portuguese_pt": "desculpa"
+    "portuguese_pt": "desculpa",
+    "spanish_standard": "lo siento",
+    "italian_standard": "mi dispiace"
   },
   {
     "id": "166",
@@ -1325,7 +1655,9 @@
     "english": "excuse me",
     "czech": "s dovolením",
     "german_standard": "entschuldigen Sie",
-    "portuguese_pt": "com licença"
+    "portuguese_pt": "com licença",
+    "spanish_standard": "con permiso",
+    "italian_standard": "permesso"
   },
   {
     "id": "167",
@@ -1333,7 +1665,9 @@
     "english": "yes",
     "czech": "ano",
     "german_standard": "ja",
-    "portuguese_pt": "sim"
+    "portuguese_pt": "sim",
+    "spanish_standard": "sí",
+    "italian_standard": "sì"
   },
   {
     "id": "168",
@@ -1341,7 +1675,9 @@
     "english": "no",
     "czech": "nein",
     "german_standard": "nein",
-    "portuguese_pt": "não"
+    "portuguese_pt": "não",
+    "spanish_standard": "no",
+    "italian_standard": "no"
   },
   {
     "id": "169",
@@ -1349,7 +1685,9 @@
     "english": "maybe",
     "czech": "možná",
     "german_standard": "vielleicht",
-    "portuguese_pt": "talvez"
+    "portuguese_pt": "talvez",
+    "spanish_standard": "quizá",
+    "italian_standard": "forse"
   },
   {
     "id": "170",
@@ -1357,7 +1695,9 @@
     "english": "name",
     "czech": "jméno",
     "german_standard": "der Name",
-    "portuguese_pt": "o nome"
+    "portuguese_pt": "o nome",
+    "spanish_standard": "el nombre",
+    "italian_standard": "il nome"
   },
   {
     "id": "171",
@@ -1365,7 +1705,9 @@
     "english": "visit",
     "czech": "návštěva",
     "german_standard": "der Besuch",
-    "portuguese_pt": "a visita"
+    "portuguese_pt": "a visita",
+    "spanish_standard": "la visita",
+    "italian_standard": "la visita"
   },
   {
     "id": "172",
@@ -1373,7 +1715,9 @@
     "english": "welcome",
     "czech": "vítejte",
     "german_standard": "willkommen",
-    "portuguese_pt": "bem-vindo / bem-vinda"
+    "portuguese_pt": "bem-vindo / bem-vinda",
+    "spanish_standard": "bienvenido / bienvenida",
+    "italian_standard": "benvenuto / benvenuta"
   },
   {
     "id": "173",
@@ -1381,7 +1725,9 @@
     "english": "again",
     "czech": "znovu",
     "german_standard": "wieder",
-    "portuguese_pt": "outra vez"
+    "portuguese_pt": "outra vez",
+    "spanish_standard": "otra vez",
+    "italian_standard": "di nuovo"
   },
   {
     "id": "174",
@@ -1389,7 +1735,9 @@
     "english": "please repeat",
     "czech": "zopakujte prosím",
     "german_standard": "bitte wiederholen",
-    "portuguese_pt": "repita por favor"
+    "portuguese_pt": "repita por favor",
+    "spanish_standard": "repita, por favor",
+    "italian_standard": "ripeta, per favore"
   },
   {
     "id": "175",
@@ -1397,7 +1745,9 @@
     "english": "slowly",
     "czech": "pomalu",
     "german_standard": "langsam",
-    "portuguese_pt": "devagar"
+    "portuguese_pt": "devagar",
+    "spanish_standard": "despacio",
+    "italian_standard": "lentamente"
   },
   {
     "id": "176",
@@ -1405,7 +1755,9 @@
     "english": "I",
     "czech": " já",
     "german_standard": "ich",
-    "portuguese_pt": "eu"
+    "portuguese_pt": "eu",
+    "spanish_standard": "yo",
+    "italian_standard": "io"
   },
   {
     "id": "177",
@@ -1413,7 +1765,9 @@
     "english": "you",
     "czech": "ty",
     "german_standard": "du",
-    "portuguese_pt": "tu"
+    "portuguese_pt": "tu",
+    "spanish_standard": "tú",
+    "italian_standard": "tu"
   },
   {
     "id": "178",
@@ -1421,7 +1775,9 @@
     "english": "he",
     "czech": "on",
     "german_standard": "er",
-    "portuguese_pt": "ele"
+    "portuguese_pt": "ele",
+    "spanish_standard": "él",
+    "italian_standard": "lui"
   },
   {
     "id": "179",
@@ -1429,7 +1785,9 @@
     "english": "she",
     "czech": "ona",
     "german_standard": "sie",
-    "portuguese_pt": "ela"
+    "portuguese_pt": "ela",
+    "spanish_standard": "ella",
+    "italian_standard": "lei"
   },
   {
     "id": "180",
@@ -1437,7 +1795,9 @@
     "english": "we",
     "czech": "my",
     "german_standard": "wir",
-    "portuguese_pt": "nós"
+    "portuguese_pt": "nós",
+    "spanish_standard": "nosotros / nosotras",
+    "italian_standard": "noi"
   },
   {
     "id": "181",
@@ -1445,7 +1805,9 @@
     "english": "one",
     "czech": "jeden",
     "german_standard": "eins",
-    "portuguese_pt": "um"
+    "portuguese_pt": "um",
+    "spanish_standard": "uno",
+    "italian_standard": "uno"
   },
   {
     "id": "182",
@@ -1453,7 +1815,9 @@
     "english": "two",
     "czech": "dva",
     "german_standard": "zwei",
-    "portuguese_pt": "dois"
+    "portuguese_pt": "dois",
+    "spanish_standard": "dos",
+    "italian_standard": "due"
   },
   {
     "id": "183",
@@ -1461,7 +1825,9 @@
     "english": "three",
     "czech": "tři",
     "german_standard": "drei",
-    "portuguese_pt": "três"
+    "portuguese_pt": "três",
+    "spanish_standard": "tres",
+    "italian_standard": "tre"
   },
   {
     "id": "184",
@@ -1469,7 +1835,9 @@
     "english": "four",
     "czech": "čtyři",
     "german_standard": "vier",
-    "portuguese_pt": "quatro"
+    "portuguese_pt": "quatro",
+    "spanish_standard": "cuatro",
+    "italian_standard": "quattro"
   },
   {
     "id": "185",
@@ -1477,7 +1845,9 @@
     "english": "five",
     "czech": "pět",
     "german_standard": "fünf",
-    "portuguese_pt": "cinco"
+    "portuguese_pt": "cinco",
+    "spanish_standard": "cinco",
+    "italian_standard": "cinque"
   },
   {
     "id": "186",
@@ -1485,7 +1855,9 @@
     "english": "six",
     "czech": "šest",
     "german_standard": "sechs",
-    "portuguese_pt": "seis"
+    "portuguese_pt": "seis",
+    "spanish_standard": "seis",
+    "italian_standard": "sei"
   },
   {
     "id": "187",
@@ -1493,7 +1865,9 @@
     "english": "seven",
     "czech": "sedm",
     "german_standard": "sieben",
-    "portuguese_pt": "sete"
+    "portuguese_pt": "sete",
+    "spanish_standard": "siete",
+    "italian_standard": "sette"
   },
   {
     "id": "188",
@@ -1501,7 +1875,9 @@
     "english": "eight",
     "czech": "osm",
     "german_standard": "acht",
-    "portuguese_pt": "oito"
+    "portuguese_pt": "oito",
+    "spanish_standard": "ocho",
+    "italian_standard": "otto"
   },
   {
     "id": "189",
@@ -1509,7 +1885,9 @@
     "english": "nine",
     "czech": "devět",
     "german_standard": "neun",
-    "portuguese_pt": "nove"
+    "portuguese_pt": "nove",
+    "spanish_standard": "nueve",
+    "italian_standard": "nove"
   },
   {
     "id": "190",
@@ -1517,7 +1895,9 @@
     "english": "ten",
     "czech": "deset",
     "german_standard": "zehn",
-    "portuguese_pt": "dez"
+    "portuguese_pt": "dez",
+    "spanish_standard": "diez",
+    "italian_standard": "dieci"
   },
   {
     "id": "191",
@@ -1525,7 +1905,9 @@
     "english": "red",
     "czech": "červená",
     "german_standard": "rot",
-    "portuguese_pt": "vermelho / vermelha"
+    "portuguese_pt": "vermelho / vermelha",
+    "spanish_standard": "rojo / roja",
+    "italian_standard": "rosso / rossa"
   },
   {
     "id": "192",
@@ -1533,7 +1915,9 @@
     "english": "blue",
     "czech": "modrá",
     "german_standard": "blau",
-    "portuguese_pt": "azul"
+    "portuguese_pt": "azul",
+    "spanish_standard": "azul",
+    "italian_standard": "blu"
   },
   {
     "id": "193",
@@ -1541,7 +1925,9 @@
     "english": "green",
     "czech": "zelená",
     "german_standard": "grün",
-    "portuguese_pt": "verde"
+    "portuguese_pt": "verde",
+    "spanish_standard": "verde",
+    "italian_standard": "verde"
   },
   {
     "id": "194",
@@ -1549,7 +1935,9 @@
     "english": "yellow",
     "czech": "žlutá",
     "german_standard": "gelb",
-    "portuguese_pt": "amarelo / amarela"
+    "portuguese_pt": "amarelo / amarela",
+    "spanish_standard": "amarillo / amarilla",
+    "italian_standard": "giallo / gialla"
   },
   {
     "id": "195",
@@ -1557,7 +1945,9 @@
     "english": "black",
     "czech": "černá",
     "german_standard": "schwarz",
-    "portuguese_pt": "preto / preta"
+    "portuguese_pt": "preto / preta",
+    "spanish_standard": "negro / negra",
+    "italian_standard": "nero / nera"
   },
   {
     "id": "196",
@@ -1565,7 +1955,9 @@
     "english": "white",
     "czech": "bílá",
     "german_standard": "weiss",
-    "portuguese_pt": "branco / branca"
+    "portuguese_pt": "branco / branca",
+    "spanish_standard": "blanco / blanca",
+    "italian_standard": "bianco / bianca"
   },
   {
     "id": "197",
@@ -1573,7 +1965,9 @@
     "english": "orange",
     "czech": "oranžová",
     "german_standard": "orange",
-    "portuguese_pt": "laranja"
+    "portuguese_pt": "laranja",
+    "spanish_standard": "naranja",
+    "italian_standard": "arancione"
   },
   {
     "id": "198",
@@ -1581,7 +1975,9 @@
     "english": "pink",
     "czech": "růžová",
     "german_standard": "rosa",
-    "portuguese_pt": "cor-de-rosa"
+    "portuguese_pt": "cor-de-rosa",
+    "spanish_standard": "rosa",
+    "italian_standard": "rosa"
   },
   {
     "id": "199",
@@ -1589,7 +1985,9 @@
     "english": "purple",
     "czech": "fialová",
     "german_standard": "lila",
-    "portuguese_pt": "roxo / roxa"
+    "portuguese_pt": "roxo / roxa",
+    "spanish_standard": "morado / morada",
+    "italian_standard": "viola"
   },
   {
     "id": "200",
@@ -1597,7 +1995,9 @@
     "english": "brown",
     "czech": "hnědá",
     "german_standard": "braun",
-    "portuguese_pt": "castanho / castanha"
+    "portuguese_pt": "castanho / castanha",
+    "spanish_standard": "marrón",
+    "italian_standard": "marrone"
   },
   {
     "id": "201",
@@ -1605,7 +2005,9 @@
     "english": "day",
     "czech": "den",
     "german_standard": "der Tag",
-    "portuguese_pt": "o dia"
+    "portuguese_pt": "o dia",
+    "spanish_standard": "el día",
+    "italian_standard": "il giorno"
   },
   {
     "id": "202",
@@ -1613,7 +2015,9 @@
     "english": "night",
     "czech": "noc",
     "german_standard": "die Nacht",
-    "portuguese_pt": "a noite"
+    "portuguese_pt": "a noite",
+    "spanish_standard": "la noche",
+    "italian_standard": "la notte"
   },
   {
     "id": "203",
@@ -1621,7 +2025,9 @@
     "english": "morning",
     "czech": "ráno",
     "german_standard": "der Morgen",
-    "portuguese_pt": "a manhã"
+    "portuguese_pt": "a manhã",
+    "spanish_standard": "la mañana",
+    "italian_standard": "la mattina"
   },
   {
     "id": "204",
@@ -1629,7 +2035,9 @@
     "english": "afternoon",
     "czech": "odpoledne",
     "german_standard": "der Nachmittag",
-    "portuguese_pt": "a tarde"
+    "portuguese_pt": "a tarde",
+    "spanish_standard": "la tarde",
+    "italian_standard": "il pomeriggio"
   },
   {
     "id": "205",
@@ -1637,7 +2045,9 @@
     "english": "evening",
     "czech": "večer",
     "german_standard": "der Abend",
-    "portuguese_pt": "a noite"
+    "portuguese_pt": "a noite",
+    "spanish_standard": "la tarde / la noche",
+    "italian_standard": "la sera"
   },
   {
     "id": "206",
@@ -1645,7 +2055,9 @@
     "english": "today",
     "czech": "dnes",
     "german_standard": "heute",
-    "portuguese_pt": "hoje"
+    "portuguese_pt": "hoje",
+    "spanish_standard": "hoy",
+    "italian_standard": "oggi"
   },
   {
     "id": "207",
@@ -1653,7 +2065,9 @@
     "english": "tomorrow",
     "czech": "zítra",
     "german_standard": "morgen",
-    "portuguese_pt": "amanhã"
+    "portuguese_pt": "amanhã",
+    "spanish_standard": "mañana",
+    "italian_standard": "domani"
   },
   {
     "id": "208",
@@ -1661,7 +2075,9 @@
     "english": "yesterday",
     "czech": "včera",
     "german_standard": "gestern",
-    "portuguese_pt": "ontem"
+    "portuguese_pt": "ontem",
+    "spanish_standard": "ayer",
+    "italian_standard": "ieri"
   },
   {
     "id": "209",
@@ -1669,7 +2085,9 @@
     "english": "now",
     "czech": "teď",
     "german_standard": "jetzt",
-    "portuguese_pt": "agora"
+    "portuguese_pt": "agora",
+    "spanish_standard": "ahora",
+    "italian_standard": "adesso"
   },
   {
     "id": "210",
@@ -1677,7 +2095,9 @@
     "english": "later",
     "czech": "později",
     "german_standard": "später",
-    "portuguese_pt": "mais tarde"
+    "portuguese_pt": "mais tarde",
+    "spanish_standard": "más tarde",
+    "italian_standard": "più tardi"
   },
   {
     "id": "211",
@@ -1685,7 +2105,9 @@
     "english": "early",
     "czech": "brzy",
     "german_standard": "früh",
-    "portuguese_pt": "cedo"
+    "portuguese_pt": "cedo",
+    "spanish_standard": "temprano",
+    "italian_standard": "presto"
   },
   {
     "id": "212",
@@ -1693,7 +2115,9 @@
     "english": "late",
     "czech": "pozdě",
     "german_standard": "spät",
-    "portuguese_pt": "tarde"
+    "portuguese_pt": "tarde",
+    "spanish_standard": "tarde",
+    "italian_standard": "tardi"
   },
   {
     "id": "213",
@@ -1701,7 +2125,9 @@
     "english": "sun",
     "czech": "slunce",
     "german_standard": "die Sonne",
-    "portuguese_pt": "o sol"
+    "portuguese_pt": "o sol",
+    "spanish_standard": "el sol",
+    "italian_standard": "il sole"
   },
   {
     "id": "214",
@@ -1709,7 +2135,9 @@
     "english": "rain",
     "czech": "déšť",
     "german_standard": "der Regen",
-    "portuguese_pt": "a chuva"
+    "portuguese_pt": "a chuva",
+    "spanish_standard": "la lluvia",
+    "italian_standard": "la pioggia"
   },
   {
     "id": "215",
@@ -1717,7 +2145,9 @@
     "english": "wind",
     "czech": "vítr",
     "german_standard": "der Wind",
-    "portuguese_pt": "o vento"
+    "portuguese_pt": "o vento",
+    "spanish_standard": "el viento",
+    "italian_standard": "il vento"
   },
   {
     "id": "216",
@@ -1725,7 +2155,9 @@
     "english": "cloud",
     "czech": "mrak",
     "german_standard": "die Wolke",
-    "portuguese_pt": "a nuvem"
+    "portuguese_pt": "a nuvem",
+    "spanish_standard": "la nube",
+    "italian_standard": "la nuvola"
   },
   {
     "id": "217",
@@ -1733,7 +2165,9 @@
     "english": "warm",
     "czech": "teplý",
     "german_standard": "warm",
-    "portuguese_pt": "morno / morna"
+    "portuguese_pt": "morno / morna",
+    "spanish_standard": "cálido / cálida",
+    "italian_standard": "caldo / calda"
   },
   {
     "id": "218",
@@ -1741,7 +2175,9 @@
     "english": "weather",
     "czech": "počasí",
     "german_standard": "das Wetter",
-    "portuguese_pt": "o tempo"
+    "portuguese_pt": "o tempo",
+    "spanish_standard": "el tiempo",
+    "italian_standard": "il tempo"
   },
   {
     "id": "219",
@@ -1749,7 +2185,9 @@
     "english": "inside",
     "czech": "uvnitř",
     "german_standard": "drinnen",
-    "portuguese_pt": "dentro"
+    "portuguese_pt": "dentro",
+    "spanish_standard": "dentro",
+    "italian_standard": "dentro"
   },
   {
     "id": "220",
@@ -1757,7 +2195,9 @@
     "english": "outside",
     "czech": "venku",
     "german_standard": "draussen",
-    "portuguese_pt": "fora"
+    "portuguese_pt": "fora",
+    "spanish_standard": "fuera",
+    "italian_standard": "fuori"
   },
   {
     "id": "221",
@@ -1765,7 +2205,9 @@
     "english": "here",
     "czech": "tady",
     "german_standard": "hier",
-    "portuguese_pt": "aqui"
+    "portuguese_pt": "aqui",
+    "spanish_standard": "aquí",
+    "italian_standard": "qui"
   },
   {
     "id": "222",
@@ -1773,7 +2215,9 @@
     "english": "there",
     "czech": "tam",
     "german_standard": "dort",
-    "portuguese_pt": "ali"
+    "portuguese_pt": "ali",
+    "spanish_standard": "allí",
+    "italian_standard": "lì"
   },
   {
     "id": "223",
@@ -1781,7 +2225,9 @@
     "english": "home",
     "czech": "doma",
     "german_standard": "zu Hause",
-    "portuguese_pt": "em casa"
+    "portuguese_pt": "em casa",
+    "spanish_standard": "en casa",
+    "italian_standard": "a casa"
   },
   {
     "id": "224",
@@ -1789,7 +2235,9 @@
     "english": "park",
     "czech": "park",
     "german_standard": "der Park",
-    "portuguese_pt": "o parque"
+    "portuguese_pt": "o parque",
+    "spanish_standard": "el parque",
+    "italian_standard": "il parco"
   },
   {
     "id": "225",
@@ -1797,7 +2245,9 @@
     "english": "shop",
     "czech": "obchod",
     "german_standard": "der Laden",
-    "portuguese_pt": "a loja"
+    "portuguese_pt": "a loja",
+    "spanish_standard": "la tienda",
+    "italian_standard": "il negozio"
   },
   {
     "id": "226",
@@ -1805,7 +2255,9 @@
     "english": "supermarket",
     "czech": "supermarket",
     "german_standard": "der Supermarkt",
-    "portuguese_pt": "o supermercado"
+    "portuguese_pt": "o supermercado",
+    "spanish_standard": "el supermercado",
+    "italian_standard": "il supermercato"
   },
   {
     "id": "227",
@@ -1813,7 +2265,9 @@
     "english": "pharmacy",
     "czech": "lékárna",
     "german_standard": "die Apotheke",
-    "portuguese_pt": "a farmácia"
+    "portuguese_pt": "a farmácia",
+    "spanish_standard": "la farmacia",
+    "italian_standard": "la farmacia"
   },
   {
     "id": "228",
@@ -1821,7 +2275,9 @@
     "english": "doctor",
     "czech": "lékař",
     "german_standard": "der Arzt / die Ärztin",
-    "portuguese_pt": "o médico / a médica"
+    "portuguese_pt": "o médico / a médica",
+    "spanish_standard": "el médico / la médica",
+    "italian_standard": "il medico / la dottoressa"
   },
   {
     "id": "229",
@@ -1829,7 +2285,9 @@
     "english": "nursery / daycare",
     "czech": "jesle",
     "german_standard": "die Kita",
-    "portuguese_pt": "a creche"
+    "portuguese_pt": "a creche",
+    "spanish_standard": "la guardería",
+    "italian_standard": "l'asilo nido"
   },
   {
     "id": "230",
@@ -1837,7 +2295,9 @@
     "english": "school",
     "czech": "škola",
     "german_standard": "die Schule",
-    "portuguese_pt": "a escola"
+    "portuguese_pt": "a escola",
+    "spanish_standard": "la escuela",
+    "italian_standard": "la scuola"
   },
   {
     "id": "231",
@@ -1845,7 +2305,9 @@
     "english": "bus",
     "czech": "autobus",
     "german_standard": "der Bus",
-    "portuguese_pt": "o autocarro"
+    "portuguese_pt": "o autocarro",
+    "spanish_standard": "el autobús",
+    "italian_standard": "l'autobus"
   },
   {
     "id": "232",
@@ -1853,7 +2315,9 @@
     "english": "train",
     "czech": "vlak",
     "german_standard": "der Zug",
-    "portuguese_pt": "o comboio"
+    "portuguese_pt": "o comboio",
+    "spanish_standard": "el tren",
+    "italian_standard": "il treno"
   },
   {
     "id": "233",
@@ -1861,7 +2325,9 @@
     "english": "car",
     "czech": "auto",
     "german_standard": "das Auto",
-    "portuguese_pt": "o carro"
+    "portuguese_pt": "o carro",
+    "spanish_standard": "el coche",
+    "italian_standard": "l'auto"
   },
   {
     "id": "234",
@@ -1869,7 +2335,9 @@
     "english": "bicycle",
     "czech": "kolo",
     "german_standard": "das Velo",
-    "portuguese_pt": "a bicicleta"
+    "portuguese_pt": "a bicicleta",
+    "spanish_standard": "la bicicleta",
+    "italian_standard": "la bicicletta"
   },
   {
     "id": "235",
@@ -1877,7 +2345,9 @@
     "english": "street",
     "czech": "ulice",
     "german_standard": "die Strasse",
-    "portuguese_pt": "a rua"
+    "portuguese_pt": "a rua",
+    "spanish_standard": "la calle",
+    "italian_standard": "la strada"
   },
   {
     "id": "236",
@@ -1885,7 +2355,9 @@
     "english": "left",
     "czech": "vlevo",
     "german_standard": "links",
-    "portuguese_pt": "à esquerda"
+    "portuguese_pt": "à esquerda",
+    "spanish_standard": "a la izquierda",
+    "italian_standard": "a sinistra"
   },
   {
     "id": "237",
@@ -1893,7 +2365,9 @@
     "english": "right",
     "czech": "vpravo",
     "german_standard": "rechts",
-    "portuguese_pt": "à direita"
+    "portuguese_pt": "à direita",
+    "spanish_standard": "a la derecha",
+    "italian_standard": "a destra"
   },
   {
     "id": "238",
@@ -1901,7 +2375,9 @@
     "english": "straight ahead",
     "czech": "rovně",
     "german_standard": "geradeaus",
-    "portuguese_pt": "em frente"
+    "portuguese_pt": "em frente",
+    "spanish_standard": "todo recto",
+    "italian_standard": "dritto"
   },
   {
     "id": "239",
@@ -1909,7 +2385,9 @@
     "english": "stop",
     "czech": "zastavit",
     "german_standard": "anhalten",
-    "portuguese_pt": "parar"
+    "portuguese_pt": "parar",
+    "spanish_standard": "parar",
+    "italian_standard": "fermarsi"
   },
   {
     "id": "240",
@@ -1917,7 +2395,9 @@
     "english": "arrival",
     "czech": "příjezd",
     "german_standard": "die Ankunft",
-    "portuguese_pt": "a chegada"
+    "portuguese_pt": "a chegada",
+    "spanish_standard": "la llegada",
+    "italian_standard": "l'arrivo"
   },
   {
     "id": "241",
@@ -1925,7 +2405,9 @@
     "english": "dog",
     "czech": "pes",
     "german_standard": "der Hund",
-    "portuguese_pt": "o cão"
+    "portuguese_pt": "o cão",
+    "spanish_standard": "el perro / la perra",
+    "italian_standard": "il cane / la cagna"
   },
   {
     "id": "242",
@@ -1933,7 +2415,9 @@
     "english": "cat",
     "czech": "kočka",
     "german_standard": "die Katze",
-    "portuguese_pt": "o gato"
+    "portuguese_pt": "o gato",
+    "spanish_standard": "el gato / la gata",
+    "italian_standard": "il gatto / la gatta"
   },
   {
     "id": "243",
@@ -1941,7 +2425,9 @@
     "english": "bird",
     "czech": "pták",
     "german_standard": "der Vogel",
-    "portuguese_pt": "o pássaro"
+    "portuguese_pt": "o pássaro",
+    "spanish_standard": "el pájaro",
+    "italian_standard": "l'uccello"
   },
   {
     "id": "244",
@@ -1949,7 +2435,9 @@
     "english": "fish",
     "czech": "ryba",
     "german_standard": "der Fisch",
-    "portuguese_pt": "o peixe"
+    "portuguese_pt": "o peixe",
+    "spanish_standard": "el pez",
+    "italian_standard": "il pesce"
   },
   {
     "id": "245",
@@ -1957,7 +2445,9 @@
     "english": "horse",
     "czech": "kůň",
     "german_standard": "das Pferd",
-    "portuguese_pt": "o cavalo"
+    "portuguese_pt": "o cavalo",
+    "spanish_standard": "el caballo / la yegua",
+    "italian_standard": "il cavallo / la cavalla"
   },
   {
     "id": "246",
@@ -1965,7 +2455,9 @@
     "english": "cow",
     "czech": "kráva",
     "german_standard": "die Kuh",
-    "portuguese_pt": "a vaca"
+    "portuguese_pt": "a vaca",
+    "spanish_standard": "la vaca",
+    "italian_standard": "la mucca"
   },
   {
     "id": "247",
@@ -1973,7 +2465,9 @@
     "english": "sheep",
     "czech": "ovce",
     "german_standard": "das Schaf",
-    "portuguese_pt": "a ovelha"
+    "portuguese_pt": "a ovelha",
+    "spanish_standard": "la oveja",
+    "italian_standard": "la pecora"
   },
   {
     "id": "248",
@@ -1981,7 +2475,9 @@
     "english": "chicken",
     "czech": "kura",
     "german_standard": "das Huhn",
-    "portuguese_pt": "a galinha"
+    "portuguese_pt": "a galinha",
+    "spanish_standard": "la gallina",
+    "italian_standard": "la gallina"
   },
   {
     "id": "249",
@@ -1989,7 +2485,9 @@
     "english": "rabbit",
     "czech": "králík",
     "german_standard": "das Kaninchen",
-    "portuguese_pt": "o coelho"
+    "portuguese_pt": "o coelho",
+    "spanish_standard": "el conejo / la coneja",
+    "italian_standard": "il coniglio / la coniglia"
   },
   {
     "id": "250",
@@ -1997,7 +2495,9 @@
     "english": "duck",
     "czech": "kachna",
     "german_standard": "die Ente",
-    "portuguese_pt": "o pato"
+    "portuguese_pt": "o pato",
+    "spanish_standard": "el pato / la pata",
+    "italian_standard": "l'anatra"
   },
   {
     "id": "251",
@@ -2005,7 +2505,9 @@
     "english": "bear",
     "czech": "medvěd",
     "german_standard": "der Bär",
-    "portuguese_pt": "o urso"
+    "portuguese_pt": "o urso",
+    "spanish_standard": "el oso / la osa",
+    "italian_standard": "l'orso / l'orsa"
   },
   {
     "id": "252",
@@ -2013,7 +2515,9 @@
     "english": "lion",
     "czech": "lev",
     "german_standard": "der Löwe",
-    "portuguese_pt": "o leão"
+    "portuguese_pt": "o leão",
+    "spanish_standard": "el león / la leona",
+    "italian_standard": "il leone / la leonessa"
   },
   {
     "id": "253",
@@ -2021,7 +2525,9 @@
     "english": "elephant",
     "czech": "slon",
     "german_standard": "der Elefant",
-    "portuguese_pt": "o elefante"
+    "portuguese_pt": "o elefante",
+    "spanish_standard": "el elefante / la elefanta",
+    "italian_standard": "l'elefante / l'elefantessa"
   },
   {
     "id": "254",
@@ -2029,7 +2535,9 @@
     "english": "monkey",
     "czech": "opice",
     "german_standard": "der Affe",
-    "portuguese_pt": "o macaco"
+    "portuguese_pt": "o macaco",
+    "spanish_standard": "el mono / la mona",
+    "italian_standard": "la scimmia"
   },
   {
     "id": "255",
@@ -2037,7 +2545,9 @@
     "english": "bee",
     "czech": "včela",
     "german_standard": "die Biene",
-    "portuguese_pt": "a abelha"
+    "portuguese_pt": "a abelha",
+    "spanish_standard": "la abeja",
+    "italian_standard": "l'ape"
   },
   {
     "id": "256",
@@ -2045,7 +2555,9 @@
     "english": "butterfly",
     "czech": "motýl",
     "german_standard": "der Schmetterling",
-    "portuguese_pt": "a borboleta"
+    "portuguese_pt": "a borboleta",
+    "spanish_standard": "la mariposa",
+    "italian_standard": "la farfalla"
   },
   {
     "id": "257",
@@ -2053,7 +2565,9 @@
     "english": "tree",
     "czech": "strom",
     "german_standard": "der Baum",
-    "portuguese_pt": "a árvore"
+    "portuguese_pt": "a árvore",
+    "spanish_standard": "el árbol",
+    "italian_standard": "l'albero"
   },
   {
     "id": "258",
@@ -2061,7 +2575,9 @@
     "english": "flower",
     "czech": "květina",
     "german_standard": "die Blume",
-    "portuguese_pt": "a flor"
+    "portuguese_pt": "a flor",
+    "spanish_standard": "la flor",
+    "italian_standard": "il fiore"
   },
   {
     "id": "259",
@@ -2069,7 +2585,9 @@
     "english": "grass",
     "czech": "tráva",
     "german_standard": "das Gras",
-    "portuguese_pt": "a relva"
+    "portuguese_pt": "a relva",
+    "spanish_standard": "la hierba",
+    "italian_standard": "l'erba"
   },
   {
     "id": "260",
@@ -2077,7 +2595,9 @@
     "english": "leaf",
     "czech": "list",
     "german_standard": "das Blatt",
-    "portuguese_pt": "a folha"
+    "portuguese_pt": "a folha",
+    "spanish_standard": "la hoja",
+    "italian_standard": "la foglia"
   },
   {
     "id": "261",
@@ -2085,7 +2605,9 @@
     "english": "toy",
     "czech": "hračka",
     "german_standard": "das Spielzeug",
-    "portuguese_pt": "o brinquedo"
+    "portuguese_pt": "o brinquedo",
+    "spanish_standard": "el juguete",
+    "italian_standard": "il giocattolo"
   },
   {
     "id": "262",
@@ -2093,7 +2615,9 @@
     "english": "ball",
     "czech": "míč",
     "german_standard": "der Ball",
-    "portuguese_pt": "a bola"
+    "portuguese_pt": "a bola",
+    "spanish_standard": "la pelota",
+    "italian_standard": "la palla"
   },
   {
     "id": "263",
@@ -2101,7 +2625,9 @@
     "english": "doll",
     "czech": "panenka",
     "german_standard": "die Puppe",
-    "portuguese_pt": "a boneca"
+    "portuguese_pt": "a boneca",
+    "spanish_standard": "la muñeca",
+    "italian_standard": "la bambola"
   },
   {
     "id": "264",
@@ -2109,7 +2635,9 @@
     "english": "toy car",
     "czech": "autíčko",
     "german_standard": "das Spielzeugauto",
-    "portuguese_pt": "o carrinho"
+    "portuguese_pt": "o carrinho",
+    "spanish_standard": "el coche de juguete",
+    "italian_standard": "la macchinina"
   },
   {
     "id": "265",
@@ -2117,7 +2645,9 @@
     "english": "building blocks",
     "czech": "kostky",
     "german_standard": "die Bauklötze",
-    "portuguese_pt": "os blocos"
+    "portuguese_pt": "os blocos",
+    "spanish_standard": "los bloques de construcción",
+    "italian_standard": "i blocchi da costruzione"
   },
   {
     "id": "266",
@@ -2125,7 +2655,9 @@
     "english": "puzzle",
     "czech": "puzzle",
     "german_standard": "das Puzzle",
-    "portuguese_pt": "o puzzle"
+    "portuguese_pt": "o puzzle",
+    "spanish_standard": "el rompecabezas",
+    "italian_standard": "il puzzle"
   },
   {
     "id": "267",
@@ -2133,7 +2665,9 @@
     "english": "drawing",
     "czech": "kresba",
     "german_standard": "die Zeichnung",
-    "portuguese_pt": "o desenho"
+    "portuguese_pt": "o desenho",
+    "spanish_standard": "el dibujo",
+    "italian_standard": "il disegno"
   },
   {
     "id": "268",
@@ -2141,7 +2675,9 @@
     "english": "paint",
     "czech": "barva",
     "german_standard": "die Farbe",
-    "portuguese_pt": "a tinta"
+    "portuguese_pt": "a tinta",
+    "spanish_standard": "la pintura",
+    "italian_standard": "la pittura"
   },
   {
     "id": "269",
@@ -2149,7 +2685,9 @@
     "english": "music",
     "czech": "hudba",
     "german_standard": "die Musik",
-    "portuguese_pt": "a música"
+    "portuguese_pt": "a música",
+    "spanish_standard": "la música",
+    "italian_standard": "la musica"
   },
   {
     "id": "270",
@@ -2157,7 +2695,9 @@
     "english": "song",
     "czech": "píseň",
     "german_standard": "das Lied",
-    "portuguese_pt": "a canção"
+    "portuguese_pt": "a canção",
+    "spanish_standard": "la canción",
+    "italian_standard": "la canzone"
   },
   {
     "id": "271",
@@ -2165,7 +2705,9 @@
     "english": "story",
     "czech": "příběh",
     "german_standard": "die Geschichte",
-    "portuguese_pt": "a história"
+    "portuguese_pt": "a história",
+    "spanish_standard": "la historia",
+    "italian_standard": "la storia"
   },
   {
     "id": "272",
@@ -2173,7 +2715,9 @@
     "english": "game",
     "czech": "hra",
     "german_standard": "das Spiel",
-    "portuguese_pt": "o jogo"
+    "portuguese_pt": "o jogo",
+    "spanish_standard": "el juego",
+    "italian_standard": "il gioco"
   },
   {
     "id": "273",
@@ -2181,7 +2725,9 @@
     "english": "crayon",
     "czech": "pastelka",
     "german_standard": "der Wachsmalstift",
-    "portuguese_pt": "o lápis de cera"
+    "portuguese_pt": "o lápis de cera",
+    "spanish_standard": "el lápiz de cera",
+    "italian_standard": "il pastello a cera"
   },
   {
     "id": "274",
@@ -2189,7 +2735,9 @@
     "english": "paper",
     "czech": "papír",
     "german_standard": "das Papier",
-    "portuguese_pt": "o papel"
+    "portuguese_pt": "o papel",
+    "spanish_standard": "el papel",
+    "italian_standard": "la carta"
   },
   {
     "id": "275",
@@ -2197,7 +2745,9 @@
     "english": "pen",
     "czech": "pero",
     "german_standard": "der Stift",
-    "portuguese_pt": "a caneta"
+    "portuguese_pt": "a caneta",
+    "spanish_standard": "el bolígrafo",
+    "italian_standard": "la penna"
   },
   {
     "id": "276",
@@ -2205,7 +2755,9 @@
     "english": "picture",
     "czech": "obrázek",
     "german_standard": "das Bild",
-    "portuguese_pt": "a imagem"
+    "portuguese_pt": "a imagem",
+    "spanish_standard": "la imagen",
+    "italian_standard": "l'immagine"
   },
   {
     "id": "277",
@@ -2213,7 +2765,9 @@
     "english": "dance",
     "czech": "tanec",
     "german_standard": "der Tanz",
-    "portuguese_pt": "a dança"
+    "portuguese_pt": "a dança",
+    "spanish_standard": "el baile",
+    "italian_standard": "la danza"
   },
   {
     "id": "278",
@@ -2221,7 +2775,9 @@
     "english": "clap",
     "czech": "tleskat",
     "german_standard": "klatschen",
-    "portuguese_pt": "bater palmas"
+    "portuguese_pt": "bater palmas",
+    "spanish_standard": "aplaudir",
+    "italian_standard": "battere le mani"
   },
   {
     "id": "279",
@@ -2229,7 +2785,9 @@
     "english": "share",
     "czech": "sdílet",
     "german_standard": "teilen",
-    "portuguese_pt": "partilhar"
+    "portuguese_pt": "partilhar",
+    "spanish_standard": "compartir",
+    "italian_standard": "condividere"
   },
   {
     "id": "280",
@@ -2237,7 +2795,9 @@
     "english": "build",
     "czech": "stavět",
     "german_standard": "bauen",
-    "portuguese_pt": "construir"
+    "portuguese_pt": "construir",
+    "spanish_standard": "construir",
+    "italian_standard": "costruire"
   },
   {
     "id": "281",
@@ -2245,7 +2805,9 @@
     "english": "what",
     "czech": "co",
     "german_standard": "was",
-    "portuguese_pt": "o que"
+    "portuguese_pt": "o que",
+    "spanish_standard": "qué",
+    "italian_standard": "che cosa"
   },
   {
     "id": "282",
@@ -2253,7 +2815,9 @@
     "english": "where",
     "czech": "kde",
     "german_standard": "wo",
-    "portuguese_pt": "onde"
+    "portuguese_pt": "onde",
+    "spanish_standard": "dónde",
+    "italian_standard": "dove"
   },
   {
     "id": "283",
@@ -2261,7 +2825,9 @@
     "english": "who",
     "czech": "kdo",
     "german_standard": "wer",
-    "portuguese_pt": "quem"
+    "portuguese_pt": "quem",
+    "spanish_standard": "quién",
+    "italian_standard": "chi"
   },
   {
     "id": "284",
@@ -2269,7 +2835,9 @@
     "english": "when",
     "czech": "kdy",
     "german_standard": "wann",
-    "portuguese_pt": "quando"
+    "portuguese_pt": "quando",
+    "spanish_standard": "cuándo",
+    "italian_standard": "quando"
   },
   {
     "id": "285",
@@ -2277,7 +2845,9 @@
     "english": "why",
     "czech": "proč",
     "german_standard": "warum",
-    "portuguese_pt": "porquê"
+    "portuguese_pt": "porquê",
+    "spanish_standard": "por qué",
+    "italian_standard": "perché"
   },
   {
     "id": "286",
@@ -2285,7 +2855,9 @@
     "english": "how",
     "czech": "jak",
     "german_standard": "wie",
-    "portuguese_pt": "como"
+    "portuguese_pt": "como",
+    "spanish_standard": "cómo",
+    "italian_standard": "come"
   },
   {
     "id": "287",
@@ -2293,7 +2865,9 @@
     "english": "which",
     "czech": "který",
     "german_standard": "welcher",
-    "portuguese_pt": "qual"
+    "portuguese_pt": "qual",
+    "spanish_standard": "cuál",
+    "italian_standard": "quale"
   },
   {
     "id": "288",
@@ -2301,7 +2875,9 @@
     "english": "this",
     "czech": "tento",
     "german_standard": "dieser",
-    "portuguese_pt": "este / esta"
+    "portuguese_pt": "este / esta",
+    "spanish_standard": "este / esta",
+    "italian_standard": "questo / questa"
   },
   {
     "id": "289",
@@ -2309,7 +2885,9 @@
     "english": "that",
     "czech": "tamten",
     "german_standard": "jener",
-    "portuguese_pt": "esse / essa"
+    "portuguese_pt": "esse / essa",
+    "spanish_standard": "ese / esa",
+    "italian_standard": "quello / quella"
   },
   {
     "id": "290",
@@ -2317,7 +2895,9 @@
     "english": "and",
     "czech": "a",
     "german_standard": "und",
-    "portuguese_pt": "e"
+    "portuguese_pt": "e",
+    "spanish_standard": "y",
+    "italian_standard": "e"
   },
   {
     "id": "291",
@@ -2325,7 +2905,9 @@
     "english": "or",
     "czech": "nebo",
     "german_standard": "oder",
-    "portuguese_pt": "ou"
+    "portuguese_pt": "ou",
+    "spanish_standard": "o",
+    "italian_standard": "o"
   },
   {
     "id": "292",
@@ -2333,7 +2915,9 @@
     "english": "but",
     "czech": "ale",
     "german_standard": "aber",
-    "portuguese_pt": "mas"
+    "portuguese_pt": "mas",
+    "spanish_standard": "pero",
+    "italian_standard": "ma"
   },
   {
     "id": "293",
@@ -2341,7 +2925,9 @@
     "english": "because",
     "czech": "protože",
     "german_standard": "weil",
-    "portuguese_pt": "porque"
+    "portuguese_pt": "porque",
+    "spanish_standard": "porque",
+    "italian_standard": "perché"
   },
   {
     "id": "294",
@@ -2349,7 +2935,9 @@
     "english": "with",
     "czech": "s",
     "german_standard": "mit",
-    "portuguese_pt": "com"
+    "portuguese_pt": "com",
+    "spanish_standard": "con",
+    "italian_standard": "con"
   },
   {
     "id": "295",
@@ -2357,7 +2945,9 @@
     "english": "without",
     "czech": "bez",
     "german_standard": "ohne",
-    "portuguese_pt": "sem"
+    "portuguese_pt": "sem",
+    "spanish_standard": "sin",
+    "italian_standard": "senza"
   },
   {
     "id": "296",
@@ -2365,7 +2955,9 @@
     "english": "for",
     "czech": "pro",
     "german_standard": "für",
-    "portuguese_pt": "para"
+    "portuguese_pt": "para",
+    "spanish_standard": "para",
+    "italian_standard": "per"
   },
   {
     "id": "297",
@@ -2373,7 +2965,9 @@
     "english": "from",
     "czech": "z",
     "german_standard": "von",
-    "portuguese_pt": "de"
+    "portuguese_pt": "de",
+    "spanish_standard": "de",
+    "italian_standard": "da"
   },
   {
     "id": "298",
@@ -2381,7 +2975,9 @@
     "english": "in",
     "czech": "v",
     "german_standard": "im / in",
-    "portuguese_pt": "no / na"
+    "portuguese_pt": "no / na",
+    "spanish_standard": "en",
+    "italian_standard": "in"
   },
   {
     "id": "299",
@@ -2389,7 +2985,9 @@
     "english": "on",
     "czech": "na",
     "german_standard": "auf",
-    "portuguese_pt": "em cima de"
+    "portuguese_pt": "em cima de",
+    "spanish_standard": "encima de",
+    "italian_standard": "sopra"
   },
   {
     "id": "300",
@@ -2397,6 +2995,18 @@
     "english": "under",
     "czech": "pod",
     "german_standard": "unter",
-    "portuguese_pt": "debaixo de"
+    "portuguese_pt": "debaixo de",
+    "spanish_standard": "debajo de",
+    "italian_standard": "sotto"
+  },
+  {
+    "id": "301",
+    "group": "Food and drink",
+    "english": "leafy greens",
+    "czech": "listová zelenina",
+    "german_standard": "das Blattgemüse",
+    "portuguese_pt": "a hortaliça",
+    "spanish_standard": "las verduras de hoja verde",
+    "italian_standard": "le verdure a foglia verde"
   }
 ]

@@ -39,6 +39,10 @@ test('language flags use local SVG images and never disable the final selection'
 
   assert.ok(languageToggleRenderer, 'language toggle renderer must exist');
   assert.match(app, /assets\/flags\/cz\.svg/);
+  assert.match(app, /assets\/flags\/es\.svg/);
+  assert.match(app, /assets\/flags\/it\.svg/);
+  assert.match(app, /key: 'spanish_standard'.*label: 'Spanish'/);
+  assert.match(app, /key: 'italian_standard'.*label: 'Italian'/);
   assert.match(languageToggleRenderer, /flag\.src/);
   assert.doesNotMatch(languageToggleRenderer, /button\.disabled/);
   assert.match(languageToggleRenderer, /if \(enabled && selectedLanguages\.size === 1\) return;/);

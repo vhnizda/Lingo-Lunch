@@ -3,7 +3,16 @@ import { dirname, resolve } from 'node:path';
 
 const source = resolve(process.env.VOCABULARY_SOURCE ?? '/home/vaclav/src/vaclav-language-learning-path/vocabulary/first-300-family-life.csv');
 const output = resolve(process.env.VOCABULARY_OUTPUT ?? 'data/vocabulary.json');
-const playableFields = ['id', 'group', 'english', 'czech', 'german_standard', 'portuguese_pt'];
+const playableFields = [
+  'id',
+  'group',
+  'english',
+  'czech',
+  'german_standard',
+  'portuguese_pt',
+  'spanish_standard',
+  'italian_standard',
+];
 
 function parseLine(line) {
   const fields = [];
