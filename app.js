@@ -49,10 +49,15 @@ function saveProgress(progress) {
   localStorage.setItem('language-munchers-progress', JSON.stringify(progress));
 }
 
+function isTouchFirstDevice() {
+  return window.matchMedia('(pointer: coarse)').matches;
+}
+
 function show(screen) {
   Object.values(screens).forEach((element) => element.classList.add('hidden'));
   screen.classList.remove('hidden');
   appShell.classList.toggle('is-playing', screen === screens.game);
+  appShell.classList.toggle('is-touch-first', isTouchFirstDevice());
 }
 
 function clearWrongTimer() {
@@ -310,7 +315,9 @@ function renderGame() {
         focusedIndex: state.focus,
         tappedIndex: tileIndex,
         isPending: pendingTiles.has(tile.id),
+        isTouchFirstDevice: isTouchFirstDevice(),
       })) {
+        state.focus = tileIndex;
         munch();
         return;
       }

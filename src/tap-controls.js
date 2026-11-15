@@ -1,3 +1,3 @@
-export function shouldMunchOnTileTap({ focusedIndex, tappedIndex, isPending }) {
-  return focusedIndex === tappedIndex && !isPending;
+export function shouldMunchOnTileTap({ focusedIndex, tappedIndex, isPending, isTouchFirstDevice = false }) {
+  return !isPending && (isTouchFirstDevice || focusedIndex === tappedIndex);
 }

@@ -8,10 +8,19 @@ test('game screen uses touch-first instructions and a status-bar pause button', 
   assert.doesNotMatch(html, /id="munch-button"|class="arrow-pad"|data-move=/);
   assert.match(html, /<button id="pause-button" class="leave-button" type="button">PAUSE<\/button>/);
   assert.match(html, /class="instruction instruction--pointer"/);
-  assert.match(html, /Tap or click any box to select it\. Once selected, tap or click it again to eat it\. For faster play, double tap or double click each box you want to eat\./);
+  assert.match(html, /Tap any box once to move the frog there and eat it\./);
+  assert.match(html, /Click any box to select it\. Click the selected box again to eat it\./);
   assert.match(html, /class="instruction instruction--keyboard"/);
   assert.match(html, /<kbd class="key" aria-label="Arrow up">↑<\/kbd>/);
   assert.match(html, /<kbd class="key key--space">Space<\/kbd>/);
+});
+
+test('touch-first play enables one-tap movement and munching', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+
+  assert.match(app, /matchMedia\('\(pointer: coarse\)'\)\.matches/);
+  assert.match(app, /isTouchFirstDevice: isTouchFirstDevice\(\)/);
+  assert.match(app, /appShell\.classList\.toggle\('is-touch-first', isTouchFirstDevice\(\)\)/);
 });
 
 test('lives use frog sprites instead of text circles', async () => {
