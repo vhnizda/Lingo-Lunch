@@ -330,9 +330,9 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   .controls { gap: 10px; flex-wrap: wrap; }
 }
 
-/* Portrait touch screens use the centered crop; desktop and touch landscape retain the left crop. */
+/* Portrait touch screens move the crop 4 px right; desktop and touch landscape retain the left crop. */
 @media (pointer: coarse) and (orientation: portrait) {
-  .frog img { left: 0; }
+  .frog img { left: 4px; }
 }
 
 /* Re-evaluated by the browser immediately when phones rotate to landscape. */
