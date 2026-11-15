@@ -41,7 +41,7 @@ Eat all and only the tiles that correctly translate the current English prompt.
 
 ### Required round loop
 
-1. From the choice menu, read **“Eat your way to language mastery. Pick a topic below and complete all the levels.”** Select one CSV `group` (topic) and enable one or more target-language flags: Czech, Standard German, `pt-PT` Portuguese, Standard Spanish, and/or Standard Italian. The flags are local SVG assets rather than font emoji so they render consistently in browsers including Brave. The `LANGUAGES` label explains the controls; an enabled flag is normal, while a disabled flag carries a red × centered over its icon. At least one language must be enabled. The final enabled language remains coloured and clickable, but clicking it leaves it enabled.
+1. From the choice menu, read **“Eat your way to language mastery. Pick a topic below and complete all the levels.”** `pt-PT` Portuguese is enabled by default. Enable or disable Czech, Standard German, `pt-PT` Portuguese, Standard Spanish, and Standard Italian through the local SVG flags. The flags render consistently in browsers including Brave. The **PICK YOUR LANGUAGE(S) →** label points at those flags; an enabled flag is normal, while a disabled flag carries a red × centered over its icon. At least one language must be enabled. The final enabled language remains coloured and clickable, but clicking it leaves it enabled.
 2. Freeze that language selection for the topic run; it may be changed only after returning to the choice menu.
 3. At the start of the run, create one randomized order containing every concept in that topic exactly once.
 4. Select the next unfinished concept in the run and display its English value as the prompt.

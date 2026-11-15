@@ -37,7 +37,7 @@ const LANGUAGE_OPTIONS = [
 ];
 
 let state = null;
-let selectedLanguages = new Set(LANGUAGE_OPTIONS.map((language) => language.key));
+let selectedLanguages = new Set(['portuguese_pt']);
 
 function groups() {
   return [...new Set(vocabulary.map((row) => row.group))];

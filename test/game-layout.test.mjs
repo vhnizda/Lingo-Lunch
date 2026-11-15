@@ -48,6 +48,14 @@ test('language flags use local SVG images and never disable the final selection'
   assert.match(languageToggleRenderer, /if \(enabled && selectedLanguages\.size === 1\) return;/);
 });
 
+test('topic menu defaults to Portuguese and points the language prompt at the flags', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+
+  assert.match(app, /let selectedLanguages = new Set\(\['portuguese_pt'\]\);/);
+  assert.match(html, /<span class="language-label">PICK YOUR LANGUAGE\(S\) →<\/span>/);
+});
+
 test('styles provide room for frog lives and keep the instructions centered', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
