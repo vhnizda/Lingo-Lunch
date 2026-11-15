@@ -50,7 +50,9 @@ function saveProgress(progress) {
 }
 
 function isTouchFirstDevice() {
-  return window.matchMedia('(pointer: coarse)').matches;
+  const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const touchOnlyDevice = navigator.maxTouchPoints > 0 && window.matchMedia('(hover: none)').matches;
+  return coarsePointer || touchOnlyDevice;
 }
 
 function show(screen) {
@@ -309,13 +311,16 @@ function renderGame() {
     button.addEventListener('pointerdown', (event) => {
       button.dataset.pointerType = event.pointerType;
     });
+    button.addEventListener('touchstart', () => {
+      button.dataset.pointerType = 'touch';
+    }, { passive: true });
     button.addEventListener('click', () => {
       if (state.eatTimer) return;
       if (shouldMunchOnTileTap({
         focusedIndex: state.focus,
         tappedIndex: tileIndex,
         isPending: pendingTiles.has(tile.id),
-        isTouchFirstDevice: isTouchFirstDevice(),
+        isTouchFirstDevice: isTouchFirstDevice() || button.dataset.pointerType === 'touch',
       })) {
         state.focus = tileIndex;
         munch();

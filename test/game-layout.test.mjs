@@ -19,6 +19,7 @@ test('touch-first play enables one-tap movement and munching', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 
   assert.match(app, /matchMedia\('\(pointer: coarse\)'\)\.matches/);
+  assert.match(app, /navigator\.maxTouchPoints > 0/);
   assert.match(app, /isTouchFirstDevice: isTouchFirstDevice\(\)/);
   assert.match(app, /appShell\.classList\.toggle\('is-touch-first', isTouchFirstDevice\(\)\)/);
 });
