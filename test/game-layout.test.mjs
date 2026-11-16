@@ -90,6 +90,7 @@ test('phone portrait keeps the topic menu in a fixed outer frame with touch scro
   const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
   assert.ok(portraitRule, 'phone portrait rule must exist');
   assert.match(portraitRule, /\.app-shell\.is-menu \{[^}]*height:\s*100dvh[^}]*overflow:\s*hidden/);
+  assert.match(portraitRule, /\.app-shell\.is-menu \{[^}]*padding-bottom:\s*max\(10px, env\(safe-area-inset-bottom\)\)/);
   assert.match(portraitRule, /#topic-screen \{[^}]*min-height:\s*0[^}]*overflow:\s*hidden/);
   assert.match(portraitRule, /\.topic-scroll-content \{[^}]*overflow-y:\s*auto/);
 });
