@@ -131,6 +131,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 .hidden { display: none !important; }
 
 .topic-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.topic-card { position: relative; min-width: 0; }
 .topic-button, .primary-button, .leave-button {
   border: 3px solid #14183b;
   color: #14183b;
@@ -139,9 +140,67 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   padding: 12px;
   box-shadow: 4px 4px 0 #14183b;
 }
-.topic-button { font-size: 25px; text-align: left; }
+.topic-button { width: 100%; padding-right: 48px; font-size: 25px; text-align: left; }
 .topic-button:hover, .topic-button:focus-visible, .primary-button:hover, .primary-button:focus-visible { background: #ffe29a; outline: none; }
 .topic-button small { display: block; font-size: 17px; }
+.topic-info-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #14183b;
+  border-radius: 50%;
+  background: #ffe29a;
+  color: #14183b;
+  font-family: "Press Start 2P", monospace;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1;
+}
+.topic-info-button:hover, .topic-info-button:focus-visible { background: #ffb86b; outline: 3px solid #fbf1cc; outline-offset: 2px; }
+
+.topic-review-dialog {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  padding: 12px;
+  background: rgba(10, 12, 30, .78);
+  place-items: center;
+}
+.topic-review-panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(1040px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: clamp(18px, 3vw, 30px);
+  border: 5px solid #ffe29a;
+  background: #242955;
+  box-shadow: 8px 8px 0 #833f72;
+}
+.topic-review-panel h2 { padding-right: 52px; color: #ffe29a; }
+.topic-review-close {
+  position: absolute;
+  top: clamp(18px, 3vw, 30px);
+  right: clamp(18px, 3vw, 30px);
+  width: 43px;
+  height: 43px;
+  border: 3px solid #14183b;
+  background: #ff8ea2;
+  color: #14183b;
+  font-family: "Press Start 2P", monospace;
+  font-size: 28px;
+  line-height: 1;
+}
+.topic-review-close:hover, .topic-review-close:focus-visible { background: #ffb86b; outline: 3px solid #fbf1cc; outline-offset: 2px; }
+.topic-review-content { min-height: 0; margin-top: 18px; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.topic-review-table { width: 100%; border-collapse: collapse; background: #14183b; font-size: clamp(20px, 3.3vw, 28px); }
+.topic-review-table th, .topic-review-table td { padding: 9px 12px; border: 2px solid #91d8cf; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.topic-review-table th { position: sticky; top: 0; background: #36517d; color: #ffe29a; font-family: "Press Start 2P", monospace; font-size: clamp(10px, 1.6vw, 14px); line-height: 1.5; }
+.topic-review-table tbody tr:nth-child(even) { background: #242955; }
+body.topic-review-open { overflow: hidden; }
 
 .status-bar {
   display: grid;
@@ -318,7 +377,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 8px;
   }
-  .app-shell.is-menu .topic-button { min-height: 48px; padding: 8px; font-size: clamp(19px, 2.3vw, 24px); }
+  .app-shell.is-menu .topic-button { min-height: 48px; padding: 8px 44px 8px 8px; font-size: clamp(19px, 2.3vw, 24px); }
   .app-shell.is-menu .topic-button small { font-size: clamp(14px, 1.8vw, 17px); }
 }
 

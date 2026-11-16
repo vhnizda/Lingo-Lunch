@@ -28,6 +28,10 @@ const promptWord = document.querySelector('#prompt-word');
 const resultTitle = document.querySelector('#result-title');
 const resultMessage = document.querySelector('#result-message');
 const completedLevelsTotal = document.querySelector('#completed-levels-total');
+const topicReviewDialog = document.querySelector('#topic-review-dialog');
+const topicReviewTitle = document.querySelector('#topic-review-title');
+const topicReviewContent = document.querySelector('#topic-review-content');
+const topicReviewClose = document.querySelector('#topic-review-close');
 
 const LANGUAGE_OPTIONS = [
   { key: 'czech', flag: 'assets/flags/cz.svg', label: 'Czech' },
@@ -45,6 +49,7 @@ const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', Arrow
 let state = null;
 let selectedLanguages = new Set(['portuguese_pt']);
 let heldMovement = { key: null, timeoutId: null };
+let topicReviewOrigin = null;
 
 function groups() {
   return [...new Set(vocabulary.map((row) => row.group))];
@@ -269,14 +274,64 @@ function renderTopics() {
   completedLevelsTotal.textContent = progress.completedLevels;
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
+    const card = document.createElement('div');
+    card.className = 'topic-card';
     const button = document.createElement('button');
     button.className = 'topic-button';
     button.type = 'button';
     button.innerHTML = `${group}<small>${count} words${progress.wonTopics.includes(group) ? ' · completed' : ''}</small>`;
     button.addEventListener('click', () => startTopic(group));
-    return button;
+    const infoButton = document.createElement('button');
+    infoButton.className = 'topic-info-button';
+    infoButton.type = 'button';
+    infoButton.textContent = 'i';
+    infoButton.setAttribute('aria-label', `Review ${group} vocabulary`);
+    infoButton.addEventListener('click', () => openTopicReview(group, infoButton));
+    card.append(button, infoButton);
+    return card;
   }));
   show(screens.topics);
+}
+
+function openTopicReview(group, origin) {
+  topicReviewOrigin = origin;
+  topicReviewTitle.textContent = `${group} vocabulary`;
+  const languages = LANGUAGE_OPTIONS.filter((language) => selectedLanguages.has(language.key));
+  const table = document.createElement('table');
+  table.className = 'topic-review-table';
+  const headerRow = document.createElement('tr');
+  for (const label of ['English', ...languages.map((language) => language.label)]) {
+    const header = document.createElement('th');
+    header.scope = 'col';
+    header.textContent = label;
+    headerRow.append(header);
+  }
+  const head = document.createElement('thead');
+  head.append(headerRow);
+  const body = document.createElement('tbody');
+  for (const row of vocabulary.filter((row) => row.group === group)) {
+    const tableRow = document.createElement('tr');
+    for (const value of [row.english, ...languages.map((language) => row[language.key])]) {
+      const cell = document.createElement('td');
+      cell.textContent = value;
+      tableRow.append(cell);
+    }
+    body.append(tableRow);
+  }
+  table.append(head, body);
+  topicReviewContent.replaceChildren(table);
+  document.body.classList.add('topic-review-open');
+  topicReviewDialog.classList.remove('hidden');
+  topicReviewClose.focus();
+}
+
+function closeTopicReview() {
+  if (topicReviewDialog.classList.contains('hidden')) return;
+  topicReviewDialog.classList.add('hidden');
+  document.body.classList.remove('topic-review-open');
+  topicReviewContent.replaceChildren();
+  topicReviewOrigin?.focus();
+  topicReviewOrigin = null;
 }
 
 function startTopic(group) {
@@ -473,10 +528,16 @@ document.querySelector('#pause-button').addEventListener('click', pauseGame);
 document.querySelector('#continue-button').addEventListener('click', resumeGame);
 document.querySelector('#quit-button').addEventListener('click', quitTopic);
 document.querySelector('#return-button').addEventListener('click', renderTopics);
+topicReviewClose.addEventListener('click', closeTopicReview);
 fullscreenButton.addEventListener('click', () => { toggleFullscreen().catch(() => {}); });
 document.addEventListener('fullscreenchange', updateFullscreenButton);
 
 document.addEventListener('keydown', (event) => {
+  if (!topicReviewDialog.classList.contains('hidden') && event.key === 'Escape') {
+    event.preventDefault();
+    closeTopicReview();
+    return;
+  }
   if (!state) return;
   if (event.key === 'Escape') {
     event.preventDefault();

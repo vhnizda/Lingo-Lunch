@@ -40,3 +40,20 @@ test('topic menu highlights the cumulative completed-level total', async () => {
   assert.match(app, /progress\.completedLevels \+= 1;/);
   assert.match(app, /completedLevels: 0/);
 });
+
+test('topic review opens as a dimmed, scrollable vocabulary dialog with selected languages', async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+
+  assert.match(html, /id="topic-review-dialog"[^>]*role="dialog"[^>]*aria-modal="true"/);
+  assert.match(html, /id="topic-review-close"[^>]*aria-label="Close vocabulary review"/);
+  assert.match(html, /id="topic-review-content"/);
+  assert.match(app, /function openTopicReview\(group, origin\)/);
+  assert.match(app, /vocabulary\.filter\(\(row\) => row\.group === group\)/);
+  assert.match(app, /LANGUAGE_OPTIONS\.filter\(\(language\) => selectedLanguages\.has\(language\.key\)\)/);
+  assert.match(css, /\.topic-review-dialog \{[\s\S]*position:\s*fixed[\s\S]*background:\s*rgba\(/);
+  assert.match(css, /\.topic-review-panel \{[\s\S]*max-height:\s*calc\(100dvh - 24px\)/);
+  assert.match(css, /\.topic-review-content \{[\s\S]*overflow:\s*auto/);
+  assert.match(css, /\.topic-info-button \{[\s\S]*position:\s*absolute/);
+});
