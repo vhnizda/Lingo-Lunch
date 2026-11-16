@@ -24,3 +24,19 @@ test('eating animation holds its final frame until the word is cleared', async (
 
   assert.match(css, /\.frog--eating img \{ animation: frog-eating 360ms steps\(5, end\) forwards; \}/);
 });
+
+test('arrow movement completes a correct eat immediately while Space remains ignored', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+
+  assert.match(app, /function finishEatingForMovement\(\)[\s\S]*?resolveCorrectAnswer\(\)/);
+  assert.match(app, /function move\(direction\) \{\n  if \(!state \|\| state\.paused\) return false;\n  if \(finishEatingForMovement\(\) \|\| !state\) return false;/);
+  assert.match(app, /function munch\(\) \{\n  if \(!state \|\| state\.paused \|\| state\.eatTimer\) return;/);
+});
+
+test('held arrow movement uses a controlled repeat and stops on key release', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+
+  assert.match(app, /const HELD_MOVE_INITIAL_DELAY_MS = 250;/);
+  assert.match(app, /const HELD_MOVE_INTERVAL_MS = 120;/);
+  assert.match(app, /document\.addEventListener\('keyup', \(event\) => \{[\s\S]*?stopHeldMovement\(event\.key\)/);
+});

@@ -38,9 +38,13 @@ const LANGUAGE_OPTIONS = [
 ];
 const PROGRESS_KEY = 'lingo-lunch-progress';
 const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
+const HELD_MOVE_INITIAL_DELAY_MS = 250;
+const HELD_MOVE_INTERVAL_MS = 120;
+const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
 
 let state = null;
 let selectedLanguages = new Set(['portuguese_pt']);
+let heldMovement = { key: null, timeoutId: null };
 
 function groups() {
   return [...new Set(vocabulary.map((row) => row.group))];
@@ -84,15 +88,28 @@ function clearEatTimer() {
   if (state) state.eatTimer = null;
 }
 
+function stopHeldMovement(key = null) {
+  if (key !== null && heldMovement.key !== key) return;
+  if (heldMovement.timeoutId !== null) window.clearTimeout(heldMovement.timeoutId);
+  heldMovement = { key: null, timeoutId: null };
+}
+
 function resolveCorrectAnswer() {
   const timer = state?.eatTimer;
-  if (!timer || state.paused || state.board !== timer.board) return;
+  if (!timer || state.paused || state.board !== timer.board) return false;
 
   timer.tile.cleared = true;
   state.eatTimer = null;
   state.frogAnimation = 'idle';
   renderGame();
-  completeLevelWhenReady();
+  return completeLevelWhenReady();
+}
+
+function finishEatingForMovement() {
+  const timer = state?.eatTimer;
+  if (!timer) return false;
+  window.clearTimeout(timer.timeoutId);
+  return resolveCorrectAnswer();
 }
 
 function scheduleCorrectAnswer() {
@@ -127,6 +144,7 @@ function scheduleWrongAnswer() {
 
 function pauseGame() {
   if (!state || state.paused) return;
+  stopHeldMovement();
   for (const timer of [state.wrongTimer, state.eatTimer]) {
     if (!timer) continue;
     window.clearTimeout(timer.timeoutId);
@@ -156,6 +174,7 @@ function resumeGame() {
 
 function quitTopic() {
   if (!state) return;
+  stopHeldMovement();
   clearWrongTimer();
   clearEatTimer();
   state = null;
@@ -328,7 +347,7 @@ function renderGame() {
       button.dataset.pointerType = 'touch';
     }, { passive: true });
     button.addEventListener('click', () => {
-      if (state.eatTimer) return;
+      if (finishEatingForMovement() || !state) return;
       if (shouldMunchOnTileTap({
         focusedIndex: state.focus,
         tappedIndex: tileIndex,
@@ -349,7 +368,8 @@ function renderGame() {
 }
 
 function move(direction) {
-  if (!state || state.paused || state.eatTimer) return;
+  if (!state || state.paused) return false;
+  if (finishEatingForMovement() || !state) return false;
   const row = Math.floor(state.focus / boardConfig.columns);
   const column = state.focus % boardConfig.columns;
   const offsets = { up: [-1, 0], down: [1, 0], left: [0, -1], right: [0, 1] };
@@ -357,13 +377,30 @@ function move(direction) {
   const nextRow = Math.min(boardConfig.rows - 1, Math.max(0, row + rowOffset));
   const nextColumn = Math.min(boardConfig.columns - 1, Math.max(0, column + columnOffset));
   const nextFocus = nextRow * boardConfig.columns + nextColumn;
-  if (nextFocus === state.focus) return;
+  if (nextFocus === state.focus) return true;
   state.focus = nextFocus;
   state.frogAnimation = frogAnimationForMove(direction);
   renderGame();
+  return true;
+}
+
+function startHeldMovement(key, direction) {
+  if (heldMovement.key === key) return;
+  stopHeldMovement();
+  if (!move(direction)) return;
+  heldMovement = { key, timeoutId: null };
+  const repeat = () => {
+    if (!move(direction)) {
+      stopHeldMovement(key);
+      return;
+    }
+    heldMovement.timeoutId = window.setTimeout(repeat, HELD_MOVE_INTERVAL_MS);
+  };
+  heldMovement.timeoutId = window.setTimeout(repeat, HELD_MOVE_INITIAL_DELAY_MS);
 }
 
 function finishTopic(won) {
+  stopHeldMovement();
   clearWrongTimer();
   clearEatTimer();
   appShell.classList.remove('is-paused');
@@ -392,7 +429,9 @@ function completeLevelWhenReady() {
       state.index += 1;
       window.setTimeout(startLevel, 450);
     }
+    return true;
   }
+  return false;
 }
 
 function munch() {
@@ -445,15 +484,19 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (state.paused) return;
-  const moves = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
-  if (moves[event.key]) {
+  if (ARROW_MOVES[event.key]) {
     event.preventDefault();
-    move(moves[event.key]);
+    if (!event.repeat) startHeldMovement(event.key, ARROW_MOVES[event.key]);
+    return;
   }
   if (event.code === 'Space') {
     event.preventDefault();
     munch();
   }
+});
+
+document.addEventListener('keyup', (event) => {
+  if (ARROW_MOVES[event.key]) stopHeldMovement(event.key);
 });
 
 renderTopics();

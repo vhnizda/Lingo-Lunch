@@ -11,7 +11,8 @@ The MVP is deployed to GitHub Pages from `main` after the Pages workflow runs. I
 ### Controls
 
 - Click or tap a different tile to move the frog; click or tap the focused tile again to eat it.
-- **Arrow keys** move the frog; **Space** eats the focused tile.
+- **Arrow keys** move the frog; **Space** eats the focused tile. A new arrow command completes an in-progress correct-eat animation immediately, clears that word, and then moves the frog. Space on that just-cleared square remains ignored.
+- Press an arrow key once per deliberate square move. Holding an arrow key repeats movement at a medium pace and stops immediately when released.
 - **Escape** or the **Pause** button beside the lives: pause the game. The pause panel freezes the board and feedback timer, and offers **Continue** or **Quit topic**.
 - **Full Screen**: requests native operating-system full screen, including hidden browser navigation where the browser permits it. If a browser refuses this (common on iPad Safari), the game explains that it can only maximize in-page; use **Safari Share → Add to Home Screen** and launch the installed app for screen-filling play.
 
