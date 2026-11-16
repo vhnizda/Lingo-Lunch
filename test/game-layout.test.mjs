@@ -62,13 +62,14 @@ test('styles provide room for frog lives and show controls in the pause menu', a
   assert.match(css, /\.pause-instructions \{[^}]*text-align:\s*left/);
 });
 
-test('mobile topic controls compact five flags beside the language prompt', async () => {
+test('phone portrait centers the language label above the flag row', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-  const mobileRule = css.match(/@media \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
-  assert.ok(mobileRule, 'mobile layout rule must exist');
-  assert.match(mobileRule, /\.language-toggle \{ min-width: 42px; min-height: 38px; \}/);
-  assert.match(mobileRule, /\.language-toggles \{ gap: 4px; \}/);
+  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(portraitRule, 'phone portrait language layout rule must exist');
+  assert.match(portraitRule, /\.language-controls \{ flex-direction:\s*column; align-items:\s*center; justify-content:\s*center; \}/);
+  assert.match(portraitRule, /\.language-label \{ text-align:\s*center; \}/);
+  assert.match(portraitRule, /\.language-toggles \{ justify-content:\s*center; \}/);
 });
 
 test('phone portrait keeps the play status on one compact line', async () => {

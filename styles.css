@@ -501,8 +501,11 @@ body.topic-review-open { overflow: hidden; }
   .controls { gap: 10px; flex-wrap: wrap; }
 }
 
-/* Phone portrait reserves a tighter, lower sticker position beside LUNCH. */
+/* Phone portrait stacks the language prompt above a centered flag row. */
 @media (pointer: coarse) and (orientation: portrait) and (max-width: 650px) {
+  .language-controls { flex-direction: column; align-items: center; justify-content: center; }
+  .language-label { text-align: center; }
+  .language-toggles { justify-content: center; }
   .edition-sticker { top: 48px; left: calc(50% + 68px); }
 }
 
