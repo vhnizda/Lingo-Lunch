@@ -35,7 +35,7 @@ test('topic menu highlights the cumulative completed-level total', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 
-  assert.match(html, /<p class="completed-levels-banner">Completed Levels Total: <strong id="completed-levels-total">0<\/strong><\/p>/);
+  assert.match(html, /<p class="completed-levels-banner">TOTAL LEVELS CLEARED: <strong id="completed-levels-total">0<\/strong><\/p>/);
   assert.match(css, /\.completed-levels-banner \{/);
   assert.match(app, /progress\.completedLevels \+= 1;/);
   assert.match(app, /completedLevels: 0/);
