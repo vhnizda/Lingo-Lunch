@@ -501,9 +501,9 @@ body.topic-review-open { overflow: hidden; }
   .controls { gap: 10px; flex-wrap: wrap; }
 }
 
-/* Portrait touch screens move the crop 4 px left; desktop and touch landscape retain the left crop. */
+/* Portrait touch screens use the shared default crop; this remains explicit for future device-specific tuning. */
 @media (pointer: coarse) and (orientation: portrait) {
-  .frog img { left: -4px; }
+  .frog img { left: -10px; }
 }
 
 /* Re-evaluated by the browser immediately when phones rotate to landscape. */
