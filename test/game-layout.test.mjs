@@ -7,12 +7,10 @@ test('game screen uses touch-first instructions and a status-bar pause button', 
 
   assert.doesNotMatch(html, /id="munch-button"|class="arrow-pad"|data-move=/);
   assert.match(html, /<div class="prompt-heading">[\s\S]*<button id="pause-button" class="leave-button prompt-pause-button" type="button">PAUSE<\/button>/);
-  assert.match(html, /class="instruction instruction--pointer"/);
-  assert.match(html, /Tap any box once to move the frog there and eat it\./);
-  assert.match(html, /Click any box to select it\. Click the selected box again to eat it\./);
-  assert.match(html, /class="instruction instruction--keyboard"/);
-  assert.match(html, /<kbd class="key" aria-label="Arrow up">↑<\/kbd>/);
-  assert.match(html, /<kbd class="key key--space">Space<\/kbd>/);
+  assert.doesNotMatch(html, /class="play-instructions"/);
+  assert.match(html, /class="pause-instructions" aria-label="Game controls"/);
+  assert.match(html, /Tap a box to move the frog there and eat it\./);
+  assert.match(html, /Arrow keys move\. Space eats\./);
 });
 
 test('touch-first play enables one-tap movement and munching', async () => {
@@ -56,14 +54,12 @@ test('topic menu defaults to Portuguese and points the language prompt at the fl
   assert.match(html, /<span class="language-label">PICK YOUR LANGUAGE\(S\) →<\/span>/);
 });
 
-test('styles provide room for frog lives and keep the instructions centered', async () => {
+test('styles provide room for frog lives and show controls in the pause menu', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
   assert.match(css, /\.lives-panel \{/);
   assert.match(css, /\.life-frog \{/);
-  assert.match(css, /\.play-instructions \{[^}]*text-align:\s*center/);
-  assert.match(css, /\.key--space \{[^}]*min-width:/);
-  assert.match(css, /\.app-shell\.is-touch-first \.instruction--keyboard \{ display: none; \}/);
+  assert.match(css, /\.pause-instructions \{[^}]*text-align:\s*left/);
 });
 
 test('mobile topic controls compact five flags beside the language prompt', async () => {
@@ -102,7 +98,7 @@ test('active play uses the viewport height and keeps a four-row board scalable',
   assert.match(app, /appShell\.classList\.toggle\('is-playing', screen === screens\.game\)/);
   assert.match(css, /\.app-shell\.is-playing \{[\s\S]*min-height:\s*100dvh/);
   assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*height:\s*calc\(100dvh - 16px\)/);
-  assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*grid-template-rows:\s*auto auto auto minmax\(229px, 1fr\) auto/);
+  assert.match(css, /\.app-shell\.is-playing \.game-screen \{[\s\S]*grid-template-rows:\s*auto auto auto minmax\(229px, 1fr\);/);
   assert.match(css, /\.app-shell\.is-playing \.board-stage \{ min-height: 229px; \}/);
   assert.match(css, /\.board-stage > \.board \{ width: 100%; height: 100%; \}/);
   assert.match(css, /\.frog \{[\s\S]*height:\s*65%;[\s\S]*aspect-ratio:\s*1;[\s\S]*width:\s*auto;/);

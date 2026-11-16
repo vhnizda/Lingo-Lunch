@@ -379,7 +379,7 @@ body.topic-review-open { overflow: hidden; }
 }
 .app-shell.is-playing .game-screen {
   display: grid;
-  grid-template-rows: auto auto auto minmax(229px, 1fr) auto;
+  grid-template-rows: auto auto auto minmax(229px, 1fr);
   height: calc(100dvh - 16px);
   min-height: 560px;
   padding: clamp(12px, 2vw, 22px);
@@ -449,6 +449,9 @@ body.topic-review-open { overflow: hidden; }
   padding: clamp(22px, 5vw, 42px);
   text-align: center;
 }
+.pause-instructions { margin: 16px 0 0; color: #d5e8dc; font-size: clamp(18px, 3vw, 24px); line-height: 1.1; text-align: left; }
+.pause-instructions p { margin: 8px 0; }
+.pause-instructions strong { color: #91d8cf; font-family: "Press Start 2P", monospace; font-size: .55em; }
 .pause-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
 .pause-actions .leave-button { min-width: 130px; }
 
@@ -507,7 +510,7 @@ body.topic-review-open { overflow: hidden; }
 @media (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
   .app-shell.is-playing { padding: 4px; }
   .app-shell.is-playing .game-screen { min-height: 0; padding: 6px 10px; }
-  .app-shell.is-playing .game-screen { grid-template-rows: auto auto auto minmax(152px, 1fr) auto; }
+  .app-shell.is-playing .game-screen { grid-template-rows: auto auto auto minmax(152px, 1fr); }
   .app-shell.is-playing .fullscreen-button { display: none; }
   .app-shell.is-playing .status-bar {
     grid-template-columns: 1.4fr .8fr 1.4fr;
