@@ -1,6 +1,6 @@
 import { buildBoard, createTopicRun, resolveMunch } from './src/game.js';
 import { pauseTimer, resumeTimer } from './src/pause.js';
-import { shouldMunchOnTileTap } from './src/tap-controls.js';
+import { shouldMoveToEmptyOnTouchTap, shouldMunchOnTileTap } from './src/tap-controls.js';
 import { FROG_EAT_ANIMATION, FROG_EAT_DURATION_MS, frogAnimationForMove } from './src/frog.js';
 
 const vocabulary = await fetch('./data/vocabulary.json').then((response) => {
@@ -467,6 +467,13 @@ function renderGame() {
     button.addEventListener('click', () => {
       if (!state || state.transitioning) return;
       if (finishEatingForMovement() || !state) return;
+      const isTouchInput = isTouchFirstDevice() || button.dataset.pointerType === 'touch';
+      if (shouldMoveToEmptyOnTouchTap({ isCleared: tile.cleared, isTouchInput })) {
+        state.focus = tileIndex;
+        state.frogAnimation = frogAnimationForMove('up', { isTouch: true });
+        renderGame();
+        return;
+      }
       if (shouldMunchOnTileTap({
         focusedIndex: state.focus,
         tappedIndex: tileIndex,
