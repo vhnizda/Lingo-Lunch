@@ -11,22 +11,25 @@ test('correct eating clears the word without pending-tile styling or a second an
   assert.match(app, /function resolveCorrectAnswer\(\)[\s\S]*?state\.frogAnimation = 'idle';/);
 });
 
-test('wrong-answer cleanup returns the frog to idle before rerendering', async () => {
+test('a wrong-answer review clears its tile only when another answer is eaten', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
-  const wrongAnswerCleanup = app.match(/function resolveWrongAnswer\(\) \{([\s\S]*?)\n\}/)?.[1];
+  const clearWrongReview = app.match(/function clearWrongReview\(\) \{([\s\S]*?)\n\}/)?.[1];
 
-  assert.ok(wrongAnswerCleanup, 'wrong-answer cleanup must exist');
-  assert.match(wrongAnswerCleanup, /state\.frogAnimation = 'idle';[\s\S]*?renderGame\(\);/);
+  assert.ok(clearWrongReview, 'wrong-answer review cleanup must exist');
+  assert.match(clearWrongReview, /review\.tile\.cleared = true;/);
+  assert.match(clearWrongReview, /state\.pendingTiles\.delete\(review\.tile\.id\);/);
 });
 
-test('wrong-answer review remains visible for two seconds without blocking movement', async () => {
+test('wrong-answer review persists through movement and changes only on the next eat', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const moveBody = app.match(/function move\(direction\) \{([\s\S]*?)\n\}/)?.[1];
+  const munchBody = app.match(/function munch\(\) \{([\s\S]*?)\n\}/)?.[1];
 
-  assert.match(app, /const WRONG_ANSWER_REVIEW_DURATION_MS = 2000;/);
-  assert.match(app, /dueAt: Date\.now\(\) \+ WRONG_ANSWER_REVIEW_DURATION_MS,/);
   assert.ok(moveBody, 'movement flow must exist');
+  assert.ok(munchBody, 'munch flow must exist');
   assert.doesNotMatch(moveBody, /wrongTimer/);
+  assert.match(munchBody, /clearWrongReview\(\);[\s\S]*?resolveMunch/);
+  assert.doesNotMatch(app, /scheduleWrongAnswer|WRONG_ANSWER_REVIEW_DURATION_MS/);
 });
 
 test('eating animation holds its final frame until the word is cleared', async () => {

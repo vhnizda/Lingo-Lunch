@@ -44,7 +44,6 @@ const PROGRESS_KEY = 'lingo-lunch-progress';
 const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
 const HELD_MOVE_INITIAL_DELAY_MS = 250;
 const HELD_MOVE_INTERVAL_MS = 120;
-const WRONG_ANSWER_REVIEW_DURATION_MS = 2000;
 const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
 
 let state = null;
@@ -84,9 +83,14 @@ function show(screen) {
   appShell.classList.toggle('is-touch-first', isTouchFirstDevice());
 }
 
-function clearWrongTimer() {
-  if (state?.wrongTimer?.timeoutId) window.clearTimeout(state.wrongTimer.timeoutId);
-  if (state) state.wrongTimer = null;
+function clearWrongReview() {
+  const review = state?.wrongReview;
+  if (!review) return;
+  review.tile.cleared = true;
+  state.pendingTiles.delete(review.tile.id);
+  state.wrongReview = null;
+  feedbackElement.textContent = '';
+  feedbackElement.className = 'feedback';
 }
 
 function clearEatTimer() {
@@ -124,37 +128,12 @@ function scheduleCorrectAnswer() {
   timer.timeoutId = window.setTimeout(resolveCorrectAnswer, Math.max(0, timer.dueAt - Date.now()));
 }
 
-function resolveWrongAnswer() {
-  const timer = state?.wrongTimer;
-  if (!timer || state.paused || state.board !== timer.board) return;
-
-  timer.tile.cleared = true;
-  state.pendingTiles.delete(timer.tile.id);
-  state.wrongTimer = null;
-  state.frogAnimation = 'idle';
-  feedbackElement.textContent = '';
-  feedbackElement.className = 'feedback';
-  if (state.lives === 0) {
-    finishTopic(false);
-    return;
-  }
-  renderGame();
-  completeLevelWhenReady();
-}
-
-function scheduleWrongAnswer() {
-  const timer = state?.wrongTimer;
-  if (!timer || state.paused) return;
-  timer.timeoutId = window.setTimeout(resolveWrongAnswer, Math.max(0, timer.dueAt - Date.now()));
-}
-
 function pauseGame() {
   if (!state || state.paused) return;
   stopHeldMovement();
-  for (const timer of [state.wrongTimer, state.eatTimer]) {
-    if (!timer) continue;
-    window.clearTimeout(timer.timeoutId);
-    Object.assign(timer, pauseTimer(timer, Date.now()), { timeoutId: null });
+  if (state.eatTimer) {
+    window.clearTimeout(state.eatTimer.timeoutId);
+    Object.assign(state.eatTimer, pauseTimer(state.eatTimer, Date.now()), { timeoutId: null });
   }
   state.paused = true;
   appShell.classList.add('is-paused');
@@ -165,10 +144,6 @@ function pauseGame() {
 function resumeGame() {
   if (!state || !state.paused) return;
   state.paused = false;
-  if (state.wrongTimer) {
-    Object.assign(state.wrongTimer, resumeTimer(state.wrongTimer, Date.now()));
-    scheduleWrongAnswer();
-  }
   if (state.eatTimer) {
     Object.assign(state.eatTimer, resumeTimer(state.eatTimer, Date.now()));
     scheduleCorrectAnswer();
@@ -181,7 +156,7 @@ function resumeGame() {
 function quitTopic() {
   if (!state) return;
   stopHeldMovement();
-  clearWrongTimer();
+  clearWrongReview();
   clearEatTimer();
   state = null;
   appShell.classList.remove('is-paused');
@@ -348,7 +323,7 @@ function startTopic(group) {
     frogAnimation: 'idle',
     pendingTiles: new Set(),
     paused: false,
-    wrongTimer: null,
+    wrongReview: null,
     eatTimer: null,
   };
   show(screens.game);
@@ -457,7 +432,7 @@ function startHeldMovement(key, direction) {
 
 function finishTopic(won) {
   stopHeldMovement();
-  clearWrongTimer();
+  clearWrongReview();
   clearEatTimer();
   appShell.classList.remove('is-paused');
   pauseDialog.classList.add('hidden');
@@ -494,6 +469,12 @@ function munch() {
   if (!state || state.paused || state.eatTimer) return;
   const tile = state.board.tiles[state.focus];
   if (!tile || tile.cleared || state.pendingTiles.has(tile.id)) return;
+  if (state.lives === 0) {
+    clearWrongReview();
+    finishTopic(false);
+    return;
+  }
+  clearWrongReview();
   const outcome = resolveMunch({ tile, lives: state.lives });
   state.frogAnimation = FROG_EAT_ANIMATION;
 
@@ -516,13 +497,7 @@ function munch() {
   feedbackElement.textContent = `${tile.displayText} = ${outcome.englishMeaning}`;
   feedbackElement.className = 'feedback wrong';
   renderGame();
-  state.wrongTimer = {
-    board: state.board,
-    tile,
-    dueAt: Date.now() + WRONG_ANSWER_REVIEW_DURATION_MS,
-    timeoutId: null,
-  };
-  scheduleWrongAnswer();
+  state.wrongReview = { tile };
 }
 
 document.querySelector('#pause-button').addEventListener('click', pauseGame);

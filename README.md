@@ -25,7 +25,7 @@ Touch/pointer and connected keyboards use the same move-then-munch interaction. 
 - Each topic has an **i** review control. It opens a viewport-bounded, internally scrollable vocabulary table with English and the currently enabled target languages. The dimmed topic menu remains visible behind the review; use its large **×** or Escape to close it.
 - Each 24-tile board has 10 correct answers and 14 distractors—about 42% correct / 58% distractors. Tiles and correct answers are distributed as evenly as possible among the active languages. With all five enabled, each language has either four or five tiles and exactly two correct translations.
 - Correct answers repeat intentionally and are mixed across the board. Distractors are drawn from a small per-language pool and intentionally repeat as well; there are no language labels or positional language patterns.
-- A run starts with three resting-frog life icons. A wrong answer shows its English meaning for two seconds, then clears only the word content and costs one life. The board remains responsive for movement during this review, while the incorrect square cannot be eaten again.
+- A run starts with three resting-frog life icons. A wrong answer shows its English meaning until the player next eats an answer. That next eat clears the prior wrong word and its review, then shows the new result. The board remains responsive for movement during review, while the incorrect square cannot be eaten again.
 - Every cleared level adds one to the highlighted **Total Levels Cleared** on the topic menu. It is a cumulative lifetime total stored only in that browser's local storage. Version 1 has no sound.
 
 ## Vocabulary source
