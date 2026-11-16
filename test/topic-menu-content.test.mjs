@@ -10,7 +10,7 @@ test('topic menu introduces the completion goal', async () => {
   assert.doesNotMatch(html, /Eat every word in another language/);
 });
 
-test('masthead presents Lingo Lunch Basics with a slanted edition sticker', async () => {
+test('masthead presents Lingo Lunch Basics with a left-lower slanted edition sticker', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   const manifest = await readFile(new URL('../manifest.webmanifest', import.meta.url), 'utf8');
@@ -18,8 +18,16 @@ test('masthead presents Lingo Lunch Basics with a slanted edition sticker', asyn
   assert.match(html, /<title>Lingo Lunch Basics<\/title>/);
   assert.match(manifest, /"name": "Lingo Lunch Basics"/);
   assert.match(html, /<h1>LINGO<br \/>LUNCH<\/h1>\s*<span class="edition-sticker">BASICS<\/span>/);
-  assert.match(css, /\.edition-sticker \{[\s\S]*transform:\s*rotate\(8deg\)/);
+  assert.match(css, /\.edition-sticker \{[\s\S]*transform:\s*rotate\(-8deg\)/);
   assert.match(css, /\.edition-sticker \{[\s\S]*position:\s*absolute/);
+});
+
+test('phone portrait moves the Basics sticker lower and closer to LUNCH', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+
+  assert.ok(portraitRule, 'phone portrait sticker rule must exist');
+  assert.match(portraitRule, /\.edition-sticker \{ top:\s*48px; left:\s*calc\(50% \+ 68px\); \}/);
 });
 
 test('progress moves from the legacy key to Lingo Lunch storage', async () => {

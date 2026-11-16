@@ -74,7 +74,7 @@ h1 {
   font-family: "Press Start 2P", monospace;
   font-size: clamp(9px, 1.4vw, 13px);
   line-height: 1;
-  transform: rotate(8deg);
+  transform: rotate(-8deg);
 }
 h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26px); line-height: 1.45; }
 
@@ -499,6 +499,11 @@ body.topic-review-open { overflow: hidden; }
   .tile { border-width: 2px; padding: 6px 3px; font-size: clamp(16px, 4.2vw, 23px); }
   .tile.focused::after { font-size: 6px; }
   .controls { gap: 10px; flex-wrap: wrap; }
+}
+
+/* Phone portrait reserves a tighter, lower sticker position beside LUNCH. */
+@media (pointer: coarse) and (orientation: portrait) and (max-width: 650px) {
+  .edition-sticker { top: 48px; left: calc(50% + 68px); }
 }
 
 /* Portrait touch screens use the shared default crop; this remains explicit for future device-specific tuning. */
