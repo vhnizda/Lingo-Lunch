@@ -6,7 +6,7 @@ test('game screen uses touch-first instructions and a status-bar pause button', 
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 
   assert.doesNotMatch(html, /id="munch-button"|class="arrow-pad"|data-move=/);
-  assert.match(html, /<button id="pause-button" class="leave-button" type="button">PAUSE<\/button>/);
+  assert.match(html, /<div class="prompt-heading">[\s\S]*<button id="pause-button" class="leave-button prompt-pause-button" type="button">PAUSE<\/button>/);
   assert.match(html, /class="instruction instruction--pointer"/);
   assert.match(html, /Tap any box once to move the frog there and eat it\./);
   assert.match(html, /Click any box to select it\. Click the selected box again to eat it\./);
