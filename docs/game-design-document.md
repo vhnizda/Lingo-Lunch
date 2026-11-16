@@ -230,7 +230,7 @@ The MVP is a dependency-free static browser game: HTML, CSS, and ES modules. Its
 
 ### Hosting
 
-The public repository deploys through a GitHub Actions Pages workflow whenever `main` changes. The playable public URL is `https://vhnizda.github.io/Language-Munchers/`; no login is required.
+The public repository deploys through a GitHub Actions Pages workflow whenever `main` changes. The playable public URL is `https://vhnizda.github.io/Lingo-Lunch/`; no login is required.
 
 ### Data boundary
 

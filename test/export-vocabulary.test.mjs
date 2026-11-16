@@ -6,7 +6,7 @@ import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 test('vocabulary export retains playable fields and omits notes', async () => {
-  const destination = await mkdtemp(join(tmpdir(), 'language-munchers-export-'));
+  const destination = await mkdtemp(join(tmpdir(), 'lingo-lunch-export-'));
   const output = join(destination, 'vocabulary.json');
   const source = resolve('test/fixtures/vocabulary.csv');
 

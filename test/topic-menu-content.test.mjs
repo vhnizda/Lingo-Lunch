@@ -22,6 +22,14 @@ test('masthead presents Lingo Lunch Basics with a slanted edition sticker', asyn
   assert.match(css, /\.edition-sticker \{[\s\S]*position:\s*absolute/);
 });
 
+test('progress moves from the legacy key to Lingo Lunch storage', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+
+  assert.match(app, /const PROGRESS_KEY = 'lingo-lunch-progress';/);
+  assert.match(app, /const LEGACY_PROGRESS_KEY = 'language-munchers-progress';/);
+  assert.match(app, /localStorage\.setItem\(PROGRESS_KEY, JSON\.stringify\(progress\)\)/);
+});
+
 test('topic menu highlights the cumulative completed-level total', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');

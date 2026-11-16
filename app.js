@@ -36,6 +36,8 @@ const LANGUAGE_OPTIONS = [
   { key: 'spanish_standard', flag: 'assets/flags/es.svg', label: 'Spanish' },
   { key: 'italian_standard', flag: 'assets/flags/it.svg', label: 'Italian' },
 ];
+const PROGRESS_KEY = 'lingo-lunch-progress';
+const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
 
 let state = null;
 let selectedLanguages = new Set(['portuguese_pt']);
@@ -45,12 +47,17 @@ function groups() {
 }
 
 function readProgress() {
-  const progress = JSON.parse(localStorage.getItem('language-munchers-progress') ?? '{"wonTopics":[]}');
+  const savedProgress = localStorage.getItem(PROGRESS_KEY);
+  const legacyProgress = savedProgress === null ? localStorage.getItem(LEGACY_PROGRESS_KEY) : null;
+  const progress = JSON.parse(savedProgress ?? legacyProgress ?? '{"wonTopics":[]}');
+  if (savedProgress === null && legacyProgress !== null) {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+  }
   return { wonTopics: [], completedLevels: 0, ...progress };
 }
 
 function saveProgress(progress) {
-  localStorage.setItem('language-munchers-progress', JSON.stringify(progress));
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
 }
 
 function isTouchFirstDevice() {
