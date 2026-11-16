@@ -11,13 +11,15 @@ test('correct eating clears the word without pending-tile styling or a second an
   assert.match(app, /function resolveCorrectAnswer\(\)[\s\S]*?state\.frogAnimation = 'idle';/);
 });
 
-test('a wrong-answer review clears its tile only when another answer is eaten', async () => {
+test('a wrong-answer tile clears after its eat animation while review feedback remains', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
-  const clearWrongReview = app.match(/function clearWrongReview\(\) \{([\s\S]*?)\n\}/)?.[1];
+  const clearWrongTile = app.match(/function clearWrongTile\(\) \{([\s\S]*?)\n\}/)?.[1];
 
-  assert.ok(clearWrongReview, 'wrong-answer review cleanup must exist');
-  assert.match(clearWrongReview, /review\.tile\.cleared = true;/);
-  assert.match(clearWrongReview, /state\.pendingTiles\.delete\(review\.tile\.id\);/);
+  assert.ok(clearWrongTile, 'wrong-tile cleanup must exist');
+  assert.match(clearWrongTile, /review\.tile\.cleared = true;/);
+  assert.match(clearWrongTile, /state\.pendingTiles\.delete\(review\.tile\.id\);/);
+  assert.match(app, /dueAt: Date\.now\(\) \+ FROG_EAT_DURATION_MS,/);
+  assert.match(app, /scheduleWrongTileClear\(\);/);
 });
 
 test('wrong-answer review persists through movement and changes only on the next eat', async () => {
