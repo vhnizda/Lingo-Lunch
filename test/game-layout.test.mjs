@@ -128,6 +128,16 @@ test('active play uses the viewport height and keeps a four-row board scalable',
   assert.match(css, /\.frog \{[\s\S]*height:\s*65%;[\s\S]*aspect-ratio:\s*1;[\s\S]*width:\s*auto;/);
 });
 
+test('short touch landscape compacts the pause dialog below gameplay text scale', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const landscapeRule = css.match(/@media \(pointer: coarse\) and \(orientation: landscape\) and \(max-height: 520px\) \{([\s\S]*?)\n\}/)?.[1];
+
+  assert.ok(landscapeRule, 'short touch landscape rule must exist');
+  assert.match(landscapeRule, /\.pause-panel \{[^}]*max-height:\s*calc\(100dvh - 16px\)[^}]*padding:\s*12px 16px/);
+  assert.match(landscapeRule, /\.pause-instructions \{[^}]*font-size:\s*16px/);
+  assert.match(landscapeRule, /\.pause-panel \.intro \{[^}]*font-size:\s*16px/);
+});
+
 test('short touch landscape screens use a compact orientation layout', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
