@@ -1,35 +1,30 @@
-# Language Munchers Basics — Game Design Document
+# Lingo Lunch Basics — Game Design Document
 
 **Status:** Living MVP specification — deployed and playable
 **Implementation status:** Static browser MVP implemented and deployed to GitHub Pages
 
 ## 1. Concept
 
-Language Munchers Basics is a single-player vocabulary-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* and *Word Munchers* games. **Language Munchers** is the reusable core title; **Basics** is this edition's secondary label, rendered as a slanted sticker to the right of the two-line core title, and leaves a clear path for later games using the same loop with different learning focuses.
+Lingo Lunch Basics is an original single-player vocabulary-recognition game built around a short, spatial tile-selection loop. **Lingo Lunch** is the reusable core title; **Basics** is this edition's secondary label, rendered as a slanted sticker to the right of the two-line core title, and leaves a clear path for later games using the same loop with different learning focuses.
 
 A frog occupies a grid of word tiles. Each round shows an English prompt at the top of the screen. Every tile displays exactly one target-language word or phrase—Czech, Standard German, European Portuguese (`pt-PT`), Standard Spanish, or Standard Italian—never a grouped multilingual answer. The player deliberately eats every tile whose single displayed value translates the English prompt. Tiles with other meanings are distractors.
 
-The game teaches recognition of one concept across five target languages while preserving a short, spatial action loop. It will use an original frog, art direction, sound, UI, names, and implementation. It must not copy protected assets, interface layouts, audio, characters, terminology, or code from the Munchers games.
+The game teaches recognition of one concept across five target languages while preserving a short, spatial action loop. It uses an original frog, art direction, sound, UI, names, and implementation.
 
-## 2. Research findings and design consequences
+## 2. Design consequences
 
-The original *Number Munchers* manual establishes the core pattern: use directional controls to move a player character over a grid, use a separate action to consume the current target, clear every target matching the rule at the top of the screen, and lose a Muncher for an incorrect target or enemy collision. It also uses lives, score, transient safe zones, several enemy behaviours, and escalating pressure across levels.[1]
-
-*Word Munchers Deluxe* applies the same pattern to language exercises. Its documented options include topic and difficulty selection, ordered or random fact sequences, a Troggle-free mode, arrow-key movement, a separate Space action to munch, spoken target playback, and a life loss for a wrong answer or an enemy collision. It also introduces temporary invincibility and a reward break after three cleared boards.[4] The MECC product description explicitly presents the ability to turn off enemies as a way to give learners more time.[3]
-
-### What Language Munchers should reuse
+### What Lingo Lunch should provide
 
 - **Rule-first boards:** keep the criterion visibly fixed above the grid for the entire round.
 - **Move, then choose:** movement and answer selection must be separate actions. A player may stand on a tile, read it, and decide whether to eat it; movement alone must never submit an answer.
 - **Clear-the-set objective:** the board ends only after all correct tiles currently placed on it are eaten.
-- **Short, configurable practice:** let a player choose a small vocabulary group, a language mode, and ordered or randomized prompt sequencing. The original *Number Munchers* manual likewise documents choosing a range and progressing in order, which supports making study-set and sequencing choices explicit rather than hidden.[2]
+- **Short, configurable practice:** let a player choose a small vocabulary group, a language mode, and ordered or randomized prompt sequencing.
 - **A calm learning mode:** the default initial experience should have no enemies or timer. Speed pressure must not be required to practice vocabulary recognition.
 - **Optional mastery pressure:** enemies, timer, score chase, streaks, and temporary protection are viable later modes, not baseline learning requirements.
-- **Inter-board payoff:** use a small original celebration or progress summary after a fixed number of cleared boards; do not copy the Munchers' cutscenes.
+- **Inter-board payoff:** use a small original celebration or progress summary after a fixed number of cleared boards.
 
-### What Language Munchers should not reuse
+### What Lingo Lunch should avoid
 
-- The Munchers games' characters, Troggles, “Muncher” naming, art, audio, exact scoring tables, cutscenes, or UI presentation.
 - Enemy behaviours that mutate, remove, or replace answer tiles. That can be interesting arcade design, but it undermines a vocabulary exercise because the player can lose a planned answer through no learning-related mistake.
 - Any mechanic that makes a language learner answer before the word is legible or before the player can opt into time pressure.
 
@@ -161,7 +156,7 @@ A later mastery mode may add original hazards or a timer after the calm loop is 
 
 ## 6. Board design
 
-The source games demonstrate that a compact, fully visible grid supports scan-and-decide play. Their exact board dimensions and presentation are not a requirement for this game. The Language Munchers grid must instead be sized around the longest expected Czech, German, Portuguese, Spanish, and Italian strings at the minimum supported laptop viewport.
+A compact, fully visible grid supports scan-and-decide play. Lingo Lunch's board is sized around the longest expected Czech, German, Portuguese, Spanish, and Italian strings at the minimum supported laptop viewport.
 
 Each board must:
 
@@ -212,7 +207,7 @@ Progress is stored locally on the player's device for version 1. No account, clo
 
 ## 8. Presentation, audio, and accessibility
 
-The player character is a frog. The MVP visual direction is original, nostalgic, blocky Apple II-era computer-game imagery around the board, while word tiles remain clean and highly legible. The shipped asset is `assets/frog-sprites.png`, a 1374 × 1145 px RGBA sprite sheet arranged on an exact 6-column × 5-row grid of 229 × 229 px cells with no gutters. Rows map top-to-bottom to **Eating**, **Jump up**, **Jump down**, **Jump left**, and **Jump right**; frames run left-to-right at X positions 0, 229, 458, 687, 916, and 1145 px. The implementation must advance across the five frame-to-frame displacements with `steps(5, end)`, not `steps(6, end)`, so it only shows whole cells. The sprite window shifts the sheet 3 px up and 10 px left to center the frog and keep adjacent-frame fragments outside the crop. On touch-first portrait viewports only, the left shift becomes 4 px right while the 3 px upward shift remains; desktop and touch landscape retain the 10 px left shift. The frog fills 65% of its focused tile, above the tile background and below the word text. Keyboard and on-screen directional input select the matching jump row; moving focus by touch uses jump-up at the destination; Munch uses one 360 ms eating animation only, then returns to the idle frame after clearing. It must not reproduce *Number Munchers* assets, characters, layouts, sounds, or branding.
+The player character is a frog. The MVP visual direction is original, nostalgic, blocky computer-game imagery around the board, while word tiles remain clean and highly legible. The shipped asset is `assets/frog-sprites.png`, a 1374 × 1145 px RGBA sprite sheet arranged on an exact 6-column × 5-row grid of 229 × 229 px cells with no gutters. Rows map top-to-bottom to **Eating**, **Jump up**, **Jump down**, **Jump left**, and **Jump right**; frames run left-to-right at X positions 0, 229, 458, 687, 916, and 1145 px. The implementation must advance across the five frame-to-frame displacements with `steps(5, end)`, not `steps(6, end)`, so it only shows whole cells. The sprite window shifts the sheet 3 px up and 10 px left to center the frog and keep adjacent-frame fragments outside the crop. On touch-first portrait viewports only, the left shift becomes 4 px right while the 3 px upward shift remains; desktop and touch landscape retain the 10 px left shift. The frog fills 65% of its focused tile, above the tile background and below the word text. Keyboard and on-screen directional input select the matching jump row; moving focus by touch uses jump-up at the destination; Munch uses one 360 ms eating animation only, then returns to the idle frame after clearing.
 
 Initial presentation requirements:
 
@@ -225,7 +220,7 @@ Initial presentation requirements:
 - Pause control is visible and documented;
 - animations must not make text unreadable or delay input unnecessarily.
 
-*Word Munchers Deluxe* made spoken target playback available during play.[4] Language Munchers deliberately defers all sound—including pronunciation, music, and sound effects—until after the visual MVP is validated. Text remains the complete source of prompt and tile meaning in version 1.
+Lingo Lunch deliberately defers all sound—including pronunciation, music, and sound effects—until after the visual MVP is validated. Text remains the complete source of prompt and tile meaning in version 1.
 
 Music, pronunciation voices, sound effects, animation style, visual mood, and wider accessibility options remain open for later versions.
 
@@ -280,10 +275,3 @@ Keep the deployed game aligned with this document as design decisions change. Th
 - red-X disabled language flags, native/full-page full-screen fallback, standalone PWA metadata, and iPad Add-to-Home-Screen guidance;
 - the 229 px frog sprite grid, exact row mapping, whole-frame stepping, and left crop offset;
 - browser-local progress, reviewed public vocabulary export only, and a public GitHub Pages deployment.
-
-## Sources
-
-[1] https://mirrors.apple2.org.za/ftp.apple.asimov.net/documentation/applications/misc/MECC_Number_Munchers_manual.pdf
-[2] https://archive.org/download/Macintosh_Garden_Manuals_2021_N-O/NumberMunchersManual.pdf
-[3] https://mecc.co/word-munchers-deluxe
-[4] https://oldgamesdownload.com/readme/word-munchers-deluxe-windows-readme-english

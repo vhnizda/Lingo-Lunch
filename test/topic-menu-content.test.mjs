@@ -10,14 +10,14 @@ test('topic menu introduces the completion goal', async () => {
   assert.doesNotMatch(html, /Eat every word in another language/);
 });
 
-test('masthead presents Basics as a slanted edition sticker', async () => {
+test('masthead presents Lingo Lunch Basics with a slanted edition sticker', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   const manifest = await readFile(new URL('../manifest.webmanifest', import.meta.url), 'utf8');
 
-  assert.match(html, /<title>Language Munchers Basics<\/title>/);
-  assert.match(manifest, /"name": "Language Munchers Basics"/);
-  assert.match(html, /<h1>LANGUAGE<br \/>MUNCHERS<\/h1>\s*<span class="edition-sticker">BASICS<\/span>/);
+  assert.match(html, /<title>Lingo Lunch Basics<\/title>/);
+  assert.match(manifest, /"name": "Lingo Lunch Basics"/);
+  assert.match(html, /<h1>LINGO<br \/>LUNCH<\/h1>\s*<span class="edition-sticker">BASICS<\/span>/);
   assert.match(css, /\.edition-sticker \{[\s\S]*transform:\s*rotate\(8deg\)/);
   assert.match(css, /\.edition-sticker \{[\s\S]*position:\s*absolute/);
 });

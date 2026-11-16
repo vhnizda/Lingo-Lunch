@@ -158,7 +158,7 @@ function quitTopic() {
 }
 
 function showFullscreenNotice() {
-  fullscreenNotice.textContent = 'This browser cannot enter system full screen. Maximize is active. On iPad, use Safari Share → Add to Home Screen, then open Language Munchers from the Home Screen for a screen-filling app.';
+  fullscreenNotice.textContent = 'This browser cannot enter system full screen. Maximize is active. On iPad, use Safari Share → Add to Home Screen, then open Lingo Lunch from the Home Screen for a screen-filling app.';
   fullscreenNotice.classList.remove('hidden');
 }
 
