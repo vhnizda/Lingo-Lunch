@@ -78,10 +78,12 @@ test('mobile topic controls compact five flags beside the language prompt', asyn
 test('phone portrait keeps the play status on one compact line', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-  assert.match(css, /\.app-shell\.is-playing \.status-bar \{ grid-template-columns: 1fr \.8fr 1fr; gap: 4px; padding: 0 0 4px; font-size: 18px; white-space: nowrap; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.fullscreen-button \{ display: none; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.status-bar \{ grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\) minmax\(0, 1fr\);/);
+  assert.match(css, /\.app-shell\.is-playing \.status-bar > div \{ min-width: 0; text-align: left; \}/);
   assert.match(css, /\.app-shell\.is-playing \.lives-panel \{ grid-column: auto; gap: 4px; \}/);
-  assert.match(css, /\.app-shell\.is-playing \.prompt-box \{ padding: 4px 8px; \}/);
-  assert.match(css, /\.app-shell\.is-playing \.feedback \{ min-height: 20px; margin: 2px 0; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.prompt-pause-button \{[^}]*margin-left: auto;/);
+  assert.match(css, /\.app-shell\.is-playing \.prompt-box, \.app-shell\.is-playing \.board-stage \{ max-width: 100%; \}/);
 });
 
 test('tablet menus compact all topics into the visible fullscreen viewport', async () => {
