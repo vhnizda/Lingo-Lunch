@@ -84,6 +84,30 @@ test('createTopicRun returns every selected-topic concept exactly once in a shuf
   assert.notDeepEqual(run.map((row) => row.id), TOPIC_ROWS.map((row) => row.id));
 });
 
+test('buildBoard gives every selected language one correct tile on either 12-tile phone layout', () => {
+  const languages = ['czech', 'german_standard', 'portuguese_pt', 'spanish_standard', 'italian_standard'];
+  for (const layout of [
+    { columns: 3, rows: 4, correctTiles: 5 },
+    { columns: 4, rows: 3, correctTiles: 5 },
+  ]) {
+    const board = buildBoard({
+      topicRows: TOPIC_ROWS,
+      prompt: TOPIC_ROWS[0],
+      languages,
+      layout,
+      random: deterministicRandom([0.91, 0.22, 0.73, 0.44, 0.65, 0.36, 0.57, 0.18]),
+    });
+
+    assert.equal(board.tiles.length, 12);
+    assert.equal(board.tiles.filter((tile) => tile.isCorrect).length, 5);
+    for (const language of languages) {
+      assert.equal(board.tiles.filter((tile) => tile.language === language && tile.isCorrect).length, 1);
+    }
+    assert.ok(isBoardValid(board));
+  }
+});
+
+
 test('buildBoard creates a valid 24-tile 10/14 board with eight tiles per language', () => {
   const languages = ['czech', 'german_standard', 'portuguese_pt'];
   const board = buildBoard({

@@ -1,4 +1,4 @@
-import { boardConfig, buildBoard, createTopicRun, resolveMunch } from './src/game.js';
+import { buildBoard, createTopicRun, resolveMunch } from './src/game.js';
 import { pauseTimer, resumeTimer } from './src/pause.js';
 import { shouldMunchOnTileTap } from './src/tap-controls.js';
 import { FROG_EAT_ANIMATION, FROG_EAT_DURATION_MS, frogAnimationForMove } from './src/frog.js';
@@ -77,6 +77,14 @@ function isTouchFirstDevice() {
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
   const touchOnlyDevice = navigator.maxTouchPoints > 0 && window.matchMedia('(hover: none)').matches;
   return coarsePointer || touchOnlyDevice;
+}
+
+function boardLayoutForCurrentViewport() {
+  const isPhone = isTouchFirstDevice() && Math.max(window.innerWidth, window.innerHeight) <= 900;
+  if (!isPhone) return { columns: 6, rows: 4, correctTiles: 10 };
+  return window.matchMedia('(orientation: landscape)').matches
+    ? { columns: 4, rows: 3, correctTiles: 5 }
+    : { columns: 3, rows: 4, correctTiles: 5 };
 }
 
 function show(screen) {
@@ -367,6 +375,7 @@ function startLevel() {
     topicRows: state.run,
     prompt: state.run[state.index],
     languages: state.languages,
+    layout: boardLayoutForCurrentViewport(),
   });
   state.focus = 0;
   state.pendingTiles = new Set();
@@ -425,6 +434,8 @@ function renderGame() {
   wordProgress.textContent = `${index + 1} / ${run.length}`;
   renderLives(lives);
   promptWord.textContent = board.prompt.english;
+  boardElement.style.setProperty('--board-columns', board.layout.columns);
+  boardElement.style.setProperty('--board-rows', board.layout.rows);
   const tileElements = board.tiles.map((tile, tileIndex) => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -479,13 +490,14 @@ function move(direction) {
   if (!state || state.paused) return false;
   if (state.transitioning) return false;
   if (finishEatingForMovement() || !state) return false;
-  const row = Math.floor(state.focus / boardConfig.columns);
-  const column = state.focus % boardConfig.columns;
+  const { columns, rows } = state.board.layout;
+  const row = Math.floor(state.focus / columns);
+  const column = state.focus % columns;
   const offsets = { up: [-1, 0], down: [1, 0], left: [0, -1], right: [0, 1] };
   const [rowOffset, columnOffset] = offsets[direction];
-  const nextRow = Math.min(boardConfig.rows - 1, Math.max(0, row + rowOffset));
-  const nextColumn = Math.min(boardConfig.columns - 1, Math.max(0, column + columnOffset));
-  const nextFocus = nextRow * boardConfig.columns + nextColumn;
+  const nextRow = Math.min(rows - 1, Math.max(0, row + rowOffset));
+  const nextColumn = Math.min(columns - 1, Math.max(0, column + columnOffset));
+  const nextFocus = nextRow * columns + nextColumn;
   if (nextFocus === state.focus) return true;
   state.focus = nextFocus;
   state.frogAnimation = frogAnimationForMove(direction);
@@ -617,6 +629,16 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener('keyup', (event) => {
   if (ARROW_MOVES[event.key]) stopHeldMovement(event.key);
+});
+
+window.addEventListener('resize', () => {
+  if (!state || state.transitioning) return;
+  const layout = boardLayoutForCurrentViewport();
+  if (layout.columns * layout.rows !== state.board.tiles.length) return;
+  if (layout.columns === state.board.layout.columns && layout.rows === state.board.layout.rows) return;
+  state.board.layout = layout;
+  state.focus = Math.min(state.focus, state.board.tiles.length - 1);
+  renderGame();
 });
 
 renderTopics();
