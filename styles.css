@@ -465,6 +465,15 @@ body.topic-review-open { overflow: hidden; }
   .panel, .game-screen { padding: 14px; border-width: 3px; box-shadow: 4px 4px 0 #833f72; }
   .status-bar { grid-template-columns: 1fr 1fr; }
   .lives-panel { grid-column: 1 / -1; justify-content: flex-end; }
+  .app-shell.is-playing .status-bar { grid-template-columns: 1fr .8fr 1fr; gap: 4px; padding: 0 0 4px; font-size: 18px; white-space: nowrap; }
+  .app-shell.is-playing .status-label { font-size: 8px; letter-spacing: .06em; }
+  .app-shell.is-playing .lives-panel { grid-column: auto; gap: 4px; }
+  .app-shell.is-playing .life-frog { width: 26px; height: 26px; }
+  .app-shell.is-playing #lives { gap: 3px; min-height: 28px; }
+  .app-shell.is-playing .lives-panel .leave-button { min-width: 64px; min-height: 32px; padding: 4px; }
+  .app-shell.is-playing .prompt-box { padding: 4px 8px; }
+  .app-shell.is-playing .prompt-box h2 { margin-top: 2px; font-size: clamp(16px, 4.5vw, 20px); }
+  .app-shell.is-playing .feedback { min-height: 20px; margin: 2px 0; }
   .topic-heading { align-items: flex-start; flex-direction: column; }
   .language-controls { align-self: stretch; justify-content: flex-end; gap: 6px; }
   .language-label { font-size: 8px; }

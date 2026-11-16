@@ -75,6 +75,15 @@ test('mobile topic controls compact five flags beside the language prompt', asyn
   assert.match(mobileRule, /\.language-toggles \{ gap: 4px; \}/);
 });
 
+test('phone portrait keeps the play status on one compact line', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(css, /\.app-shell\.is-playing \.status-bar \{ grid-template-columns: 1fr \.8fr 1fr; gap: 4px; padding: 0 0 4px; font-size: 18px; white-space: nowrap; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.lives-panel \{ grid-column: auto; gap: 4px; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.prompt-box \{ padding: 4px 8px; \}/);
+  assert.match(css, /\.app-shell\.is-playing \.feedback \{ min-height: 20px; margin: 2px 0; \}/);
+});
+
 test('tablet menus compact all topics into the visible fullscreen viewport', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
