@@ -555,3 +555,23 @@ body.topic-review-open { overflow: hidden; }
   .pause-actions { gap: 8px; margin-top: 12px; }
   .pause-actions .primary-button, .pause-actions .leave-button { min-height: 36px; padding: 6px 10px; font-size: 16px; }
 }
+
+
+/* Settings is a menu-only modal; language choices remain available without crowding topic cards. */
+.settings-panel { width: min(720px, calc(100vw - 24px)); }
+.settings-content { min-height: 0; margin-top: 18px; overflow: auto; }
+.settings-content .intro { margin: 0 0 18px; }
+.settings-content h3 { margin: 18px 0 8px; }
+.menu-language-select { width: 100%; min-height: 48px; padding: 8px 10px; border: 3px solid #14183b; background: #91d8cf; color: #14183b; font: inherit; font-size: 22px; }
+.language-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+.language-options .language-toggle { display: flex; align-items: center; min-width: 0; min-height: 48px; gap: 10px; padding: 7px 10px; color: #fbf1cc; text-align: left; }
+.language-options .language-toggle img { flex: 0 0 auto; }
+.language-options .language-toggle span { min-width: 0; overflow-wrap: anywhere; }
+.settings-warning { display: none; margin: 14px 0; color: #ff8ea2; font-size: 22px; }
+.settings-warning.is-visible { display: block; }
+.settings-button { min-width: 126px; font-family: "Press Start 2P", monospace; font-size: 11px; }
+@media (max-width: 650px) {
+  .settings-button { align-self: flex-end; }
+  .language-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .language-options .language-toggle { min-height: 44px; font-size: 19px; }
+}

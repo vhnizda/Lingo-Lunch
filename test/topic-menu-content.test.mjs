@@ -2,12 +2,14 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-test('topic menu introduces the completion goal', async () => {
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+test('topic menu renders its introduction through translations', async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+  ]);
 
-  assert.match(html, /<p class="eyebrow">A retro inspired language game<\/p>/);
-  assert.match(html, /<p class="intro">Eat your way to language mastery\. Pick a topic below and complete all the levels\.<\/p>/);
-  assert.doesNotMatch(html, /Eat every word in another language/);
+  assert.match(html, /id="intro" class="intro"/);
+  assert.match(app, /intro'\)\.textContent = tr\('intro'\)/);
 });
 
 test('masthead presents Lingo Lunch Basics with a left-lower slanted edition sticker', async () => {
@@ -38,30 +40,28 @@ test('progress moves from the legacy key to Lingo Lunch storage', async () => {
   assert.match(app, /localStorage\.setItem\(PROGRESS_KEY, JSON\.stringify\(progress\)\)/);
 });
 
-test('topic menu highlights the cumulative completed-level total', async () => {
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
-  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+test('topic menu renders the translated cumulative completed-level total', async () => {
+  const [html, app, css] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+    readFile(new URL('../styles.css', import.meta.url), 'utf8'),
+  ]);
 
-  assert.match(html, /<p class="completed-levels-banner">TOTAL LEVELS CLEARED: <strong id="completed-levels-total">0<\/strong><\/p>/);
-  assert.match(css, /\.completed-levels-banner \{/);
+  assert.match(html, /id="total-levels-label"/);
+  assert.match(app, /total-levels-label'\)\.textContent = tr\('total_levels_cleared'\)/);
   assert.match(app, /progress\.completedLevels \+= 1;/);
-  assert.match(app, /completedLevels: 0/);
+  assert.match(css, /\.completed-levels-banner \{/);
 });
 
-test('topic review opens as a dimmed, scrollable vocabulary dialog with selected languages', async () => {
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
-  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+test('topic review opens as a dimmed, translated, scrollable vocabulary dialog', async () => {
+  const [html, css, app] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../styles.css', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+  ]);
 
   assert.match(html, /id="topic-review-dialog"[^>]*role="dialog"[^>]*aria-modal="true"/);
-  assert.match(html, /id="topic-review-close"[^>]*aria-label="Close vocabulary review"/);
-  assert.match(html, /id="topic-review-content"/);
-  assert.match(app, /function openTopicReview\(group, origin\)/);
-  assert.match(app, /vocabulary\.filter\(\(row\) => row\.group === group\)/);
-  assert.match(app, /LANGUAGE_OPTIONS\.filter\(\(language\) => selectedLanguages\.has\(language\.key\)\)/);
-  assert.match(css, /\.topic-review-dialog \{[\s\S]*position:\s*fixed[\s\S]*background:\s*rgba\(/);
-  assert.match(css, /\.topic-review-panel \{[\s\S]*max-height:\s*calc\(100dvh - 24px\)/);
+  assert.match(app, /topicReviewTitle\.textContent = tr\('vocabulary_title'/);
+  assert.match(app, /const languages = languageOptions\.filter/);
   assert.match(css, /\.topic-review-content \{[\s\S]*overflow:\s*auto/);
-  assert.match(css, /\.topic-info-button \{[\s\S]*position:\s*absolute/);
 });

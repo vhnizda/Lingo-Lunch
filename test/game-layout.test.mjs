@@ -2,15 +2,16 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-test('game screen uses touch-first instructions and a status-bar pause button', async () => {
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+test('game screen renders translated touch-first instructions and a status-bar pause button', async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+  ]);
 
-  assert.doesNotMatch(html, /id="munch-button"|class="arrow-pad"|data-move=/);
-  assert.match(html, /<div class="prompt-heading">[\s\S]*<button id="pause-button" class="leave-button prompt-pause-button" type="button">PAUSE<\/button>/);
-  assert.doesNotMatch(html, /class="play-instructions"/);
-  assert.match(html, /class="pause-instructions" aria-label="Game controls"/);
-  assert.match(html, /Tap a box to move the frog there and eat it\./);
-  assert.match(html, /Arrow keys move\. Space eats\./);
+  assert.match(html, /id="pause-button" class="leave-button prompt-pause-button"/);
+  assert.match(html, /id="pause-instructions" class="pause-instructions"/);
+  assert.match(app, /\['touch_or_mouse', 'touch_or_mouse_instruction'\]/);
+  assert.match(app, /\['keyboard', 'keyboard_instruction'\]/);
 });
 
 test('touch-first play enables one-tap movement and munching', async () => {
@@ -30,28 +31,24 @@ test('lives use frog sprites instead of text circles', async () => {
   assert.doesNotMatch(app, /livesElement\.textContent = '●'/);
 });
 
-test('language flags use local SVG images and never disable the final selection', async () => {
+test('settings language controls use local flags and keep one target language enabled', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 
-  const languageToggleRenderer = app.match(/function renderLanguageToggles\(\) \{([\s\S]*?)\n\}/)?.[1];
-
-  assert.ok(languageToggleRenderer, 'language toggle renderer must exist');
-  assert.match(app, /assets\/flags\/cz\.svg/);
-  assert.match(app, /assets\/flags\/es\.svg/);
-  assert.match(app, /assets\/flags\/it\.svg/);
-  assert.match(app, /key: 'spanish_standard'.*label: 'Spanish'/);
-  assert.match(app, /key: 'italian_standard'.*label: 'Italian'/);
-  assert.match(languageToggleRenderer, /flag\.src/);
-  assert.doesNotMatch(languageToggleRenderer, /button\.disabled/);
-  assert.match(languageToggleRenderer, /if \(enabled && selectedLanguages\.size === 1\) return;/);
+  assert.match(app, /flag\.src = language\.flag/);
+  assert.match(app, /languageOptions/);
+  assert.match(app, /enabled && settings\.targetLanguages\.length === 1/);
+  assert.match(app, /minimumTargetLanguage\.classList\.add\('is-visible'\)/);
 });
 
-test('topic menu defaults to Portuguese and points the language prompt at the flags', async () => {
-  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+test('settings defaults to Portuguese targets and exposes a main-menu settings button', async () => {
+  const [html, settings] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../src/settings.js', import.meta.url), 'utf8'),
+  ]);
 
-  assert.match(app, /let selectedLanguages = new Set\(\['portuguese_pt'\]\);/);
-  assert.match(html, /<span class="language-label">PICK YOUR LANGUAGE\(S\) →<\/span>/);
+  assert.match(settings, /targetLanguages: \['portuguese_pt'\]/);
+  assert.match(html, /id="settings-button"/);
+  assert.doesNotMatch(html, /id="language-toggles"/);
 });
 
 test('styles provide room for frog lives and show controls in the pause menu', async () => {

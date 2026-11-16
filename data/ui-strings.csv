@@ -1,0 +1,76 @@
+key,context,english,czech,german_standard,portuguese_pt,spanish_standard,italian_standard
+app_tagline,Masthead subtitle,A retro inspired language game,Jazyková hra v retro stylu,Ein retro-inspiriertes Sprachspiel,Um jogo de línguas inspirado no estilo retro,Un juego de idiomas inspirado en los juegos retro,Un gioco linguistico in stile retrò
+fullscreen_enter,Fullscreen button and aria label,Enter full screen,Přejít na celou obrazovku,Vollbild aktivieren,Entrar em ecrã inteiro,Entrar en pantalla completa,Entra a schermo intero
+fullscreen_exit,Fullscreen button and aria label,Exit full screen,Ukončit celou obrazovku,Vollbild verlassen,Sair do ecrã inteiro,Salir de pantalla completa,Esci dallo schermo intero
+fullscreen_label,Fullscreen button label,FULL SCREEN,CELÁ OBRAZOVKA,VOLLBILD,ECRÃ INTEIRO,PANTALLA COMPLETA,SCHERMO INTERO
+fullscreen_exit_label,Fullscreen button label,EXIT FULL,UKONČIT REŽIM,VOLLBILD BEENDEN,SAIR DO ECRÃ,SALIR DE PANTALLA,ESCI DALLO SCHERMO
+fullscreen_unavailable,Fullscreen fallback notice,"This browser cannot enter system full screen. Maximize is active. On iPad, use Safari Share → Add to Home Screen, then open Lingo Lunch from the Home Screen for a screen-filling app.",Tento prohlížeč nemůže přejít do systémového režimu celé obrazovky. Je zapnuto maximalizované zobrazení. Na iPadu použijte v Safari Sdílet → Přidat na plochu a poté Lingo Lunch otevřete z plochy pro zobrazení přes celou obrazovku.,Dieser Browser unterstützt keinen Systemvollbildmodus. Die maximierte Ansicht ist aktiv. Tippe auf dem iPad in Safari auf Teilen → Zum Home-Bildschirm und öffne Lingo Lunch dann vom Home-Bildschirm im Vollbild.,"Este navegador não consegue entrar no modo de ecrã inteiro do sistema. O modo maximizado está ativo. No iPad, no Safari, usa Partilhar → Adicionar ao ecrã principal e abre depois o Lingo Lunch a partir do ecrã principal para uma aplicação que ocupa todo o ecrã.",Este navegador no puede entrar en pantalla completa del sistema. La maximización está activa. En iPad usa Compartir → Añadir a pantalla de inicio en Safari y abre Lingo Lunch desde la pantalla de inicio para una aplicación a pantalla completa.,Questo browser non può entrare nella modalità a schermo intero del sistema. La visualizzazione massimizzata è attiva. Su iPad usa Condividi → Aggiungi alla schermata Home in Safari e poi apri Lingo Lunch dalla schermata Home per un'app a schermo intero.
+choose_topic,Topic screen aria label,Choose a topic,Vyberte téma,Wähle ein Thema,Escolhe um tema,Elige un tema,Scegli un argomento
+total_levels_cleared,Topic progress label,TOTAL LEVELS CLEARED,DOKONČENÉ ÚROVNĚ,INSGESAMT ABGESCHLOSSENE LEVEL,NÍVEIS CONCLUÍDOS,TOTAL DE NIVELES SUPERADOS,TOTALE LIVELLI COMPLETATI
+settings,Settings button and modal heading,SETTINGS,NASTAVENÍ,EINSTELLUNGEN,DEFINIÇÕES,AJUSTES,IMPOSTAZIONI
+close_settings,Settings modal close aria label,Close settings,Zavřít nastavení,Einstellungen schließen,Fechar definições,Cerrar ajustes,Chiudi impostazioni
+menu_language,Settings field label,MENU LANGUAGE,JAZYK MENU,MENÜSPRACHE,IDIOMA DO MENU,IDIOMA DEL MENÚ,LINGUA DEL MENU
+playing_against,Settings field label,PLAYING AGAINST,HERNÍ JAZYKY,SPIELSPRACHEN,IDIOMAS DE JOGO,IDIOMAS DE JUEGO,LINGUE DI GIOCO
+settings_help,Settings explanatory text,Choose the language used for menus and prompts. Select one or more languages to play against.,Vyberte jazyk používaný v menu a zadáních. Vyberte jeden nebo více jazyků pro hru.,"Wähle die Sprache für Menüs und Aufgaben. Wähle eine oder mehrere Sprachen aus, gegen die du spielen möchtest.",Escolhe o idioma dos menus e das instruções. Seleciona um ou mais idiomas contra os quais queres jogar.,Elige el idioma usado en los menús y las preguntas. Selecciona uno o más idiomas contra los que quieres jugar.,Scegli la lingua usata per i menu e le domande. Seleziona una o più lingue contro cui vuoi giocare.
+done,Settings modal action,DONE,HOTOVO,FERTIG,CONCLUÍDO,HECHO,FATTO
+enable_language,Language-toggle aria template,Enable {language},Zapnout jazyk {language},{language} aktivieren,Ativar {language},Activar {language},Attiva {language}
+disable_language,Language-toggle aria template,Disable {language},Vypnout jazyk {language},{language} deaktivieren,Desativar {language},Desactivar {language},Disattiva {language}
+minimum_target_language,Settings validation,Keep at least one playing language enabled.,Nechte zapnutý alespoň jeden herní jazyk.,Aktiviere mindestens eine Spielsprache.,Mantém ativo pelo menos um idioma de jogo.,Mantén activado al menos un idioma de juego.,Mantieni attiva almeno una lingua di gioco.
+language_english,Language name,English,angličtina,Englisch,inglês,inglés,inglese
+language_czech,Language name,Czech,čeština,Tschechisch,checo,checo,ceco
+language_german_standard,Language name,German,němčina,Deutsch,alemão,alemán,tedesco
+language_portuguese_pt,Language name,Portuguese,portugalština,Portugiesisch,português,portugués,portoghese
+language_spanish_standard,Language name,Spanish,španělština,Spanisch,espanhol,español,spagnolo
+language_italian_standard,Language name,Italian,italština,Italienisch,italiano,italiano,italiano
+language_native_english,Dropdown endonym,English,English,English,English,English,English
+language_native_czech,Dropdown endonym,Čeština,Čeština,Čeština,Čeština,Čeština,Čeština
+language_native_german_standard,Dropdown endonym,Deutsch,Deutsch,Deutsch,Deutsch,Deutsch,Deutsch
+language_native_portuguese_pt,Dropdown endonym,Português,Português,Português,Português,Português,Português
+language_native_spanish_standard,Dropdown endonym,Español,Español,Español,Español,Español,Español
+language_native_italian_standard,Dropdown endonym,Italiano,Italiano,Italiano,Italiano,Italiano,Italiano
+intro,Topic menu introduction,Eat your way to language mastery. Pick a topic below and complete all the levels.,Projezte se k jazykovému mistrovství. Níže vyberte téma a dokončete všechny úrovně.,Iss dich zur Sprachmeisterschaft. Wähle unten ein Thema und schließe alle Level ab.,Come até dominares as línguas. Escolhe um tema abaixo e conclui todos os níveis.,Ábrete camino hacia el dominio de idiomas. Elige un tema abajo y completa todos los niveles.,Mangia fino a padroneggiare le lingue. Scegli un argomento qui sotto e completa tutti i livelli.
+topic_word_count_one,Topic card count plural form,{count} word,{count} slovo,{count} Wort,{count} palavra,{count} palabra,{count} parola
+topic_word_count_few,Topic card count plural form,{count} words,{count} slova,{count} Wörter,{count} palavras,{count} palabras,{count} parole
+topic_word_count_many,Topic card count plural form,{count} words,{count} slov,{count} Wörter,{count} palavras,{count} palabras,{count} parole
+topic_word_count_other,Topic card count plural form,{count} words,{count} slova,{count} Wörter,{count} palavras,{count} palabras,{count} parole
+topic_completed,Topic card completion marker,completed,dokončeno,abgeschlossen,concluído,completado,completato
+review_vocabulary,Topic info aria template,Review {topic} vocabulary,Prohlédnout si slovní zásobu tématu {topic},Wortschatz zum Thema {topic} ansehen,Rever o vocabulário do tema {topic},Revisar el vocabulario del tema {topic},Rivedi il vocabolario dell'argomento {topic}
+vocabulary_title,Vocabulary review title,{topic} vocabulary,Slovní zásoba: {topic},Wortschatz: {topic},Vocabulário: {topic},Vocabulario: {topic},Vocabolario: {topic}
+close_vocabulary,Review modal close aria label,Close vocabulary review,Zavřít přehled slovní zásoby,Wortschatzübersicht schließen,Fechar revisão de vocabulário,Cerrar revisión de vocabulario,Chiudi la revisione del vocabolario
+topic,Gameplay status label,TOPIC,TÉMA,THEMA,TEMA,TEMA,ARGOMENTO
+word,Gameplay status label,WORD,SLOVO,WORT,PALAVRA,PALABRA,PAROLA
+lives,Gameplay status label,LIVES,ŽIVOTY,LEBEN,VIDAS,VIDAS,VITE
+eat_every_translation_of,Gameplay prompt label,EAT EVERY TRANSLATION OF,SNĚZTE KAŽDÝ PŘEKLAD SLOVA,ISS JEDE ÜBERSETZUNG VON,COME TODAS AS TRADUÇÕES DE,COME TODAS LAS TRADUCCIONES DE,MANGIA OGNI TRADUZIONE DI
+pause,Gameplay button,PAUSE,PAUZA,PAUSE,PAUSA,PAUSA,PAUSA
+level_complete,Gameplay overlay,LEVEL COMPLETE!,ÚROVEŇ DOKONČENA!,LEVEL ABGESCHLOSSEN!,NÍVEL CONCLUÍDO!,¡NIVEL COMPLETADO!,LIVELLO COMPLETATO!
+correct,Gameplay feedback,CORRECT!,SPRÁVNĚ!,RICHTIG!,CORRETO!,¡CORRECTO!,CORRETTO!
+topic_cleared,Result heading,TOPIC CLEARED!,TÉMA DOKONČENO!,THEMA ABGESCHLOSSEN!,TEMA CONCLUÍDO!,¡TEMA COMPLETADO!,ARGOMENTO COMPLETATO!
+game_over,Result heading,GAME OVER,KONEC HRY,SPIEL VORBEI,FIM DE JOGO,FIN DEL JUEGO,FINE DEL GIOCO
+topic_cleared_message,Result message template,You completed every word in {topic}. Choose another topic or play it again with a fresh shuffle.,Dokončili jste všechna slova v tématu {topic}. Vyberte si jiné téma nebo si ho zahrajte znovu s novým zamícháním.,Du hast alle Wörter zum Thema {topic} geschafft. Wähle ein anderes Thema oder spiele es erneut mit einer neuen Reihenfolge.,Concluíste todas as palavras do tema {topic}. Escolhe outro tema ou joga novamente com uma nova ordem aleatória.,Has completado todas las palabras del tema {topic}. Elige otro tema o juégalo otra vez con una nueva mezcla.,Hai completato tutte le parole dell'argomento {topic}. Scegli un altro argomento o giocalo di nuovo con un nuovo ordine.
+game_over_message,Result message template,No more lives this time. Your next run will be better!,Tentokrát už nemáte žádné životy. Příště to půjde lépe!,Keine Leben mehr in dieser Runde. Dein nächster Versuch wird besser!,Desta vez ficaste sem vidas. A próxima tentativa será melhor!,Esta vez no te quedan vidas. ¡La próxima partida será mejor!,Questa volta non hai più vite. La prossima partita andrà meglio!
+try_again,Result action,Try Again?,Zkusit znovu?,Noch einmal?,Tentar novamente?,¿Intentarlo de nuevo?,Riprova?
+game_paused,Pause dialog eyebrow,GAME PAUSED,HRÁ POZASTAVENA,SPIEL PAUSIERT,JOGO EM PAUSA,JUEGO EN PAUSA,GIOCO IN PAUSA
+take_a_breath,Pause dialog title,TAKE A BREATH,NADECHNĚTE SE,ATME DURCH,RESPIRA FUNDO,RESPIRA,RESPIRA
+pause_message,Pause dialog message,Your board and timer are frozen.,Vaše herní pole a časovač jsou zastavené.,Dein Spielfeld und Timer sind angehalten.,O teu tabuleiro e temporizador estão parados.,Tu tablero y temporizador están detenidos.,Il tuo tabellone e il timer sono fermi.
+touch_or_mouse,Pause controls heading,TOUCH OR MOUSE,DOTEK NEBO MYŠ,TOUCH ODER MAUS,TOQUE OU RATO,TOQUE O RATÓN,TOCCO O MOUSE
+touch_or_mouse_instruction,Pause controls instruction,Tap a box to move the frog there and eat it.,Klepnutím na políčko tam žábu přesuňte a snězte slovo.,"Tippe auf ein Feld, um den Frosch dorthin zu bewegen und das Wort zu fressen.",Toca numa casa para moveres o sapo até lá e comeres a palavra.,Toca una casilla para mover la rana allí y comerla.,Tocca una casella: la rana si sposta e mangia la parola.
+keyboard,Pause controls heading,KEYBOARD,KLÁVESNICE,TASTATUR,TECLADO,TECLADO,TASTIERA
+keyboard_instruction,Pause controls instruction,Arrow keys move. Space eats.,Šipky pohybují. Mezerník jí.,Pfeiltasten: bewegen. Leertaste: fressen.,As teclas de seta movem. A barra de espaço come.,Las flechas mueven. La barra espaciadora come.,I tasti freccia spostano. La barra spaziatrice mangia.
+continue,Pause action,CONTINUE,POKRAČOVAT,FORTSETZEN,CONTINUAR,CONTINUAR,CONTINUA
+quit_topic,Pause action,QUIT TOPIC,UKONČIT TÉMA,THEMA VERLASSEN,SAIR DO TEMA,SALIR DEL TEMA,ESCI DALL'ARGOMENTO
+board_aria_label,Gameplay board aria label,Word board,Slovní herní pole,Wortspielfeld,Tabuleiro de palavras,Tablero de palabras,Tabellone di parole
+family_and_people,Topic label,Family and people,Rodina a lidé,Familie und Menschen,Família e pessoas,Familia y personas,Famiglia e persone
+animals_and_nature,Topic label,Animals and nature,Zvířata a příroda,Tiere und Natur,Animais e natureza,Animales y naturaleza,Animali e natura
+body_and_health,Topic label,Body and health,Tělo a zdraví,Körper und Gesundheit,Corpo e saúde,Cuerpo y salud,Corpo e salute
+food_and_drink,Topic label,Food and drink,Jídlo a pití,Essen und Trinken,Comida e bebida,Comida y bebida,Cibo e bevande
+home_and_everyday_objects,Topic label,Home and everyday objects,Domov a každodenní předměty,Zuhause und Alltagsgegenstände,Casa e objetos do dia a dia,Hogar y objetos cotidianos,Casa e oggetti quotidiani
+clothes_and_getting_ready,Topic label,Clothes and getting ready,Oblečení a chystání se,Kleidung und Fertigmachen,Roupa e preparativos,Ropa y preparativos,Abbigliamento e preparativi
+daily_actions,Topic label,Daily actions,Denní činnosti,Tägliche Handlungen,Ações diárias,Acciones diarias,Azioni quotidiane
+feelings_needs_and_descriptions,Topic label,Feelings needs and descriptions,"Pocity, potřeby a popisy","Gefühle, Bedürfnisse und Beschreibungen","Sentimentos, necessidades e descrições","Sentimientos, necesidades y descripciones","Sentimenti, bisogni e descrizioni"
+numbers_and_colours,Topic label,Numbers and colours,Čísla a barvy,Zahlen und Farben,Números e cores,Números y colores,Numeri e colori
+time_and_weather,Topic label,Time and weather,Čas a počasí,Zeit und Wetter,Tempo e meteorologia,Tiempo y clima,Tempo e meteo
+places_movement_and_swiss_life,Topic label,Places movement and Swiss life,"Místa, pohyb a život ve Švýcarsku","Orte, Bewegung und Schweizer Alltag","Lugares, movimento e vida na Suíça","Lugares, movimiento y vida en Suiza","Luoghi, movimento e vita in Svizzera"
+play_toys_and_learning,Topic label,Play toys and learning,"Hra, hračky a učení","Spielen, Spielzeug und Lernen","Brincadeiras, brinquedos e aprendizagem","Juego, juguetes y aprendizaje","Gioco, giocattoli e apprendimento"
+questions_and_connectors,Topic label,Questions and connectors,Otázky a spojky,Fragen und Verbindungswörter,Perguntas e conectores,Preguntas y conectores,Domande e connettori
+social_conversation,Topic label,Social conversation,Společenská konverzace,Soziale Gespräche,Conversas e interação social,Conversación social,Conversazione sociale
+baby_care_and_routines,Topic label,Baby care and routines,Péče o miminko a každodenní režim,Babypflege und Tagesabläufe,Cuidados do bebé e rotinas,Cuidado del bebé y rutinas,Cura del bebè e routine

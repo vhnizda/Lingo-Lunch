@@ -2,18 +2,20 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-test('game-over screen uses the encouraging loss message', async () => {
+test('game-over screen uses its translated loss message', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 
-  assert.match(app, /You have lost all your lives\. I'm sure you will do better next time!/);
-  assert.doesNotMatch(app, /You used all three lives/);
+  assert.match(app, /resultMessage\.textContent = won[\s\S]*tr\('game_over_message'\)/);
 });
 
-test('game-over screen return button invites the player to try again', async () => {
-  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+test('game-over screen renders a translated retry button', async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+  ]);
 
-  assert.match(html, /<button id="return-button" class="primary-button" type="button">Try Again\?<\/button>/);
-  assert.doesNotMatch(html, />Return to topics</);
+  assert.match(html, /id="return-button" class="primary-button"/);
+  assert.match(app, /return-button'\)\.textContent = tr\('try_again'\)/);
 });
 
 test('game-over screen centers its content and enlarges its title', async () => {

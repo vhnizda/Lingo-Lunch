@@ -1,10 +1,12 @@
-const LANGUAGES = [
+const ALL_LANGUAGES = [
+  'english',
   'czech',
   'german_standard',
   'portuguese_pt',
   'spanish_standard',
   'italian_standard',
 ];
+const DEFAULT_TARGET_LANGUAGES = ALL_LANGUAGES.filter((language) => language !== 'english');
 const DEFAULT_LAYOUT = { columns: 6, rows: 4, correctTiles: 10 };
 const DISTRACTOR_POOL_SIZE = 3;
 
@@ -37,13 +39,13 @@ function distributeCount(total, languages, random) {
   return counts;
 }
 
-function createTile({ concept, language, isCorrect, sequence }) {
+function createTile({ concept, language, sourceLanguage, isCorrect, sequence }) {
   return {
     id: `${concept.id}-${language}-${sequence}`,
     conceptId: concept.id,
     language,
     displayText: concept[language],
-    english: concept.english,
+    sourceText: concept[sourceLanguage],
     isCorrect,
   };
 }
@@ -63,10 +65,13 @@ function hasSpatialCue(tiles, layout, checkLanguagePattern = true) {
   });
 }
 
-function buildCandidateTiles({ topicRows, prompt, languages, layout, random }) {
-  const activeLanguages = languages ?? LANGUAGES;
-  if (activeLanguages.length === 0 || activeLanguages.some((language) => !LANGUAGES.includes(language))) {
-    throw new Error('A board needs at least one supported target language.');
+function buildCandidateTiles({ topicRows, prompt, sourceLanguage, languages, layout, random }) {
+  const activeLanguages = languages ?? DEFAULT_TARGET_LANGUAGES;
+  if (!ALL_LANGUAGES.includes(sourceLanguage)) {
+    throw new Error('A board needs one supported source language.');
+  }
+  if (activeLanguages.length === 0 || activeLanguages.some((language) => !ALL_LANGUAGES.includes(language) || language === sourceLanguage)) {
+    throw new Error('A board needs at least one supported target language that differs from the source language.');
   }
   if (new Set(activeLanguages).size !== activeLanguages.length) {
     throw new Error('Selected target languages must be unique.');
@@ -86,7 +91,7 @@ function buildCandidateTiles({ topicRows, prompt, languages, layout, random }) {
     const correctCount = correctCounts.get(language);
     const distractorCount = tileCounts.get(language) - correctCount;
     for (let count = 0; count < correctCount; count += 1) {
-      tiles.push(createTile({ concept: prompt, language, isCorrect: true, sequence: sequence++ }));
+      tiles.push(createTile({ concept: prompt, language, sourceLanguage, isCorrect: true, sequence: sequence++ }));
     }
 
     const distractorPool = shuffle(distractors, random)
@@ -101,6 +106,7 @@ function buildCandidateTiles({ topicRows, prompt, languages, layout, random }) {
       tiles.push(createTile({
         concept: distractorPool[count % distractorPool.length],
         language,
+        sourceLanguage,
         isCorrect: false,
         sequence: sequence++,
       }));
@@ -113,8 +119,15 @@ export function createTopicRun(rows, group, random = Math.random) {
   return shuffle(rows.filter((row) => row.group === group), random);
 }
 
-export function buildBoard({ topicRows, prompt, languages = LANGUAGES, layout = DEFAULT_LAYOUT, random = Math.random }) {
-  const candidateTiles = buildCandidateTiles({ topicRows, prompt, languages, layout, random });
+export function buildBoard({
+  topicRows,
+  prompt,
+  sourceLanguage = 'english',
+  languages = DEFAULT_TARGET_LANGUAGES,
+  layout = DEFAULT_LAYOUT,
+  random = Math.random,
+}) {
+  const candidateTiles = buildCandidateTiles({ topicRows, prompt, sourceLanguage, languages, layout, random });
   let tiles = candidateTiles;
 
   for (let attempt = 0; attempt < 100; attempt += 1) {
@@ -125,12 +138,21 @@ export function buildBoard({ topicRows, prompt, languages = LANGUAGES, layout = 
     }
   }
 
-  return { prompt, languages: [...languages], layout: { ...layout }, tiles };
+  return {
+    prompt,
+    promptText: prompt[sourceLanguage],
+    sourceLanguage,
+    languages: [...languages],
+    layout: { ...layout },
+    tiles,
+  };
 }
 
 export function isBoardValid(board) {
-  const activeLanguages = board.languages ?? LANGUAGES;
-  if (activeLanguages.length === 0 || new Set(activeLanguages).size !== activeLanguages.length) return false;
+  const activeLanguages = board.languages ?? DEFAULT_TARGET_LANGUAGES;
+  const sourceLanguage = board.sourceLanguage ?? 'english';
+  if (!ALL_LANGUAGES.includes(sourceLanguage) || activeLanguages.length === 0 || new Set(activeLanguages).size !== activeLanguages.length
+    || activeLanguages.some((language) => !ALL_LANGUAGES.includes(language) || language === sourceLanguage)) return false;
 
   const layout = board.layout ?? DEFAULT_LAYOUT;
   try {
@@ -169,12 +191,12 @@ export function resolveMunch({ tile, lives }) {
     kind: 'wrong',
     lives: Math.max(0, lives - 1),
     clearTile: true,
-    englishMeaning: tile.english,
+    sourceText: tile.sourceText,
   };
 }
 
 export const boardConfig = {
   columns: DEFAULT_LAYOUT.columns,
   rows: DEFAULT_LAYOUT.rows,
-  languages: LANGUAGES,
+  languages: DEFAULT_TARGET_LANGUAGES,
 };

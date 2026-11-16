@@ -2,6 +2,8 @@ import { buildBoard, createTopicRun, resolveMunch } from './src/game.js';
 import { pauseTimer, resumeTimer } from './src/pause.js';
 import { shouldMoveToEmptyOnTouchTap, shouldMunchOnTileTap } from './src/tap-controls.js';
 import { FROG_EAT_ANIMATION, FROG_EAT_DURATION_MS, frogAnimationForMove } from './src/frog.js';
+import { languageOptions, t, topicKey } from './src/i18n.js';
+import { normalizeSettings, settingsForSourceLanguage } from './src/settings.js';
 
 const vocabulary = await fetch('./data/vocabulary.json').then((response) => {
   if (!response.ok) throw new Error('Could not load vocabulary data.');
@@ -15,7 +17,6 @@ const screens = {
 };
 const appShell = document.querySelector('.app-shell');
 const topicList = document.querySelector('#topic-list');
-const languageToggles = document.querySelector('#language-toggles');
 const boardStage = document.querySelector('#board-stage');
 const boardElement = document.querySelector('#board');
 const levelCompleteOverlay = document.querySelector('#level-complete-overlay');
@@ -34,16 +35,17 @@ const topicReviewDialog = document.querySelector('#topic-review-dialog');
 const topicReviewTitle = document.querySelector('#topic-review-title');
 const topicReviewContent = document.querySelector('#topic-review-content');
 const topicReviewClose = document.querySelector('#topic-review-close');
+const settingsDialog = document.querySelector('#settings-dialog');
+const settingsClose = document.querySelector('#settings-close');
+const settingsDone = document.querySelector('#settings-done');
+const settingsButton = document.querySelector('#settings-button');
+const menuLanguageSelect = document.querySelector('#menu-language-select');
+const targetLanguageOptions = document.querySelector('#target-language-options');
+const minimumTargetLanguage = document.querySelector('#minimum-target-language');
 
-const LANGUAGE_OPTIONS = [
-  { key: 'czech', flag: 'assets/flags/cz.svg', label: 'Czech' },
-  { key: 'german_standard', flag: 'assets/flags/de.svg', label: 'German' },
-  { key: 'portuguese_pt', flag: 'assets/flags/pt.svg', label: 'Portuguese' },
-  { key: 'spanish_standard', flag: 'assets/flags/es.svg', label: 'Spanish' },
-  { key: 'italian_standard', flag: 'assets/flags/it.svg', label: 'Italian' },
-];
 const PROGRESS_KEY = 'lingo-lunch-progress';
 const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
+const SETTINGS_KEY = 'lingo-lunch-settings';
 const HELD_MOVE_INITIAL_DELAY_MS = 250;
 const HELD_MOVE_INTERVAL_MS = 120;
 const LEVEL_COMPLETE_OVERLAY_MS = 500;
@@ -51,12 +53,29 @@ const LEVEL_BOARD_SLIDE_MS = 300;
 const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
 
 let state = null;
-let selectedLanguages = new Set(['portuguese_pt']);
+let settings = readSettings();
 let heldMovement = { key: null, timeoutId: null };
 let topicReviewOrigin = null;
+let settingsOrigin = null;
 
 function groups() {
   return [...new Set(vocabulary.map((row) => row.group))];
+}
+
+function tr(key, values = {}) {
+  return t(settings.sourceLanguage, key, values);
+}
+
+function readSettings() {
+  try {
+    return normalizeSettings(JSON.parse(localStorage.getItem(SETTINGS_KEY) ?? 'null'));
+  } catch {
+    return normalizeSettings(null);
+  }
+}
+
+function saveSettings() {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
 }
 
 function readProgress() {
@@ -203,7 +222,7 @@ function quitTopic() {
 }
 
 function showFullscreenNotice() {
-  fullscreenNotice.textContent = 'This browser cannot enter system full screen. Maximize is active. On iPad, use Safari Share → Add to Home Screen, then open Lingo Lunch from the Home Screen for a screen-filling app.';
+  fullscreenNotice.textContent = tr('fullscreen_unavailable');
   fullscreenNotice.classList.remove('hidden');
 }
 
@@ -243,30 +262,79 @@ async function toggleFullscreen() {
 
 function updateFullscreenButton() {
   const isFullscreen = Boolean(document.fullscreenElement) || appShell.classList.contains('maximized');
-  fullscreenButton.innerHTML = isFullscreen ? 'EXIT<br />FULL' : 'FULL<br />SCREEN';
-  fullscreenButton.setAttribute('aria-label', isFullscreen ? 'Exit full screen' : 'Enter full screen');
+  fullscreenButton.textContent = isFullscreen ? tr('fullscreen_exit_label') : tr('fullscreen_label');
+  fullscreenButton.setAttribute('aria-label', isFullscreen ? tr('fullscreen_exit') : tr('fullscreen_enter'));
 }
 
-function renderLanguageToggles() {
-  languageToggles.replaceChildren(...LANGUAGE_OPTIONS.map((language) => {
-    const enabled = selectedLanguages.has(language.key);
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'language-toggle';
-    const flag = document.createElement('img');
-    flag.src = language.flag;
-    flag.alt = '';
-    button.append(flag);
-    button.setAttribute('aria-label', `${enabled ? 'Disable' : 'Enable'} ${language.label}`);
-    button.setAttribute('aria-pressed', String(enabled));
-    button.addEventListener('click', () => {
-      if (enabled && selectedLanguages.size === 1) return;
-      if (enabled) selectedLanguages.delete(language.key);
-      else selectedLanguages.add(language.key);
-      renderTopics();
-    });
-    return button;
+function languageName(language, native = false) {
+  return tr(`${native ? 'language_native_' : 'language_'}${language.key}`);
+}
+
+function languageOption(language, selected, onClick) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'language-toggle';
+  button.setAttribute('aria-pressed', String(selected));
+  button.setAttribute('aria-label', tr(selected ? 'disable_language' : 'enable_language', { language: languageName(language) }));
+  const flag = document.createElement('img');
+  flag.src = language.flag;
+  flag.alt = '';
+  const label = document.createElement('span');
+  label.textContent = languageName(language, true);
+  button.append(flag, label);
+  button.addEventListener('click', onClick);
+  return button;
+}
+
+function renderSettings() {
+  document.querySelector('#settings-title').textContent = tr('settings');
+  document.querySelector('#settings-help').textContent = tr('settings_help');
+  document.querySelector('#menu-language-label').textContent = tr('menu_language');
+  document.querySelector('#playing-against-label').textContent = tr('playing_against');
+  settingsClose.setAttribute('aria-label', tr('close_settings'));
+  settingsDone.textContent = tr('done');
+  minimumTargetLanguage.textContent = tr('minimum_target_language');
+  menuLanguageSelect.replaceChildren(...languageOptions.map((language) => {
+    const option = document.createElement('option');
+    option.value = language.key;
+    option.textContent = languageName(language, true);
+    option.selected = settings.sourceLanguage === language.key;
+    return option;
   }));
+  targetLanguageOptions.replaceChildren(...languageOptions
+    .filter((language) => language.key !== settings.sourceLanguage)
+    .map((language) => languageOption(language, settings.targetLanguages.includes(language.key), () => {
+      const enabled = settings.targetLanguages.includes(language.key);
+      if (enabled && settings.targetLanguages.length === 1) {
+        minimumTargetLanguage.classList.add('is-visible');
+        return;
+      }
+      settings = normalizeSettings({
+        ...settings,
+        targetLanguages: enabled
+          ? settings.targetLanguages.filter((key) => key !== language.key)
+          : [...settings.targetLanguages, language.key],
+      });
+      saveSettings();
+      minimumTargetLanguage.classList.remove('is-visible');
+      renderSettings();
+    })));
+}
+
+function openSettings(origin) {
+  settingsOrigin = origin;
+  renderSettings();
+  document.body.classList.add('topic-review-open');
+  settingsDialog.classList.remove('hidden');
+  settingsClose.focus();
+}
+
+function closeSettings() {
+  if (settingsDialog.classList.contains('hidden')) return;
+  settingsDialog.classList.add('hidden');
+  document.body.classList.remove('topic-review-open');
+  settingsOrigin?.focus();
+  settingsOrigin = null;
 }
 
 function renderLives(lives) {
@@ -282,8 +350,42 @@ function renderLives(lives) {
   }));
 }
 
+function renderChrome() {
+  document.documentElement.lang = languageOptions.find((language) => language.key === settings.sourceLanguage).locale;
+  document.querySelector('#app-tagline').textContent = tr('app_tagline');
+  document.querySelector('#topic-screen').setAttribute('aria-label', tr('choose_topic'));
+  document.querySelector('#total-levels-label').textContent = tr('total_levels_cleared');
+  document.querySelector('#intro').textContent = tr('intro');
+  settingsButton.textContent = tr('settings');
+  document.querySelector('#topic-label').textContent = tr('topic');
+  document.querySelector('#word-label').textContent = tr('word');
+  document.querySelector('#lives-label').textContent = tr('lives');
+  document.querySelector('#lives').setAttribute('aria-label', tr('lives'));
+  document.querySelector('#eat-every-translation-label').textContent = tr('eat_every_translation_of');
+  document.querySelector('#pause-button').textContent = tr('pause');
+  document.querySelector('#level-complete-overlay').textContent = tr('level_complete');
+  document.querySelector('#return-button').textContent = tr('try_again');
+  document.querySelector('#game-paused-label').textContent = tr('game_paused');
+  document.querySelector('#pause-title').textContent = tr('take_a_breath');
+  document.querySelector('#pause-message').textContent = tr('pause_message');
+  document.querySelector('#pause-instructions').replaceChildren(...[
+    ['touch_or_mouse', 'touch_or_mouse_instruction'],
+    ['keyboard', 'keyboard_instruction'],
+  ].map(([heading, instruction]) => {
+    const paragraph = document.createElement('p');
+    const label = document.createElement('strong');
+    label.textContent = tr(heading);
+    paragraph.append(label, ` ${tr(instruction)}`);
+    return paragraph;
+  }));
+  document.querySelector('#continue-button').textContent = tr('continue');
+  document.querySelector('#quit-button').textContent = tr('quit_topic');
+  boardElement.setAttribute('aria-label', tr('board_aria_label'));
+  updateFullscreenButton();
+}
+
 function renderTopics() {
-  renderLanguageToggles();
+  renderChrome();
   const progress = readProgress();
   completedLevelsTotal.textContent = progress.completedLevels;
   topicList.replaceChildren(...groups().map((group) => {
@@ -293,13 +395,13 @@ function renderTopics() {
     const button = document.createElement('button');
     button.className = 'topic-button';
     button.type = 'button';
-    button.innerHTML = `${group}<small>${count} words${progress.wonTopics.includes(group) ? ' · completed' : ''}</small>`;
+    button.innerHTML = `${tr(topicKey(group))}<small>${tr('topic_word_count', { count })}${progress.wonTopics.includes(group) ? ` · ${tr('topic_completed')}` : ''}</small>`;
     button.addEventListener('click', () => startTopic(group));
     const infoButton = document.createElement('button');
     infoButton.className = 'topic-info-button';
     infoButton.type = 'button';
     infoButton.textContent = 'i';
-    infoButton.setAttribute('aria-label', `Review ${group} vocabulary`);
+    infoButton.setAttribute('aria-label', tr('review_vocabulary', { topic: tr(topicKey(group)) }));
     infoButton.addEventListener('click', () => openTopicReview(group, infoButton));
     card.append(button, infoButton);
     return card;
@@ -309,12 +411,13 @@ function renderTopics() {
 
 function openTopicReview(group, origin) {
   topicReviewOrigin = origin;
-  topicReviewTitle.textContent = `${group} vocabulary`;
-  const languages = LANGUAGE_OPTIONS.filter((language) => selectedLanguages.has(language.key));
+  topicReviewTitle.textContent = tr('vocabulary_title', { topic: tr(topicKey(group)) });
+  topicReviewClose.setAttribute('aria-label', tr('close_vocabulary'));
+  const languages = languageOptions.filter((language) => settings.targetLanguages.includes(language.key));
   const table = document.createElement('table');
   table.className = 'topic-review-table';
   const headerRow = document.createElement('tr');
-  for (const label of ['English', ...languages.map((language) => language.label)]) {
+  for (const label of [languageName(languageOptions.find((language) => language.key === settings.sourceLanguage)), ...languages.map((language) => languageName(language))]) {
     const header = document.createElement('th');
     header.scope = 'col';
     header.textContent = label;
@@ -325,7 +428,7 @@ function openTopicReview(group, origin) {
   const body = document.createElement('tbody');
   for (const row of vocabulary.filter((row) => row.group === group)) {
     const tableRow = document.createElement('tr');
-    for (const value of [row.english, ...languages.map((language) => row[language.key])]) {
+    for (const value of [row[settings.sourceLanguage], ...languages.map((language) => row[language.key])]) {
       const cell = document.createElement('td');
       cell.textContent = value;
       tableRow.append(cell);
@@ -352,7 +455,8 @@ function startTopic(group) {
   const run = createTopicRun(vocabulary, group);
   state = {
     group,
-    languages: [...selectedLanguages],
+    sourceLanguage: settings.sourceLanguage,
+    languages: [...settings.targetLanguages],
     run,
     index: 0,
     lives: 3,
@@ -374,6 +478,7 @@ function startLevel() {
   state.board = buildBoard({
     topicRows: state.run,
     prompt: state.run[state.index],
+    sourceLanguage: state.sourceLanguage,
     languages: state.languages,
     layout: boardLayoutForCurrentViewport(),
   });
@@ -430,10 +535,10 @@ function clearLevelTransition() {
 
 function renderGame() {
   const { board, focus, frogAnimation, group, index, run, lives, pendingTiles } = state;
-  topicName.textContent = group;
+  topicName.textContent = tr(topicKey(group));
   wordProgress.textContent = `${index + 1} / ${run.length}`;
   renderLives(lives);
-  promptWord.textContent = board.prompt.english;
+  promptWord.textContent = board.promptText;
   boardElement.style.setProperty('--board-columns', board.layout.columns);
   boardElement.style.setProperty('--board-rows', board.layout.rows);
   const tileElements = board.tiles.map((tile, tileIndex) => {
@@ -539,10 +644,10 @@ function finishTopic(won) {
     progress.wonTopics.push(state.group);
     saveProgress(progress);
   }
-  resultTitle.textContent = won ? 'TOPIC CLEARED!' : 'GAME OVER';
+  resultTitle.textContent = won ? tr('topic_cleared') : tr('game_over');
   resultMessage.textContent = won
-    ? `You completed every word in ${state.group}. Choose another topic or play it again with a fresh shuffle.`
-    : "You have lost all your lives. I'm sure you will do better next time!";
+    ? tr('topic_cleared_message', { topic: tr(topicKey(state.group)) })
+    : tr('game_over_message');
   show(screens.result);
   state = null;
 }
@@ -574,7 +679,7 @@ function munch() {
   state.frogAnimation = FROG_EAT_ANIMATION;
 
   if (outcome.kind === 'correct') {
-    feedbackElement.textContent = 'CORRECT!';
+    feedbackElement.textContent = tr('correct');
     feedbackElement.className = 'feedback';
     renderGame();
     state.eatTimer = {
@@ -589,7 +694,7 @@ function munch() {
 
   state.lives = outcome.lives;
   state.pendingTiles.add(tile.id);
-  feedbackElement.textContent = `${tile.displayText} = ${outcome.englishMeaning}`;
+  feedbackElement.textContent = `${tile.displayText} = ${outcome.sourceText}`;
   feedbackElement.className = 'feedback wrong';
   renderGame();
   state.wrongReview = {
@@ -606,10 +711,24 @@ document.querySelector('#continue-button').addEventListener('click', resumeGame)
 document.querySelector('#quit-button').addEventListener('click', quitTopic);
 document.querySelector('#return-button').addEventListener('click', renderTopics);
 topicReviewClose.addEventListener('click', closeTopicReview);
+settingsButton.addEventListener('click', () => openSettings(settingsButton));
+menuLanguageSelect.addEventListener('change', () => {
+  settings = settingsForSourceLanguage(settings, menuLanguageSelect.value);
+  saveSettings();
+  renderSettings();
+  renderTopics();
+});
+settingsClose.addEventListener('click', closeSettings);
+settingsDone.addEventListener('click', closeSettings);
 fullscreenButton.addEventListener('click', () => { toggleFullscreen().catch(() => {}); });
 document.addEventListener('fullscreenchange', updateFullscreenButton);
 
 document.addEventListener('keydown', (event) => {
+  if (!settingsDialog.classList.contains('hidden') && event.key === 'Escape') {
+    event.preventDefault();
+    closeSettings();
+    return;
+  }
   if (!topicReviewDialog.classList.contains('hidden') && event.key === 'Escape') {
     event.preventDefault();
     closeTopicReview();

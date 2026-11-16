@@ -13,74 +13,84 @@
   <body>
     <main class="app-shell">
       <header class="masthead">
-        <button id="fullscreen-button" class="fullscreen-button" type="button" aria-label="Enter full screen">FULL<br />SCREEN</button>
-        <p class="eyebrow">A retro inspired language game</p>
+        <button id="fullscreen-button" class="fullscreen-button" type="button"></button>
+        <p id="app-tagline" class="eyebrow"></p>
         <h1>LINGO<br />LUNCH</h1>
         <span class="edition-sticker">BASICS</span>
         <p id="fullscreen-notice" class="fullscreen-notice hidden" role="status"></p>
       </header>
 
-      <section id="topic-screen" class="panel" aria-label="Choose a topic">
+      <section id="topic-screen" class="panel" aria-label="">
         <div class="topic-scroll-content">
-        <div class="topic-heading">
-          <p class="completed-levels-banner">TOTAL LEVELS CLEARED: <strong id="completed-levels-total">0</strong></p>
-          <div class="language-controls">
-            <span class="language-label">PICK YOUR LANGUAGE(S) →</span>
-            <div id="language-toggles" class="language-toggles" aria-label="Enable or disable languages for the game"></div>
+          <div class="topic-heading">
+            <p class="completed-levels-banner"><span id="total-levels-label"></span>: <strong id="completed-levels-total">0</strong></p>
+            <button id="settings-button" class="primary-button settings-button" type="button"></button>
           </div>
-        </div>
-        <p class="intro">Eat your way to language mastery. Pick a topic below and complete all the levels.</p>
-        <div id="topic-list" class="topic-list" aria-live="polite"></div>
+          <p id="intro" class="intro"></p>
+          <div id="topic-list" class="topic-list" aria-live="polite"></div>
         </div>
       </section>
 
       <section id="game-screen" class="game-screen hidden" aria-live="polite">
         <div class="status-bar">
-          <div><span class="status-label">TOPIC</span><strong id="topic-name"></strong></div>
-          <div><span class="status-label">WORD</span><strong id="word-progress"></strong></div>
-          <div class="lives-panel"><span class="status-label">LIVES</span><strong id="lives" aria-label="Lives remaining"></strong></div>
+          <div><span id="topic-label" class="status-label"></span><strong id="topic-name"></strong></div>
+          <div><span id="word-label" class="status-label"></span><strong id="word-progress"></strong></div>
+          <div class="lives-panel"><span id="lives-label" class="status-label"></span><strong id="lives"></strong></div>
         </div>
         <div class="prompt-box">
           <div class="prompt-heading">
-            <span class="status-label">EAT EVERY TRANSLATION OF</span>
-            <button id="pause-button" class="leave-button prompt-pause-button" type="button">PAUSE</button>
+            <span id="eat-every-translation-label" class="status-label"></span>
+            <button id="pause-button" class="leave-button prompt-pause-button" type="button"></button>
           </div>
           <h2 id="prompt-word"></h2>
         </div>
         <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
         <div id="board-stage" class="board-stage">
-          <div id="board" class="board" aria-label="Word board"></div>
-          <div id="level-complete-overlay" class="level-complete-overlay" aria-live="assertive">LEVEL COMPLETE!</div>
+          <div id="board" class="board"></div>
+          <div id="level-complete-overlay" class="level-complete-overlay" aria-live="assertive"></div>
         </div>
       </section>
 
       <section id="result-screen" class="panel hidden" aria-live="polite">
         <h2 id="result-title"></h2>
         <p id="result-message" class="intro"></p>
-        <button id="return-button" class="primary-button" type="button">Try Again?</button>
+        <button id="return-button" class="primary-button" type="button"></button>
       </section>
 
       <section id="pause-dialog" class="pause-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
         <div class="pause-panel">
-          <p class="eyebrow">GAME PAUSED</p>
-          <h2 id="pause-title">TAKE A BREATH</h2>
-          <p id="pause-message" class="intro">Your board and timer are frozen.</p>
-          <div class="pause-instructions" aria-label="Game controls">
-            <p><strong>TOUCH OR MOUSE</strong> Tap a box to move the frog there and eat it.</p>
-            <p><strong>KEYBOARD</strong> Arrow keys move. Space eats.</p>
-          </div>
+          <p id="game-paused-label" class="eyebrow"></p>
+          <h2 id="pause-title"></h2>
+          <p id="pause-message" class="intro"></p>
+          <div id="pause-instructions" class="pause-instructions"></div>
           <div class="pause-actions">
-            <button id="continue-button" class="primary-button" type="button">CONTINUE</button>
-            <button id="quit-button" class="leave-button" type="button">QUIT TOPIC</button>
+            <button id="continue-button" class="primary-button" type="button"></button>
+            <button id="quit-button" class="leave-button" type="button"></button>
           </div>
         </div>
       </section>
 
       <section id="topic-review-dialog" class="topic-review-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="topic-review-title">
         <div class="topic-review-panel">
-          <button id="topic-review-close" class="topic-review-close" type="button" aria-label="Close vocabulary review">×</button>
+          <button id="topic-review-close" class="topic-review-close" type="button">×</button>
           <h2 id="topic-review-title"></h2>
           <div id="topic-review-content" class="topic-review-content" tabindex="0"></div>
+        </div>
+      </section>
+
+      <section id="settings-dialog" class="topic-review-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="topic-review-panel settings-panel">
+          <button id="settings-close" class="topic-review-close" type="button">×</button>
+          <h2 id="settings-title"></h2>
+          <div class="settings-content">
+            <p id="settings-help" class="intro"></p>
+            <h3 id="menu-language-label" class="status-label"></h3>
+            <select id="menu-language-select" class="menu-language-select"></select>
+            <h3 id="playing-against-label" class="status-label"></h3>
+            <div id="target-language-options" class="language-options"></div>
+            <p id="minimum-target-language" class="settings-warning" role="status"></p>
+            <button id="settings-done" class="primary-button" type="button"></button>
+          </div>
         </div>
       </section>
     </main>

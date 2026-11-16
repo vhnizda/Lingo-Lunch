@@ -210,6 +210,22 @@ test('buildBoard keeps articles and alternatives together as the full CSV field'
   assert.ok(czechCorrect.every((tile) => tile.displayText === 'máma / matka'));
 });
 
+test('buildBoard supports Portuguese prompts with English and German answer tiles', () => {
+  const board = buildBoard({
+    topicRows: TOPIC_ROWS,
+    prompt: TOPIC_ROWS[0],
+    sourceLanguage: 'portuguese_pt',
+    languages: ['english', 'german_standard'],
+    random: deterministicRandom([0.3, 0.8, 0.1, 0.6]),
+  });
+
+  assert.equal(board.sourceLanguage, 'portuguese_pt');
+  assert.equal(board.promptText, 'a família');
+  assert.deepEqual(new Set(board.tiles.map((tile) => tile.language)), new Set(['english', 'german_standard']));
+  const wrongTile = board.tiles.find((tile) => !tile.isCorrect);
+  assert.equal(wrongTile.sourceText, wrongTile.conceptId === '001' ? 'a família' : TOPIC_ROWS.find((row) => row.id === wrongTile.conceptId).portuguese_pt);
+});
+
 test('buildBoard repeats a deliberately small distractor pool', () => {
   const board = buildBoard({
     topicRows: TOPIC_ROWS,
@@ -238,7 +254,7 @@ test('resolveMunch clears a correct tile without losing a life', () => {
 
 test('resolveMunch reveals an incorrect tile meaning, clears it, and loses one life', () => {
   const result = resolveMunch({
-    tile: { id: 'b', isCorrect: false, english: 'mother' },
+    tile: { id: 'b', isCorrect: false, sourceText: 'mother' },
     lives: 3,
   });
 
@@ -246,6 +262,6 @@ test('resolveMunch reveals an incorrect tile meaning, clears it, and loses one l
     kind: 'wrong',
     lives: 2,
     clearTile: true,
-    englishMeaning: 'mother',
+    sourceText: 'mother',
   });
 });
