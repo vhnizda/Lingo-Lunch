@@ -101,3 +101,11 @@ test('short touch landscape screens use a compact orientation layout', async () 
   assert.match(css, /\.app-shell\.is-playing \.game-screen \{ min-height: 0; padding: 6px 10px; \}/);
   assert.match(css, /\.app-shell\.is-playing \.board \{ min-height: 152px; grid-template-rows: repeat\(4, minmax\(38px, 1fr\)\);/);
 });
+
+test('topic cards use equal-height rows with centered labels', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(css, /\.topic-list \{[\s\S]*grid-auto-rows:\s*1fr/);
+  assert.match(css, /\.topic-button \{[\s\S]*height:\s*100%/);
+  assert.match(css, /\.topic-button \{[\s\S]*text-align:\s*center/);
+});

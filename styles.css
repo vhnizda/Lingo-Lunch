@@ -130,7 +130,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 .language-toggle img { display: block; width: 30px; height: 20px; }
 .hidden { display: none !important; }
 
-.topic-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.topic-list { display: grid; grid-auto-rows: 1fr; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .topic-card { position: relative; min-width: 0; }
 .topic-button, .primary-button, .leave-button {
   border: 3px solid #14183b;
@@ -140,7 +140,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   padding: 12px;
   box-shadow: 4px 4px 0 #14183b;
 }
-.topic-button { width: 100%; padding-right: 48px; font-size: 25px; text-align: left; }
+.topic-button { display: grid; width: 100%; height: 100%; padding: 12px 48px; font-size: 25px; text-align: center; place-content: center; }
 .topic-button:hover, .topic-button:focus-visible, .primary-button:hover, .primary-button:focus-visible { background: #ffe29a; outline: none; }
 .topic-button small { display: block; font-size: 17px; }
 .topic-info-button {
@@ -377,7 +377,7 @@ body.topic-review-open { overflow: hidden; }
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 8px;
   }
-  .app-shell.is-menu .topic-button { min-height: 48px; padding: 8px 44px 8px 8px; font-size: clamp(19px, 2.3vw, 24px); }
+  .app-shell.is-menu .topic-button { min-height: 48px; padding: 8px 44px; font-size: clamp(19px, 2.3vw, 24px); }
   .app-shell.is-menu .topic-button small { font-size: clamp(14px, 1.8vw, 17px); }
 }
 
