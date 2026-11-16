@@ -19,6 +19,16 @@ test('wrong-answer cleanup returns the frog to idle before rerendering', async (
   assert.match(wrongAnswerCleanup, /state\.frogAnimation = 'idle';[\s\S]*?renderGame\(\);/);
 });
 
+test('wrong-answer review remains visible for two seconds without blocking movement', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const moveBody = app.match(/function move\(direction\) \{([\s\S]*?)\n\}/)?.[1];
+
+  assert.match(app, /const WRONG_ANSWER_REVIEW_DURATION_MS = 2000;/);
+  assert.match(app, /dueAt: Date\.now\(\) \+ WRONG_ANSWER_REVIEW_DURATION_MS,/);
+  assert.ok(moveBody, 'movement flow must exist');
+  assert.doesNotMatch(moveBody, /wrongTimer/);
+});
+
 test('eating animation holds its final frame until the word is cleared', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 

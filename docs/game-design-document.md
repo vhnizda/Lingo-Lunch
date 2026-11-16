@@ -46,7 +46,7 @@ Eat all and only the tiles that correctly translate the current English prompt.
 8. On an explicit **Munch** action, evaluate the focused tile.
 9. Resolve feedback:
    - **Correct:** keep the word visible throughout the single 360 ms eating animation; hold its final animation frame until the word clears; remove only the word content, return the frog directly to idle without replaying the eating animation, update board progress, and preserve the square as a traversable non-munchable location. Arrow movement and touch/mouse movement may complete this correct result immediately before applying that movement; Space remains ignored until the animation has cleared.
-   - **Incorrect:** immediately show the selected target-language word and its English equivalent for exactly one second; movement remains available; then remove only that tile's word content, return the frog directly to idle without replaying the eating animation, preserve its traversable non-munchable square, and deduct one life.
+   - **Incorrect:** immediately show the selected target-language word and its English equivalent for exactly two seconds; movement remains available; then remove only that tile's word content, return the frog directly to idle without replaying the eating animation, preserve its traversable non-munchable square, and deduct one life.
 10. If the player has lost all three lives, end the topic run as a loss and show a centered summary: a large **GAME OVER** heading, the exact message **“You have lost all your lives. I'm sure you will do better next time!”**, and a centered **Try Again?** button that returns to the topic menu.
 11. If every correct tile has been eaten while at least one life remains, complete the level and advance to the next concept in the topic run.
 12. After the final concept in the selected topic is completed, show a topic-win summary and return to the choice menu.
@@ -191,8 +191,8 @@ The first release should prioritize accurate recognition, repeated exposure, and
 
 ### Required feedback
 
-- On a correct answer: show `CORRECT!`; retain the word during the 360 ms eat animation, then clear its word content and update level progress. The player cannot move or munch during that short animation.
-- On a wrong answer: show the selected target-language tile and its English meaning for exactly **one second**, then automatically remove only its word content and deduct one life. Its blank board square remains traversable but cannot be eaten again. The game continues; this feedback does not pause the board and cannot be manually dismissed.
+- On a correct answer: show `CORRECT!`; retain the word during the 360 ms eat animation, then clear its word content and update level progress. An arrow or touch/mouse movement command completes the result immediately before moving; Space remains ignored during the animation.
+- On a wrong answer: show the selected target-language tile and its English meaning for exactly **two seconds**, then automatically remove only its word content and deduct one life. Its blank board square remains traversable but cannot be eaten again. The game continues; this feedback does not pause the board and cannot be manually dismissed.
 - On losing the third life: show a topic-loss summary with a **Try Again?** action that returns to the topic menu.
 - On board completion: begin the next concept in the selected topic after a short transition.
 - On topic completion: show a topic-win summary after every concept in that topic has been completed, then return to the choice menu.

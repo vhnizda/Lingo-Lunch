@@ -44,6 +44,7 @@ const PROGRESS_KEY = 'lingo-lunch-progress';
 const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
 const HELD_MOVE_INITIAL_DELAY_MS = 250;
 const HELD_MOVE_INTERVAL_MS = 120;
+const WRONG_ANSWER_REVIEW_DURATION_MS = 2000;
 const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
 
 let state = null;
@@ -518,7 +519,7 @@ function munch() {
   state.wrongTimer = {
     board: state.board,
     tile,
-    dueAt: Date.now() + 1000,
+    dueAt: Date.now() + WRONG_ANSWER_REVIEW_DURATION_MS,
     timeoutId: null,
   };
   scheduleWrongAnswer();
