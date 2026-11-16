@@ -61,6 +61,21 @@ h1 {
   color: #ffe29a;
   text-shadow: 4px 4px #833f72;
 }
+.edition-sticker {
+  position: absolute;
+  top: clamp(38px, 5vw, 62px);
+  left: calc(50% + clamp(104px, 17vw, 220px));
+  z-index: 1;
+  padding: 6px 8px 5px;
+  border: 3px solid #14183b;
+  background: #ffb86b;
+  box-shadow: 3px 3px 0 #833f72;
+  color: #14183b;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(9px, 1.4vw, 13px);
+  line-height: 1;
+  transform: rotate(8deg);
+}
 h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26px); line-height: 1.45; }
 
 .panel, .game-screen {
@@ -335,7 +350,11 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   .status-bar { grid-template-columns: 1fr 1fr; }
   .lives-panel { grid-column: 1 / -1; justify-content: flex-end; }
   .topic-heading { align-items: flex-start; flex-direction: column; }
-  .language-controls { align-self: flex-end; }
+  .language-controls { align-self: stretch; justify-content: flex-end; gap: 6px; }
+  .language-label { font-size: 8px; }
+  .language-toggles { gap: 4px; }
+  .language-toggle { min-width: 42px; min-height: 38px; }
+  .language-toggle img { width: 27px; height: 18px; }
   .board { gap: 3px; min-height: 360px; }
   .tile { border-width: 2px; padding: 6px 3px; font-size: clamp(16px, 4.2vw, 23px); }
   .tile.focused::after { font-size: 6px; }

@@ -1,11 +1,11 @@
-# Language Munchers — Game Design Document
+# Language Munchers Basics — Game Design Document
 
 **Status:** Living MVP specification — deployed and playable
 **Implementation status:** Static browser MVP implemented and deployed to GitHub Pages
 
 ## 1. Concept
 
-Language Munchers is a single-player vocabulary-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* and *Word Munchers* games.
+Language Munchers Basics is a single-player vocabulary-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* and *Word Munchers* games. **Language Munchers** is the reusable core title; **Basics** is this edition's secondary label, rendered as a slanted sticker to the right of the two-line core title, and leaves a clear path for later games using the same loop with different learning focuses.
 
 A frog occupies a grid of word tiles. Each round shows an English prompt at the top of the screen. Every tile displays exactly one target-language word or phrase—Czech, Standard German, European Portuguese (`pt-PT`), Standard Spanish, or Standard Italian—never a grouped multilingual answer. The player deliberately eats every tile whose single displayed value translates the English prompt. Tiles with other meanings are distractors.
 

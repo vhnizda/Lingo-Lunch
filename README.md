@@ -1,6 +1,6 @@
-# Language Munchers
+# Language Munchers Basics
 
-A browser-based language-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* games.
+The **Basics** edition of a browser-based language-recognition game inspired by the grid-and-munch loop of the classic *Number Munchers* games. **Language Munchers** is the reusable core title; the masthead presents **BASICS** as a slanted sticker beside it so future editions can use the same game loop with their own secondary label.
 
 The frog moves across a 4-row × 6-column word board. Each level gives an English prompt. Eat every word in another language that matches the English word at the top; avoid the distractors.
 

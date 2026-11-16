@@ -66,6 +66,15 @@ test('styles provide room for frog lives and keep the instructions centered', as
   assert.match(css, /\.app-shell\.is-touch-first \.instruction--keyboard \{ display: none; \}/);
 });
 
+test('mobile topic controls compact five flags beside the language prompt', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  const mobileRule = css.match(/@media \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(mobileRule, 'mobile layout rule must exist');
+  assert.match(mobileRule, /\.language-toggle \{ min-width: 42px; min-height: 38px; \}/);
+  assert.match(mobileRule, /\.language-toggles \{ gap: 4px; \}/);
+});
+
 test('active play uses the viewport height and keeps a four-row board scalable', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');

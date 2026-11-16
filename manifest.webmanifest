@@ -1,6 +1,6 @@
 {
-  "name": "Language Munchers",
-  "short_name": "Munchers",
+  "name": "Language Munchers Basics",
+  "short_name": "Munchers Basics",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
