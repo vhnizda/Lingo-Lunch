@@ -72,6 +72,20 @@ test('phone portrait centers the language label above the flag row', async () =>
   assert.match(portraitRule, /\.language-toggles \{ justify-content:\s*center; \}/);
 });
 
+test('phone portrait keeps the topic menu in a fixed outer frame with touch scrolling inside it', async () => {
+  const [html, css] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../styles.css', import.meta.url), 'utf8'),
+  ]);
+
+  assert.match(html, /<section id="topic-screen"[^>]*>\s*<div class="topic-scroll-content">/);
+  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(portraitRule, 'phone portrait rule must exist');
+  assert.match(portraitRule, /\.app-shell\.is-menu \{[^}]*height:\s*100dvh[^}]*overflow:\s*hidden/);
+  assert.match(portraitRule, /#topic-screen \{[^}]*min-height:\s*0[^}]*overflow:\s*hidden/);
+  assert.match(portraitRule, /\.topic-scroll-content \{[^}]*overflow-y:\s*auto/);
+});
+
 test('phone portrait keeps the play status on one compact line', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
