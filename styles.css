@@ -299,6 +299,29 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 .app-shell.is-playing .tile { font-size: clamp(16px, 2.4vw, 31px); }
 .app-shell.is-playing .play-instructions { margin-top: 10px; }
 
+/* Tablet-sized menus show every topic at once; small screens retain the readable scrolling list. */
+@media (min-width: 600px) and (min-height: 600px) {
+  .app-shell.is-menu {
+    min-height: 100dvh;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .app-shell.is-menu .masthead { margin: 0 0 10px; }
+  .app-shell.is-menu .eyebrow { margin: 0 0 4px; }
+  .app-shell.is-menu h1 { font-size: clamp(22px, 3.2vw, 34px); }
+  .app-shell.is-menu .edition-sticker { top: clamp(31px, 4vw, 46px); }
+  .app-shell.is-menu .panel { padding: clamp(14px, 2vw, 22px); }
+  .app-shell.is-menu .topic-heading { gap: 12px; }
+  .app-shell.is-menu .completed-levels-banner { padding: 9px 12px; }
+  .app-shell.is-menu .intro { margin: 12px 0; font-size: clamp(19px, 2.5vw, 24px); }
+  .app-shell.is-menu .topic-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .app-shell.is-menu .topic-button { min-height: 48px; padding: 8px; font-size: clamp(19px, 2.3vw, 24px); }
+  .app-shell.is-menu .topic-button small { font-size: clamp(14px, 1.8vw, 17px); }
+}
+
 @media (max-height: 650px) {
   .app-shell.is-playing .game-screen { padding: 12px; }
   .app-shell.is-playing .status-bar { gap: 6px; font-size: 20px; }

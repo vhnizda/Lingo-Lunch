@@ -75,6 +75,15 @@ test('mobile topic controls compact five flags beside the language prompt', asyn
   assert.match(mobileRule, /\.language-toggles \{ gap: 4px; \}/);
 });
 
+test('tablet menus compact all topics into the visible fullscreen viewport', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(app, /appShell\.classList\.toggle\('is-menu', screen === screens\.topics\)/);
+  assert.match(css, /@media \(min-width: 600px\) and \(min-height: 600px\) \{[\s\S]*\.app-shell\.is-menu/);
+  assert.match(css, /\.app-shell\.is-menu \.topic-list \{\s+grid-template-columns: repeat\(5, minmax\(0, 1fr\)\);/);
+});
+
 test('active play uses the viewport height and keeps a four-row board scalable', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');

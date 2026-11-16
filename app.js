@@ -63,6 +63,7 @@ function show(screen) {
   Object.values(screens).forEach((element) => element.classList.add('hidden'));
   screen.classList.remove('hidden');
   appShell.classList.toggle('is-playing', screen === screens.game);
+  appShell.classList.toggle('is-menu', screen === screens.topics);
   appShell.classList.toggle('is-touch-first', isTouchFirstDevice());
 }
 
