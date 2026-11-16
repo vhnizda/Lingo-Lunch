@@ -72,6 +72,14 @@ test('phone portrait centers the language label above the flag row', async () =>
   assert.match(portraitRule, /\.language-toggles \{ justify-content:\s*center; \}/);
 });
 
+test('phone portrait puts the cleared-level total on a centered second line', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+
+  assert.ok(portraitRule, 'phone portrait rule must exist');
+  assert.match(portraitRule, /\.completed-levels-banner strong \{ display:\s*block; text-align:\s*center; \}/);
+});
+
 test('phone portrait keeps the topic menu in a fixed outer frame with touch scrolling inside it', async () => {
   const [html, css] = await Promise.all([
     readFile(new URL('../index.html', import.meta.url), 'utf8'),
