@@ -27,6 +27,7 @@ const livesElement = document.querySelector('#lives');
 const promptWord = document.querySelector('#prompt-word');
 const resultTitle = document.querySelector('#result-title');
 const resultMessage = document.querySelector('#result-message');
+const completedLevelsTotal = document.querySelector('#completed-levels-total');
 
 const LANGUAGE_OPTIONS = [
   { key: 'czech', flag: 'assets/flags/cz.svg', label: 'Czech' },
@@ -44,7 +45,8 @@ function groups() {
 }
 
 function readProgress() {
-  return JSON.parse(localStorage.getItem('language-munchers-progress') ?? '{"wonTopics":[]}');
+  const progress = JSON.parse(localStorage.getItem('language-munchers-progress') ?? '{"wonTopics":[]}');
+  return { wonTopics: [], completedLevels: 0, ...progress };
 }
 
 function saveProgress(progress) {
@@ -237,6 +239,7 @@ function renderLives(lives) {
 function renderTopics() {
   renderLanguageToggles();
   const progress = readProgress();
+  completedLevelsTotal.textContent = progress.completedLevels;
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
     const button = document.createElement('button');
@@ -372,6 +375,9 @@ function finishTopic(won) {
 
 function completeLevelWhenReady() {
   if (state.board.tiles.every((tile) => tile.cleared || !tile.isCorrect)) {
+    const progress = readProgress();
+    progress.completedLevels += 1;
+    saveProgress(progress);
     if (state.index === state.run.length - 1) {
       finishTopic(true);
     } else {
