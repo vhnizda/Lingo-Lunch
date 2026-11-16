@@ -11,6 +11,24 @@ test('correct eating clears the word without pending-tile styling or a second an
   assert.match(app, /function resolveCorrectAnswer\(\)[\s\S]*?state\.frogAnimation = 'idle';/);
 });
 
+test('non-final level completion shows a brief overlay before sliding in the next board', async () => {
+  const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(html, /id="board-stage"/);
+  assert.match(html, /id="level-complete-overlay"[^>]*>LEVEL COMPLETE!<\/div>/);
+  assert.match(app, /const LEVEL_COMPLETE_OVERLAY_MS = 500;/);
+  assert.match(app, /const LEVEL_BOARD_SLIDE_MS = 300;/);
+  assert.match(app, /function beginLevelTransition\(\)/);
+  assert.match(app, /window\.setTimeout\(beginBoardSlide, LEVEL_COMPLETE_OVERLAY_MS\)/);
+  assert.match(app, /window\.setTimeout\(finishBoardSlide, LEVEL_BOARD_SLIDE_MS\)/);
+  assert.match(app, /if \(state\.transitioning\) return false;/);
+  assert.match(css, /\.board-stage\.is-level-complete::after/);
+  assert.match(css, /@keyframes board-exit-left/);
+  assert.match(css, /@keyframes board-enter-right/);
+});
+
 test('a wrong-answer tile clears after its eat animation while review feedback remains', async () => {
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const clearWrongTile = app.match(/function clearWrongTile\(\) \{([\s\S]*?)\n\}/)?.[1];
@@ -44,8 +62,8 @@ test('arrow movement completes a correct eat immediately while Space remains ign
   const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 
   assert.match(app, /function finishEatingForMovement\(\)[\s\S]*?resolveCorrectAnswer\(\)/);
-  assert.match(app, /function move\(direction\) \{\n  if \(!state \|\| state\.paused\) return false;\n  if \(finishEatingForMovement\(\) \|\| !state\) return false;/);
-  assert.match(app, /function munch\(\) \{\n  if \(!state \|\| state\.paused \|\| state\.eatTimer\) return;/);
+  assert.match(app, /function move\(direction\) \{\n  if \(!state \|\| state\.paused\) return false;\n  if \(state\.transitioning\) return false;\n  if \(finishEatingForMovement\(\) \|\| !state\) return false;/);
+  assert.match(app, /function munch\(\) \{\n  if \(!state \|\| state\.paused \|\| state\.transitioning \|\| state\.eatTimer\) return;/);
 });
 
 test('held arrow movement uses a controlled repeat and stops on key release', async () => {

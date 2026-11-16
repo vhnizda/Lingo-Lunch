@@ -26,7 +26,7 @@ Touch/pointer and connected keyboards use the same move-then-munch interaction. 
 - Each 24-tile board has 10 correct answers and 14 distractors—about 42% correct / 58% distractors. Tiles and correct answers are distributed as evenly as possible among the active languages. With all five enabled, each language has either four or five tiles and exactly two correct translations.
 - Correct answers repeat intentionally and are mixed across the board. Distractors are drawn from a small per-language pool and intentionally repeat as well; there are no language labels or positional language patterns.
 - A run starts with three resting-frog life icons. A wrong answer clears its red tile and word after the normal short eat animation, while its word-plus-English review remains at the top until the player next eats an answer. That next eat replaces the review with its new result. The board remains responsive for movement during review.
-- Every cleared level adds one to the highlighted **Total Levels Cleared** on the topic menu. It is a cumulative lifetime total stored only in that browser's local storage. Version 1 has no sound.
+- Every cleared level adds one to the highlighted **Total Levels Cleared** on the topic menu. On non-final levels, the completed board dims beneath **LEVEL COMPLETE!** for 0.5 seconds, then exits left as the next board enters from the right over 0.3 seconds. Input is ignored during this transition; the final level goes straight to the topic-cleared screen. The total is a cumulative lifetime value stored only in that browser's local storage. Version 1 has no sound.
 
 ## Vocabulary source
 

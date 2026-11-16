@@ -16,7 +16,9 @@ const screens = {
 const appShell = document.querySelector('.app-shell');
 const topicList = document.querySelector('#topic-list');
 const languageToggles = document.querySelector('#language-toggles');
+const boardStage = document.querySelector('#board-stage');
 const boardElement = document.querySelector('#board');
+const levelCompleteOverlay = document.querySelector('#level-complete-overlay');
 const feedbackElement = document.querySelector('#feedback');
 const pauseDialog = document.querySelector('#pause-dialog');
 const fullscreenButton = document.querySelector('#fullscreen-button');
@@ -44,6 +46,8 @@ const PROGRESS_KEY = 'lingo-lunch-progress';
 const LEGACY_PROGRESS_KEY = 'language-munchers-progress';
 const HELD_MOVE_INITIAL_DELAY_MS = 250;
 const HELD_MOVE_INTERVAL_MS = 120;
+const LEVEL_COMPLETE_OVERLAY_MS = 500;
+const LEVEL_BOARD_SLIDE_MS = 300;
 const ARROW_MOVES = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
 
 let state = null;
@@ -146,7 +150,7 @@ function scheduleWrongTileClear() {
 }
 
 function pauseGame() {
-  if (!state || state.paused) return;
+  if (!state || state.paused || state.transitioning) return;
   stopHeldMovement();
   if (state.eatTimer) {
     window.clearTimeout(state.eatTimer.timeoutId);
@@ -183,6 +187,7 @@ function quitTopic() {
   stopHeldMovement();
   clearWrongReview();
   clearEatTimer();
+  clearLevelTransition();
   state = null;
   appShell.classList.remove('is-paused');
   pauseDialog.classList.add('hidden');
@@ -350,6 +355,8 @@ function startTopic(group) {
     paused: false,
     wrongReview: null,
     eatTimer: null,
+    transitioning: false,
+    transitionTimers: [],
   };
   show(screens.game);
   startLevel();
@@ -366,6 +373,50 @@ function startLevel() {
   feedbackElement.textContent = '';
   feedbackElement.className = 'feedback';
   renderGame();
+}
+
+function beginLevelTransition() {
+  state.transitioning = true;
+  stopHeldMovement();
+  boardStage.classList.add('is-level-complete');
+  levelCompleteOverlay.removeAttribute('aria-hidden');
+  state.transitionTimers.push(window.setTimeout(beginBoardSlide, LEVEL_COMPLETE_OVERLAY_MS));
+}
+
+function beginBoardSlide() {
+  if (!state?.transitioning) return;
+  const outgoingBoard = boardElement.cloneNode(true);
+  outgoingBoard.removeAttribute('id');
+  outgoingBoard.className = 'board board--outgoing';
+  outgoingBoard.setAttribute('aria-hidden', 'true');
+  boardStage.append(outgoingBoard);
+  boardStage.classList.remove('is-level-complete');
+  boardStage.classList.add('is-board-sliding');
+  state.index += 1;
+  startLevel();
+  boardElement.classList.add('board--incoming');
+  state.transitionTimers.push(window.setTimeout(finishBoardSlide, LEVEL_BOARD_SLIDE_MS));
+}
+
+function finishBoardSlide() {
+  if (!state?.transitioning) return;
+  boardStage.querySelector('.board--outgoing')?.remove();
+  boardStage.classList.remove('is-board-sliding');
+  boardElement.classList.remove('board--incoming');
+  levelCompleteOverlay.setAttribute('aria-hidden', 'true');
+  state.transitioning = false;
+  state.transitionTimers = [];
+}
+
+function clearLevelTransition() {
+  if (!state) return;
+  state.transitionTimers.forEach((timeoutId) => window.clearTimeout(timeoutId));
+  state.transitionTimers = [];
+  state.transitioning = false;
+  boardStage.classList.remove('is-level-complete', 'is-board-sliding');
+  boardStage.querySelector('.board--outgoing')?.remove();
+  boardElement.classList.remove('board--incoming');
+  levelCompleteOverlay.setAttribute('aria-hidden', 'true');
 }
 
 function renderGame() {
@@ -403,6 +454,7 @@ function renderGame() {
       button.dataset.pointerType = 'touch';
     }, { passive: true });
     button.addEventListener('click', () => {
+      if (!state || state.transitioning) return;
       if (finishEatingForMovement() || !state) return;
       if (shouldMunchOnTileTap({
         focusedIndex: state.focus,
@@ -425,6 +477,7 @@ function renderGame() {
 
 function move(direction) {
   if (!state || state.paused) return false;
+  if (state.transitioning) return false;
   if (finishEatingForMovement() || !state) return false;
   const row = Math.floor(state.focus / boardConfig.columns);
   const column = state.focus % boardConfig.columns;
@@ -459,6 +512,7 @@ function finishTopic(won) {
   stopHeldMovement();
   clearWrongReview();
   clearEatTimer();
+  clearLevelTransition();
   appShell.classList.remove('is-paused');
   pauseDialog.classList.add('hidden');
   const progress = readProgress();
@@ -481,17 +535,14 @@ function completeLevelWhenReady() {
     saveProgress(progress);
     if (state.index === state.run.length - 1) {
       finishTopic(true);
-    } else {
-      state.index += 1;
-      window.setTimeout(startLevel, 450);
-    }
+    } else beginLevelTransition();
     return true;
   }
   return false;
 }
 
 function munch() {
-  if (!state || state.paused || state.eatTimer) return;
+  if (!state || state.paused || state.transitioning || state.eatTimer) return;
   const tile = state.board.tiles[state.focus];
   if (!tile || tile.cleared || state.pendingTiles.has(tile.id)) return;
   if (state.lives === 0) {
@@ -546,6 +597,7 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (!state) return;
+  if (state.transitioning) return;
   if (event.key === 'Escape') {
     event.preventDefault();
     if (state.paused) resumeGame(); else pauseGame();
