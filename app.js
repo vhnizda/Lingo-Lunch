@@ -384,10 +384,14 @@ function renderChrome() {
   updateFullscreenButton();
 }
 
+function formatCompletedLevels(value) {
+  return String(Math.max(0, value)).padStart(5, '0');
+}
+
 function renderTopics() {
   renderChrome();
   const progress = readProgress();
-  completedLevelsTotal.textContent = progress.completedLevels;
+  completedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
     const card = document.createElement('div');
