@@ -75,6 +75,10 @@ test('mobile menu keeps Player Game Stats beside Game Settings', async () => {
   assert.match(css, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)[^}]*width:\s*70%[^}]*margin:\s*0 auto[^}]*gap:\s*20%/);
   assert.match(css, /\.topic-heading > \.settings-button, \.topic-heading > \.statistics-button \{[^}]*width:\s*100%[^}]*align-self:\s*stretch/);
 
+  const portraitRule = css.match(/@media \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(portraitRule, 'narrow portrait menu rule must exist');
+  assert.match(portraitRule, /\.topic-heading \{ width:\s*100%; gap:\s*12px; \}/);
+
   const mobileRule = css.match(/@media \(pointer: coarse\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
   assert.ok(mobileRule, 'narrow touch menu rule must exist');
   assert.match(mobileRule, /\.topic-heading \{ gap:\s*20%; \}/);
