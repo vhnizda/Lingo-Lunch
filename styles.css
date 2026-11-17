@@ -101,7 +101,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
   line-height: 1.5;
 }
 .completed-levels-banner strong { color: #ffe29a; font-size: 1.3em; }
-.completed-levels-score { display: inline-block; min-width: 5ch; margin-left: 6px; padding: 4px 7px; border: 2px solid #ffe29a; background: #36517d; box-shadow: 2px 2px 0 #833f72; font-variant-numeric: tabular-nums; letter-spacing: .08em; text-align: center; }
+.completed-levels-score { display: inline-block; min-width: 5ch; margin-left: 6px; padding: 4px 7px; border: 2px solid #ffe29a; background: #36517d; box-shadow: 2px 2px 0 #833f72; font-variant-numeric: tabular-nums; letter-spacing: .08em; text-align: right; }
 .language-controls { display: flex; align-items: center; gap: 10px; }
 .language-label { color: #91d8cf; font-family: "Press Start 2P", monospace; font-size: 10px; line-height: 1.35; }
 .language-toggles { display: flex; align-items: center; gap: 8px; }
@@ -582,7 +582,7 @@ body.topic-review-open { overflow: hidden; }
   .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
   .completed-levels-banner { min-width: 0; padding: 10px; text-align: left; }
   .completed-levels-banner strong { display: block; text-align: left; }
-  .completed-levels-score { margin: 5px 0 0; }
+  .completed-levels-banner .completed-levels-score { margin: 5px 0 0; text-align: right; }
   .settings-button { align-self: stretch; width: 100%; min-width: 0; }
 }
 
@@ -591,6 +591,6 @@ body.topic-review-open { overflow: hidden; }
   .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
   .completed-levels-banner { min-width: 0; padding: 8px 10px; text-align: left; }
   .completed-levels-banner strong { display: block; text-align: left; }
-  .completed-levels-score { margin: 5px 0 0; }
+  .completed-levels-banner .completed-levels-score { margin: 5px 0 0; text-align: right; }
   .settings-button { align-self: stretch; width: 100%; min-width: 0; }
 }

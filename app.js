@@ -385,7 +385,7 @@ function renderChrome() {
 }
 
 function formatCompletedLevels(value) {
-  return String(Math.max(0, value)).padStart(5, '0');
+  return String(Math.max(0, value));
 }
 
 function renderTopics() {
