@@ -575,3 +575,19 @@ body.topic-review-open { overflow: hidden; }
   .language-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .language-options .language-toggle { min-height: 44px; font-size: 19px; }
 }
+
+/* Mobile menu keeps progress and Settings as two equal, in-line controls. */
+@media (pointer: coarse) and (max-width: 650px) {
+  .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
+  .completed-levels-banner { min-width: 0; padding: 10px; text-align: left; }
+  .completed-levels-banner strong { display: block; text-align: left; }
+  .settings-button { align-self: stretch; width: 100%; min-width: 0; }
+}
+
+/* Keep that paired menu heading on one line in short phone landscape. */
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
+  .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
+  .completed-levels-banner { min-width: 0; padding: 8px 10px; text-align: left; }
+  .completed-levels-banner strong { display: block; text-align: left; }
+  .settings-button { align-self: stretch; width: 100%; min-width: 0; }
+}

@@ -69,12 +69,20 @@ test('phone portrait centers the language label above the flag row', async () =>
   assert.match(portraitRule, /\.language-toggles \{ justify-content:\s*center; \}/);
 });
 
-test('phone portrait puts the cleared-level total on a centered second line', async () => {
+test('mobile menu puts the left-aligned cleared-level total beside Settings', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
-  const portraitRule = css.match(/@media \(pointer: coarse\) and \(orientation: portrait\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
 
-  assert.ok(portraitRule, 'phone portrait rule must exist');
-  assert.match(portraitRule, /\.completed-levels-banner strong \{ display:\s*block; text-align:\s*center; \}/);
+  const mobileRule = css.match(/@media \(pointer: coarse\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(mobileRule, 'narrow touch menu rule must exist');
+  assert.match(mobileRule, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(mobileRule, /\.completed-levels-banner \{[^}]*text-align:\s*left/);
+  assert.match(mobileRule, /\.completed-levels-banner strong \{[^}]*display:\s*block[^}]*text-align:\s*left/);
+  assert.match(mobileRule, /\.settings-button \{[^}]*width:\s*100%/);
+
+  const landscapeRules = [...css.matchAll(/@media \(pointer: coarse\) and \(orientation: landscape\) and \(max-height: 520px\) \{([\s\S]*?)\n\}/g)].map((match) => match[1]);
+  const landscapeRule = landscapeRules.at(-1);
+  assert.ok(landscapeRule, 'short touch landscape rule must exist');
+  assert.match(landscapeRule, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
 });
 
 test('phone portrait keeps the topic menu in a fixed outer frame with touch scrolling inside it', async () => {
