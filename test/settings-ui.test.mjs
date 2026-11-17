@@ -14,6 +14,7 @@ test('main menu has a settings dialog rather than inline topic-language flags', 
   assert.match(html, /id="target-language-options"/);
   assert.doesNotMatch(html, /id="language-toggles"/);
   assert.match(app, /const SETTINGS_KEY = 'lingo-lunch-settings';/);
+  assert.match(app, /settingsButton\.textContent = 'GAME SETTINGS';/);
   assert.match(app, /settingsForSourceLanguage\(settings, menuLanguageSelect\.value\)/);
   assert.match(app, /localStorage\.setItem\(SETTINGS_KEY, JSON\.stringify\(settings\)\)/);
 });

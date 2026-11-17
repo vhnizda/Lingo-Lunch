@@ -365,7 +365,7 @@ function renderChrome() {
   document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
   statisticsClose.setAttribute('aria-label', tr('done'));
   document.querySelector('#intro').textContent = tr('intro');
-  settingsButton.textContent = tr('settings');
+  settingsButton.textContent = 'GAME SETTINGS';
   document.querySelector('#topic-label').textContent = tr('topic');
   document.querySelector('#word-label').textContent = tr('word');
   document.querySelector('#lives-label').textContent = tr('lives');
