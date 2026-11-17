@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { normalizeProgress, recordCategoryCleared, recordLevelCompletion, topCategory } from '../src/statistics.js';
+import { mostConfusingWord, normalizeProgress, recordCategoryCleared, recordIncorrectWord, recordLevelCompletion, topCategory } from '../src/statistics.js';
 
 test('level completion tracks totals, flawless clears, and category level counts', () => {
   const progress = recordLevelCompletion({ wonTopics: [] }, 'animals_and_nature', false);
@@ -10,6 +10,7 @@ test('level completion tracks totals, flawless clears, and category level counts
     completedLevels: 1,
     perfectLevels: 1,
     completedLevelsByCategory: { animals_and_nature: 1 },
+    incorrectWordCounts: {},
   });
 });
 
@@ -35,11 +36,20 @@ test('category clears remain unique and top category selects the highest level c
   assert.equal(topCategory(progress), 'food_and_drink');
 });
 
+test('most confusing word counts wrong tile picks and chooses deterministically on a tie', () => {
+  const progress = recordIncorrectWord(recordIncorrectWord(recordIncorrectWord({}, 'der Hund'), 'die Katze'), 'der Hund');
+
+  assert.deepEqual(progress.incorrectWordCounts, { 'der Hund': 2, 'die Katze': 1 });
+  assert.equal(mostConfusingWord(progress), 'der Hund');
+  assert.equal(mostConfusingWord({ incorrectWordCounts: { zebra: 2, apple: 2 } }), 'apple');
+});
+
 test('legacy progress gains zero-value statistics without losing existing progress', () => {
   assert.deepEqual(normalizeProgress({ wonTopics: ['animals_and_nature'], completedLevels: 7 }), {
     wonTopics: ['animals_and_nature'],
     completedLevels: 7,
     perfectLevels: 0,
     completedLevelsByCategory: {},
+    incorrectWordCounts: {},
   });
 });

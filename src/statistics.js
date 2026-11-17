@@ -9,6 +9,13 @@ function categoryCounts(value) {
     .map(([key, count]) => [key, count]));
 }
 
+function wordCounts(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .filter(([word, count]) => typeof word === 'string' && word.trim().length > 0 && nonNegativeInteger(count) > 0)
+    .map(([word, count]) => [word, count]));
+}
+
 export function normalizeProgress(progress) {
   const value = progress && typeof progress === 'object' ? progress : {};
   return {
@@ -16,6 +23,7 @@ export function normalizeProgress(progress) {
     completedLevels: nonNegativeInteger(value.completedLevels),
     perfectLevels: nonNegativeInteger(value.perfectLevels),
     completedLevelsByCategory: categoryCounts(value.completedLevelsByCategory),
+    incorrectWordCounts: wordCounts(value.incorrectWordCounts),
   };
 }
 
@@ -35,6 +43,21 @@ export function recordCategoryCleared(progress, category) {
   return next.wonTopics.includes(category)
     ? next
     : { ...next, wonTopics: [...next.wonTopics, category] };
+}
+
+export function recordIncorrectWord(progress, word) {
+  const next = normalizeProgress(progress);
+  if (typeof word !== 'string' || word.trim().length === 0) return next;
+  const count = next.incorrectWordCounts[word] ?? 0;
+  return { ...next, incorrectWordCounts: { ...next.incorrectWordCounts, [word]: count + 1 } };
+}
+
+export function mostConfusingWord(progress) {
+  const entries = Object.entries(normalizeProgress(progress).incorrectWordCounts);
+  if (entries.length === 0) return null;
+  return entries.sort(([leftWord, leftCount], [rightWord, rightCount]) => (
+    rightCount - leftCount || leftWord.localeCompare(rightWord)
+  ))[0][0];
 }
 
 export function topCategory(progress) {

@@ -631,6 +631,30 @@ const messages = {
     "portuguese_pt": "AINDA NENHUMA",
     "spanish_standard": "TODAVÍA NINGUNA",
     "italian_standard": "ANCORA NESSUNA"
+  },
+  "total_perfect_levels": {
+    "english": "TOTAL PERFECT LEVELS",
+    "czech": "CELKEM BEZCHYBNÝCH ÚROVNÍ",
+    "german_standard": "INSGESAMT PERFEKTE LEVEL",
+    "portuguese_pt": "TOTAL DE NÍVEIS PERFEITOS",
+    "spanish_standard": "TOTAL DE NIVELES PERFECTOS",
+    "italian_standard": "TOTALE LIVELLI PERFETTI"
+  },
+  "most_confusing_word": {
+    "english": "MOST CONFUSING WORD",
+    "czech": "NEJZÁLUDNĚJŠÍ SLOVO",
+    "german_standard": "VERWIRRENDSTES WORT",
+    "portuguese_pt": "PALAVRA MAIS CONFUSA",
+    "spanish_standard": "PALABRA MÁS CONFUSA",
+    "italian_standard": "PAROLA PIÙ CONFUSA"
+  },
+  "no_confusing_word": {
+    "english": "NONE YET",
+    "czech": "ZATÍM ŽÁDNÉ",
+    "german_standard": "NOCH KEINES",
+    "portuguese_pt": "AINDA NENHUMA",
+    "spanish_standard": "TODAVÍA NINGUNA",
+    "italian_standard": "ANCORA NESSUNA"
   }
 };
 

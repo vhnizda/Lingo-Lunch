@@ -4,7 +4,7 @@ import { shouldMoveToEmptyOnTouchTap, shouldMunchOnTileTap } from './src/tap-con
 import { FROG_EAT_ANIMATION, FROG_EAT_DURATION_MS, frogAnimationForMove } from './src/frog.js';
 import { languageOptions, t, topicKey } from './src/i18n.js';
 import { normalizeSettings, settingsForSourceLanguage } from './src/settings.js';
-import { normalizeProgress, recordCategoryCleared, recordLevelCompletion, topCategory } from './src/statistics.js';
+import { mostConfusingWord, normalizeProgress, recordCategoryCleared, recordIncorrectWord, recordLevelCompletion, topCategory } from './src/statistics.js';
 
 const vocabulary = await fetch('./data/vocabulary.json').then((response) => {
   if (!response.ok) throw new Error('Could not load vocabulary data.');
@@ -39,6 +39,7 @@ const statisticsCompletedLevelsTotal = document.querySelector('#statistics-compl
 const statisticsPerfectLevelsTotal = document.querySelector('#statistics-perfect-levels-total');
 const statisticsCategoriesClearedTotal = document.querySelector('#statistics-categories-cleared-total');
 const statisticsTopCategoryTotal = document.querySelector('#statistics-top-category-total');
+const statisticsMostConfusingWordTotal = document.querySelector('#statistics-most-confusing-word-total');
 const topicReviewDialog = document.querySelector('#topic-review-dialog');
 const topicReviewTitle = document.querySelector('#topic-review-title');
 const topicReviewContent = document.querySelector('#topic-review-content');
@@ -367,9 +368,10 @@ function renderChrome() {
   completedLevelsButton.setAttribute('aria-label', tr('total_levels_cleared'));
   document.querySelector('#statistics-title').textContent = 'ALL GAME STATS';
   document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
-  document.querySelector('#statistics-perfect-levels-label').textContent = tr('perfect_levels_cleared');
+  document.querySelector('#statistics-perfect-levels-label').textContent = tr('total_perfect_levels');
   document.querySelector('#statistics-categories-cleared-label').textContent = tr('total_categories_cleared');
   document.querySelector('#statistics-top-category-label').textContent = tr('top_category');
+  document.querySelector('#statistics-most-confusing-word-label').textContent = tr('most_confusing_word');
   statisticsClose.setAttribute('aria-label', tr('done'));
   document.querySelector('#intro').textContent = tr('intro');
   settingsButton.textContent = 'GAME SETTINGS';
@@ -413,6 +415,7 @@ function renderTopics() {
   statisticsCategoriesClearedTotal.textContent = formatCompletedLevels(progress.wonTopics.length);
   const topCategoryGroup = topCategory(progress);
   statisticsTopCategoryTotal.textContent = topCategoryGroup ? tr(topicKey(topCategoryGroup)) : tr('no_top_category');
+  statisticsMostConfusingWordTotal.textContent = mostConfusingWord(progress) ?? tr('no_confusing_word');
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
     const card = document.createElement('div');
@@ -735,6 +738,7 @@ function munch() {
 
   state.lives = outcome.lives;
   state.mistakesThisLevel = true;
+  saveProgress(recordIncorrectWord(readProgress(), tile.displayText));
   state.pendingTiles.add(tile.id);
   feedbackElement.textContent = `${tile.displayText} = ${outcome.sourceText}`;
   feedbackElement.className = 'feedback wrong';

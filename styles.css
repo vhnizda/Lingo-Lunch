@@ -563,7 +563,9 @@ body.topic-review-open { overflow: hidden; }
 /* Settings and statistics are menu-only modals. */
 .settings-panel, .statistics-panel { width: min(720px, calc(100vw - 24px)); }
 .settings-content, .statistics-content { min-height: 0; margin-top: 18px; overflow: auto; }
-.statistics-row { margin: 0; color: #91d8cf; font-family: "Press Start 2P", monospace; font-size: clamp(11px, 1.8vw, 16px); line-height: 1.5; }
+.statistics-row { margin: 0 0 14px; color: #91d8cf; font-family: "Press Start 2P", monospace; font-size: clamp(11px, 1.8vw, 16px); line-height: 1.5; }
+.statistics-row > span, .statistics-row > .completed-levels-score { display: block; }
+.statistics-row > .completed-levels-score { margin-top: 5px; }
 .settings-content .intro { margin: 0 0 18px; }
 .settings-content h3 { margin: 18px 0 8px; }
 .menu-language-select { width: 100%; min-height: 48px; padding: 8px 10px; border: 3px solid #14183b; background: #91d8cf; color: #14183b; font: inherit; font-size: 22px; }

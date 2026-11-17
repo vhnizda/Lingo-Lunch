@@ -52,7 +52,12 @@ test('completed-level score opens a focus-managed Statistics dialog', async () =
   assert.match(html, /id="statistics-perfect-levels-total" class="completed-levels-score">0<\/strong>/);
   assert.match(html, /id="statistics-categories-cleared-total" class="completed-levels-score">0<\/strong>/);
   assert.match(html, /id="statistics-top-category-total" class="completed-levels-score">/);
-  assert.match(app, /tr\('perfect_levels_cleared'\)/);
+  assert.match(html, /id="statistics-most-confusing-word-total" class="completed-levels-score">/);
+  assert.match(html, /class="statistics-row">\s*<span[^>]+><\/span>\s*<strong/);
+  assert.match(app, /tr\('most_confusing_word'\)/);
+  assert.match(app, /recordIncorrectWord\(readProgress\(\), tile\.displayText\)/);
+  assert.match(app, /tr\('total_perfect_levels'\)/);
+  assert.doesNotMatch(app, /tr\('perfect_levels_cleared'\)/);
   assert.match(app, /tr\('total_categories_cleared'\)/);
   assert.match(app, /tr\('top_category'\)/);
   assert.match(app, /document\.querySelector\('#statistics-title'\)\.textContent = 'ALL GAME STATS';/);

@@ -18,6 +18,9 @@ test('statistics labels are translated in every supported language', () => {
     assert.notEqual(t(key, 'perfect_levels_cleared'), 'perfect_levels_cleared');
     assert.notEqual(t(key, 'total_categories_cleared'), 'total_categories_cleared');
     assert.notEqual(t(key, 'top_category'), 'top_category');
+    assert.notEqual(t(key, 'total_perfect_levels'), 'total_perfect_levels');
+    assert.notEqual(t(key, 'most_confusing_word'), 'most_confusing_word');
+    assert.notEqual(t(key, 'no_confusing_word'), 'no_confusing_word');
     assert.notEqual(t(key, 'no_top_category'), 'no_top_category');
   }
 });
