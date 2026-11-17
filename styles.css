@@ -587,6 +587,11 @@ body.topic-review-open { overflow: hidden; }
   .fullscreen-button { display: none; }
 }
 
+/* Preserve visible game-frame padding around the Settings panel on phones. */
+@media (max-width: 650px) {
+  .settings-panel { width: min(720px, calc(100vw - 48px)); }
+}
+
 /* Keep that paired menu heading on one line in short phone landscape. */
 @media (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
   .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: 10px; }
