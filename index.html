@@ -23,7 +23,7 @@
       <section id="topic-screen" class="panel" aria-label="">
         <div class="topic-scroll-content">
           <div class="topic-heading">
-            <p class="completed-levels-banner"><span id="total-levels-label"></span>: <strong id="completed-levels-total" class="completed-levels-score">0</strong></p>
+            <button id="completed-levels-button" class="completed-levels-banner completed-levels-button" type="button"><span id="total-levels-label"></span>: <strong id="completed-levels-total" class="completed-levels-score">0</strong></button>
             <button id="settings-button" class="primary-button settings-button" type="button"></button>
           </div>
           <p id="intro" class="intro"></p>
@@ -75,6 +75,16 @@
           <button id="topic-review-close" class="topic-review-close" type="button">×</button>
           <h2 id="topic-review-title"></h2>
           <div id="topic-review-content" class="topic-review-content" tabindex="0"></div>
+        </div>
+      </section>
+
+      <section id="statistics-dialog" class="topic-review-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="statistics-title">
+        <div class="topic-review-panel statistics-panel">
+          <button id="statistics-close" class="topic-review-close" type="button">×</button>
+          <h2 id="statistics-title"></h2>
+          <div class="statistics-content">
+            <p class="statistics-row"><span id="statistics-completed-levels-label"></span>: <strong id="statistics-completed-levels-total" class="completed-levels-score">0</strong></p>
+          </div>
         </div>
       </section>
 

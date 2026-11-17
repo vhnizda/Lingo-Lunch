@@ -37,3 +37,19 @@ test('settings and vocabulary dialogs restore focus and close on Escape', async 
   assert.match(app, /settingsOrigin\?\.focus\(\)/);
   assert.match(app, /event\.key === 'Escape'/);
 });
+
+test('completed-level score opens a focus-managed Statistics dialog', async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+    readFile(new URL('../app.js', import.meta.url), 'utf8'),
+  ]);
+
+  assert.match(html, /<button id="completed-levels-button"[^>]*type="button"/);
+  assert.match(html, /id="statistics-dialog"[^>]*role="dialog"[^>]*aria-modal="true"/);
+  assert.match(html, /id="statistics-close" class="topic-review-close"[^>]*>×<\/button>/);
+  assert.match(html, /id="statistics-completed-levels-total" class="completed-levels-score">0<\/strong>/);
+  assert.match(app, /function openStatistics\(origin\)/);
+  assert.match(app, /function closeStatistics\(\)/);
+  assert.match(app, /completedLevelsButton\.addEventListener\('click', \(\) => openStatistics\(completedLevelsButton\)\)/);
+  assert.match(app, /statisticsOrigin\?\.focus\(\)/);
+});

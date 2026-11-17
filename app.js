@@ -31,6 +31,10 @@ const promptWord = document.querySelector('#prompt-word');
 const resultTitle = document.querySelector('#result-title');
 const resultMessage = document.querySelector('#result-message');
 const completedLevelsTotal = document.querySelector('#completed-levels-total');
+const completedLevelsButton = document.querySelector('#completed-levels-button');
+const statisticsDialog = document.querySelector('#statistics-dialog');
+const statisticsClose = document.querySelector('#statistics-close');
+const statisticsCompletedLevelsTotal = document.querySelector('#statistics-completed-levels-total');
 const topicReviewDialog = document.querySelector('#topic-review-dialog');
 const topicReviewTitle = document.querySelector('#topic-review-title');
 const topicReviewContent = document.querySelector('#topic-review-content');
@@ -56,6 +60,7 @@ let state = null;
 let settings = readSettings();
 let heldMovement = { key: null, timeoutId: null };
 let topicReviewOrigin = null;
+let statisticsOrigin = null;
 let settingsOrigin = null;
 
 function groups() {
@@ -355,6 +360,10 @@ function renderChrome() {
   document.querySelector('#app-tagline').textContent = tr('app_tagline');
   document.querySelector('#topic-screen').setAttribute('aria-label', tr('choose_topic'));
   document.querySelector('#total-levels-label').textContent = tr('total_levels_cleared');
+  completedLevelsButton.setAttribute('aria-label', tr('total_levels_cleared'));
+  document.querySelector('#statistics-title').textContent = tr('total_levels_cleared');
+  document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
+  statisticsClose.setAttribute('aria-label', tr('done'));
   document.querySelector('#intro').textContent = tr('intro');
   settingsButton.textContent = tr('settings');
   document.querySelector('#topic-label').textContent = tr('topic');
@@ -392,6 +401,7 @@ function renderTopics() {
   renderChrome();
   const progress = readProgress();
   completedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
+  statisticsCompletedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
     const card = document.createElement('div');
@@ -453,6 +463,21 @@ function closeTopicReview() {
   topicReviewContent.replaceChildren();
   topicReviewOrigin?.focus();
   topicReviewOrigin = null;
+}
+
+function openStatistics(origin) {
+  statisticsOrigin = origin;
+  document.body.classList.add('topic-review-open');
+  statisticsDialog.classList.remove('hidden');
+  statisticsClose.focus();
+}
+
+function closeStatistics() {
+  if (statisticsDialog.classList.contains('hidden')) return;
+  statisticsDialog.classList.add('hidden');
+  document.body.classList.remove('topic-review-open');
+  statisticsOrigin?.focus();
+  statisticsOrigin = null;
 }
 
 function startTopic(group) {
@@ -715,6 +740,8 @@ document.querySelector('#continue-button').addEventListener('click', resumeGame)
 document.querySelector('#quit-button').addEventListener('click', quitTopic);
 document.querySelector('#return-button').addEventListener('click', renderTopics);
 topicReviewClose.addEventListener('click', closeTopicReview);
+completedLevelsButton.addEventListener('click', () => openStatistics(completedLevelsButton));
+statisticsClose.addEventListener('click', closeStatistics);
 settingsButton.addEventListener('click', () => openSettings(settingsButton));
 menuLanguageSelect.addEventListener('change', () => {
   settings = settingsForSourceLanguage(settings, menuLanguageSelect.value);
@@ -731,6 +758,11 @@ document.addEventListener('keydown', (event) => {
   if (!settingsDialog.classList.contains('hidden') && event.key === 'Escape') {
     event.preventDefault();
     closeSettings();
+    return;
+  }
+  if (!statisticsDialog.classList.contains('hidden') && event.key === 'Escape') {
+    event.preventDefault();
+    closeStatistics();
     return;
   }
   if (!topicReviewDialog.classList.contains('hidden') && event.key === 'Escape') {

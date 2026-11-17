@@ -98,7 +98,7 @@ test('mobile layouts hide the fullscreen button outside and during play', async 
 
 test('phone portrait keeps the Settings panel inset from the game frame', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
-  assert.match(css, /@media \(max-width: 650px\) \{\s*\.settings-panel \{ width:\s*min\(720px, calc\(100vw - 48px\)\); \}\s*\}/);
+  assert.match(css, /@media \(max-width: 650px\) \{\s*\.settings-panel, \.statistics-panel \{ width:\s*min\(720px, calc\(100vw - 48px\)\); \}\s*\}/);
 });
 
 test('phone portrait keeps the topic menu in a fixed outer frame with touch scrolling inside it', async () => {
