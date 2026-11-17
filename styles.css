@@ -88,7 +88,7 @@ h2 { font-family: "Press Start 2P", monospace; font-size: clamp(17px, 2.5vw, 26p
 #result-screen { text-align: center; }
 #result-screen h2 { font-size: clamp(28px, 5vw, 48px); }
 #result-screen .primary-button { margin-top: 10px; }
-.topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 70%; margin: 0 auto; align-items: stretch; gap: 12px; }
+.topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 82%; margin: 0 auto; align-items: stretch; gap: 18.5%; }
 .topic-heading > .settings-button, .topic-heading > .statistics-button { width: 100%; min-width: 0; align-self: stretch; }
 .statistics-button { font-family: "Press Start 2P", monospace; font-size: 11px; }
 .language-controls { display: flex; align-items: center; gap: 10px; }
@@ -569,7 +569,7 @@ body.topic-review-open { overflow: hidden; }
 
 /* Mobile menu keeps Player Game Stats and Game Settings as paired controls. */
 @media (pointer: coarse) and (max-width: 650px) {
-  .topic-heading { gap: 10px; }
+  .topic-heading { gap: 18.5%; }
   .fullscreen-button { display: none; }
 }
 
@@ -580,6 +580,6 @@ body.topic-review-open { overflow: hidden; }
 
 /* Keep the paired menu buttons compact in short phone landscape. */
 @media (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
-  .topic-heading { gap: 10px; }
+  .topic-heading { gap: 18.5%; }
   .fullscreen-button { display: none; }
 }
