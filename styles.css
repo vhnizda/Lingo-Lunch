@@ -581,6 +581,7 @@ body.topic-review-open { overflow: hidden; }
 /* Portrait menus prioritize readable control labels over the desktop gap. */
 @media (orientation: portrait) and (max-width: 650px) {
   .topic-heading { width: 100%; gap: 12px; }
+  .topic-heading > .settings-button, .topic-heading > .statistics-button { line-height: 1.3; }
 }
 
 /* Keep the paired menu buttons compact in short phone landscape. */
