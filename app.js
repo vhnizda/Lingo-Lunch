@@ -361,7 +361,7 @@ function renderChrome() {
   document.querySelector('#topic-screen').setAttribute('aria-label', tr('choose_topic'));
   document.querySelector('#total-levels-label').textContent = tr('total_levels_cleared');
   completedLevelsButton.setAttribute('aria-label', tr('total_levels_cleared'));
-  document.querySelector('#statistics-title').textContent = tr('total_levels_cleared');
+  document.querySelector('#statistics-title').textContent = 'ALL GAME STATS';
   document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
   statisticsClose.setAttribute('aria-label', tr('done'));
   document.querySelector('#intro').textContent = tr('intro');
