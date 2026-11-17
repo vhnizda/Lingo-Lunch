@@ -85,6 +85,17 @@ test('mobile menu puts the left-aligned cleared-level total beside Settings', as
   assert.match(landscapeRule, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
 });
 
+test('mobile layouts hide the fullscreen button outside and during play', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  const narrowTouchRule = css.match(/@media \(pointer: coarse\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
+  assert.ok(narrowTouchRule, 'narrow touch rule must exist');
+  assert.match(narrowTouchRule, /\.fullscreen-button \{ display:\s*none; \}/);
+
+  const landscapeRules = [...css.matchAll(/@media \(pointer: coarse\) and \(orientation: landscape\) and \(max-height: 520px\) \{([\s\S]*?)\n\}/g)].map((match) => match[1]);
+  assert.match(landscapeRules.at(-1), /\.fullscreen-button \{ display:\s*none; \}/);
+});
+
 test('phone portrait keeps the topic menu in a fixed outer frame with touch scrolling inside it', async () => {
   const [html, css] = await Promise.all([
     readFile(new URL('../index.html', import.meta.url), 'utf8'),

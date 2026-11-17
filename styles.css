@@ -584,6 +584,7 @@ body.topic-review-open { overflow: hidden; }
   .completed-levels-banner strong { display: block; text-align: left; }
   .completed-levels-banner .completed-levels-score { margin: 5px 0 0; text-align: right; }
   .settings-button { align-self: stretch; width: 100%; min-width: 0; }
+  .fullscreen-button { display: none; }
 }
 
 /* Keep that paired menu heading on one line in short phone landscape. */
@@ -593,4 +594,5 @@ body.topic-review-open { overflow: hidden; }
   .completed-levels-banner strong { display: block; text-align: left; }
   .completed-levels-banner .completed-levels-score { margin: 5px 0 0; text-align: right; }
   .settings-button { align-self: stretch; width: 100%; min-width: 0; }
+  .fullscreen-button { display: none; }
 }
