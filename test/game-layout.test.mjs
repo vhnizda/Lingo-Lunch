@@ -72,8 +72,8 @@ test('phone portrait centers the language label above the flag row', async () =>
 test('mobile menu keeps Player Game Stats beside Game Settings', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-  assert.match(css, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
-  assert.match(css, /\.topic-heading > \.settings-button, \.topic-heading > \.statistics-button \{[^}]*width:\s*100%/);
+  assert.match(css, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)[^}]*width:\s*70%[^}]*margin:\s*0 auto/);
+  assert.match(css, /\.topic-heading > \.settings-button, \.topic-heading > \.statistics-button \{[^}]*width:\s*100%[^}]*align-self:\s*stretch/);
 
   const mobileRule = css.match(/@media \(pointer: coarse\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
   assert.ok(mobileRule, 'narrow touch menu rule must exist');
