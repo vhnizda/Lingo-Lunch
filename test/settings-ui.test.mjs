@@ -39,13 +39,15 @@ test('settings and vocabulary dialogs restore focus and close on Escape', async 
   assert.match(app, /event\.key === 'Escape'/);
 });
 
-test('completed-level score opens a focus-managed Statistics dialog', async () => {
-  const [html, app] = await Promise.all([
+test('Player Game Stats button opens a focus-managed dialog', async () => {
+  const [html, app, css] = await Promise.all([
     readFile(new URL('../index.html', import.meta.url), 'utf8'),
     readFile(new URL('../app.js', import.meta.url), 'utf8'),
+    readFile(new URL('../styles.css', import.meta.url), 'utf8'),
   ]);
 
-  assert.match(html, /<button id="completed-levels-button"[^>]*type="button"/);
+  assert.match(html, /<button id="statistics-button" class="primary-button statistics-button" type="button">Player Game Stats<\/button>/);
+  assert.doesNotMatch(html, /completed-levels-button|total-levels-label/);
   assert.match(html, /id="statistics-dialog"[^>]*role="dialog"[^>]*aria-modal="true"/);
   assert.match(html, /id="statistics-close" class="topic-review-close"[^>]*>×<\/button>/);
   assert.match(html, /id="statistics-completed-levels-total" class="completed-levels-score">0<\/strong>/);
@@ -60,9 +62,9 @@ test('completed-level score opens a focus-managed Statistics dialog', async () =
   assert.doesNotMatch(app, /tr\('perfect_levels_cleared'\)/);
   assert.match(app, /tr\('total_categories_cleared'\)/);
   assert.match(app, /tr\('top_category'\)/);
-  assert.match(app, /document\.querySelector\('#statistics-title'\)\.textContent = 'ALL GAME STATS';/);
-  assert.match(app, /function openStatistics\(origin\)/);
-  assert.match(app, /function closeStatistics\(\)/);
-  assert.match(app, /completedLevelsButton\.addEventListener\('click', \(\) => openStatistics\(completedLevelsButton\)\)/);
+  assert.match(app, /document\.querySelector\('#statistics-title'\)\.textContent = 'Player Game Stats';/);
+  assert.match(app, /statisticsButton\.addEventListener\('click', \(\) => openStatistics\(statisticsButton\)\)/);
+  assert.match(css, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(css, /\.topic-heading > \.settings-button, \.topic-heading > \.statistics-button \{[^}]*width:\s*100%/);
   assert.match(app, /statisticsOrigin\?\.focus\(\)/);
 });

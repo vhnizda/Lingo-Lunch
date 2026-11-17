@@ -69,20 +69,20 @@ test('phone portrait centers the language label above the flag row', async () =>
   assert.match(portraitRule, /\.language-toggles \{ justify-content:\s*center; \}/);
 });
 
-test('mobile menu puts the left-aligned cleared-level total beside Settings', async () => {
+test('mobile menu keeps Player Game Stats beside Game Settings', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+
+  assert.match(css, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(css, /\.topic-heading > \.settings-button, \.topic-heading > \.statistics-button \{[^}]*width:\s*100%/);
 
   const mobileRule = css.match(/@media \(pointer: coarse\) and \(max-width: 650px\) \{([\s\S]*?)\n\}/)?.[1];
   assert.ok(mobileRule, 'narrow touch menu rule must exist');
-  assert.match(mobileRule, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
-  assert.match(mobileRule, /\.completed-levels-banner \{[^}]*text-align:\s*left/);
-  assert.match(mobileRule, /\.completed-levels-banner strong \{[^}]*display:\s*block[^}]*text-align:\s*left/);
-  assert.match(mobileRule, /\.settings-button \{[^}]*width:\s*100%/);
+  assert.match(mobileRule, /\.topic-heading \{ gap:\s*10px; \}/);
 
   const landscapeRules = [...css.matchAll(/@media \(pointer: coarse\) and \(orientation: landscape\) and \(max-height: 520px\) \{([\s\S]*?)\n\}/g)].map((match) => match[1]);
   const landscapeRule = landscapeRules.at(-1);
   assert.ok(landscapeRule, 'short touch landscape rule must exist');
-  assert.match(landscapeRule, /\.topic-heading \{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
+  assert.match(landscapeRule, /\.topic-heading \{ gap:\s*10px; \}/);
 });
 
 test('mobile layouts hide the fullscreen button outside and during play', async () => {

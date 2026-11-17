@@ -31,8 +31,7 @@ const livesElement = document.querySelector('#lives');
 const promptWord = document.querySelector('#prompt-word');
 const resultTitle = document.querySelector('#result-title');
 const resultMessage = document.querySelector('#result-message');
-const completedLevelsTotal = document.querySelector('#completed-levels-total');
-const completedLevelsButton = document.querySelector('#completed-levels-button');
+const statisticsButton = document.querySelector('#statistics-button');
 const statisticsDialog = document.querySelector('#statistics-dialog');
 const statisticsClose = document.querySelector('#statistics-close');
 const statisticsCompletedLevelsTotal = document.querySelector('#statistics-completed-levels-total');
@@ -364,9 +363,7 @@ function renderChrome() {
   document.documentElement.lang = languageOptions.find((language) => language.key === settings.sourceLanguage).locale;
   document.querySelector('#app-tagline').textContent = tr('app_tagline');
   document.querySelector('#topic-screen').setAttribute('aria-label', tr('choose_topic'));
-  document.querySelector('#total-levels-label').textContent = tr('total_levels_cleared');
-  completedLevelsButton.setAttribute('aria-label', tr('total_levels_cleared'));
-  document.querySelector('#statistics-title').textContent = 'ALL GAME STATS';
+  document.querySelector('#statistics-title').textContent = 'Player Game Stats';
   document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
   document.querySelector('#statistics-perfect-levels-label').textContent = tr('total_perfect_levels');
   document.querySelector('#statistics-categories-cleared-label').textContent = tr('total_categories_cleared');
@@ -409,7 +406,6 @@ function formatCompletedLevels(value) {
 function renderTopics() {
   renderChrome();
   const progress = readProgress();
-  completedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
   statisticsCompletedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
   statisticsPerfectLevelsTotal.textContent = formatCompletedLevels(progress.perfectLevels);
   statisticsCategoriesClearedTotal.textContent = formatCompletedLevels(progress.wonTopics.length);
@@ -757,7 +753,7 @@ document.querySelector('#continue-button').addEventListener('click', resumeGame)
 document.querySelector('#quit-button').addEventListener('click', quitTopic);
 document.querySelector('#return-button').addEventListener('click', renderTopics);
 topicReviewClose.addEventListener('click', closeTopicReview);
-completedLevelsButton.addEventListener('click', () => openStatistics(completedLevelsButton));
+statisticsButton.addEventListener('click', () => openStatistics(statisticsButton));
 statisticsClose.addEventListener('click', closeStatistics);
 settingsButton.addEventListener('click', () => openSettings(settingsButton));
 menuLanguageSelect.addEventListener('change', () => {

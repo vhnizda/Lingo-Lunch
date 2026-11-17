@@ -40,17 +40,18 @@ test('progress moves from the legacy key to Lingo Lunch storage', async () => {
   assert.match(app, /localStorage\.setItem\(PROGRESS_KEY, JSON\.stringify\(progress\)\)/);
 });
 
-test('topic menu renders the translated cumulative completed-level total', async () => {
+test('topic menu provides Player Game Stats while retaining cumulative completion tracking', async () => {
   const [html, app, css] = await Promise.all([
     readFile(new URL('../index.html', import.meta.url), 'utf8'),
     readFile(new URL('../app.js', import.meta.url), 'utf8'),
     readFile(new URL('../styles.css', import.meta.url), 'utf8'),
   ]);
 
-  assert.match(html, /id="total-levels-label"/);
-  assert.match(app, /total-levels-label'\)\.textContent = tr\('total_levels_cleared'\)/);
+  assert.match(html, /id="statistics-button"/);
+  assert.doesNotMatch(html, /total-levels-label|completed-levels-button/);
+  assert.match(app, /statisticsCompletedLevelsTotal\.textContent = formatCompletedLevels\(progress\.completedLevels\)/);
   assert.match(app, /recordLevelCompletion\(readProgress\(\), state\.group, state\.mistakesThisLevel\)/);
-  assert.match(css, /\.completed-levels-banner \{/);
+  assert.match(css, /\.topic-heading \{[\s\S]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, 1fr\)/);
 });
 
 test('topic review opens as a dimmed, translated, scrollable vocabulary dialog', async () => {
