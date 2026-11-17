@@ -4,6 +4,7 @@ import { shouldMoveToEmptyOnTouchTap, shouldMunchOnTileTap } from './src/tap-con
 import { FROG_EAT_ANIMATION, FROG_EAT_DURATION_MS, frogAnimationForMove } from './src/frog.js';
 import { languageOptions, t, topicKey } from './src/i18n.js';
 import { normalizeSettings, settingsForSourceLanguage } from './src/settings.js';
+import { normalizeProgress, recordCategoryCleared, recordLevelCompletion, topCategory } from './src/statistics.js';
 
 const vocabulary = await fetch('./data/vocabulary.json').then((response) => {
   if (!response.ok) throw new Error('Could not load vocabulary data.');
@@ -35,6 +36,9 @@ const completedLevelsButton = document.querySelector('#completed-levels-button')
 const statisticsDialog = document.querySelector('#statistics-dialog');
 const statisticsClose = document.querySelector('#statistics-close');
 const statisticsCompletedLevelsTotal = document.querySelector('#statistics-completed-levels-total');
+const statisticsPerfectLevelsTotal = document.querySelector('#statistics-perfect-levels-total');
+const statisticsCategoriesClearedTotal = document.querySelector('#statistics-categories-cleared-total');
+const statisticsTopCategoryTotal = document.querySelector('#statistics-top-category-total');
 const topicReviewDialog = document.querySelector('#topic-review-dialog');
 const topicReviewTitle = document.querySelector('#topic-review-title');
 const topicReviewContent = document.querySelector('#topic-review-content');
@@ -90,7 +94,7 @@ function readProgress() {
   if (savedProgress === null && legacyProgress !== null) {
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
   }
-  return { wonTopics: [], completedLevels: 0, ...progress };
+  return normalizeProgress(progress);
 }
 
 function saveProgress(progress) {
@@ -363,6 +367,9 @@ function renderChrome() {
   completedLevelsButton.setAttribute('aria-label', tr('total_levels_cleared'));
   document.querySelector('#statistics-title').textContent = 'ALL GAME STATS';
   document.querySelector('#statistics-completed-levels-label').textContent = tr('total_levels_cleared');
+  document.querySelector('#statistics-perfect-levels-label').textContent = tr('perfect_levels_cleared');
+  document.querySelector('#statistics-categories-cleared-label').textContent = tr('total_categories_cleared');
+  document.querySelector('#statistics-top-category-label').textContent = tr('top_category');
   statisticsClose.setAttribute('aria-label', tr('done'));
   document.querySelector('#intro').textContent = tr('intro');
   settingsButton.textContent = 'GAME SETTINGS';
@@ -402,6 +409,10 @@ function renderTopics() {
   const progress = readProgress();
   completedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
   statisticsCompletedLevelsTotal.textContent = formatCompletedLevels(progress.completedLevels);
+  statisticsPerfectLevelsTotal.textContent = formatCompletedLevels(progress.perfectLevels);
+  statisticsCategoriesClearedTotal.textContent = formatCompletedLevels(progress.wonTopics.length);
+  const topCategoryGroup = topCategory(progress);
+  statisticsTopCategoryTotal.textContent = topCategoryGroup ? tr(topicKey(topCategoryGroup)) : tr('no_top_category');
   topicList.replaceChildren(...groups().map((group) => {
     const count = vocabulary.filter((row) => row.group === group).length;
     const card = document.createElement('div');
@@ -493,6 +504,7 @@ function startTopic(group) {
     focus: 0,
     frogAnimation: 'idle',
     pendingTiles: new Set(),
+    mistakesThisLevel: false,
     paused: false,
     wrongReview: null,
     eatTimer: null,
@@ -513,6 +525,7 @@ function startLevel() {
   });
   state.focus = 0;
   state.pendingTiles = new Set();
+  state.mistakesThisLevel = false;
   feedbackElement.textContent = '';
   feedbackElement.className = 'feedback';
   renderGame();
@@ -668,9 +681,9 @@ function finishTopic(won) {
   clearLevelTransition();
   appShell.classList.remove('is-paused');
   pauseDialog.classList.add('hidden');
-  const progress = readProgress();
-  if (won && !progress.wonTopics.includes(state.group)) {
-    progress.wonTopics.push(state.group);
+  let progress = readProgress();
+  if (won) {
+    progress = recordCategoryCleared(progress, state.group);
     saveProgress(progress);
   }
   resultTitle.textContent = won ? tr('topic_cleared') : tr('game_over');
@@ -683,8 +696,7 @@ function finishTopic(won) {
 
 function completeLevelWhenReady() {
   if (state.board.tiles.every((tile) => tile.cleared || !tile.isCorrect)) {
-    const progress = readProgress();
-    progress.completedLevels += 1;
+    const progress = recordLevelCompletion(readProgress(), state.group, state.mistakesThisLevel);
     saveProgress(progress);
     if (state.index === state.run.length - 1) {
       finishTopic(true);
@@ -722,6 +734,7 @@ function munch() {
   }
 
   state.lives = outcome.lives;
+  state.mistakesThisLevel = true;
   state.pendingTiles.add(tile.id);
   feedbackElement.textContent = `${tile.displayText} = ${outcome.sourceText}`;
   feedbackElement.className = 'feedback wrong';

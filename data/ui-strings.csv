@@ -74,3 +74,7 @@ play_toys_and_learning,Topic label,Play toys and learning,"Hra, hračky a učen�
 questions_and_connectors,Topic label,Questions and connectors,Otázky a spojky,Fragen und Verbindungswörter,Perguntas e conectores,Preguntas y conectores,Domande e connettori
 social_conversation,Topic label,Social conversation,Společenská konverzace,Soziale Gespräche,Conversas e interação social,Conversación social,Conversazione sociale
 baby_care_and_routines,Topic label,Baby care and routines,Péče o miminko a každodenní režim,Babypflege und Tagesabläufe,Cuidados do bebé e rotinas,Cuidado del bebé y rutinas,Cura del bebè e routine
+perfect_levels_cleared,Statistics label,TOTAL LEVELS CLEARED WITH NO MISTAKES,CELKEM ÚROVNÍ DOKONČENÝCH BEZ CHYBY,INSGESAMT OHNE FEHLER ABGESCHLOSSENE LEVEL,TOTAL DE NÍVEIS CONCLUÍDOS SEM ERROS,TOTAL DE NIVELES SUPERADOS SIN ERRORES,TOTALE LIVELLI COMPLETATI SENZA ERRORI
+total_categories_cleared,Statistics label,TOTAL CATEGORIES CLEARED,CELKEM DOKONČENÝCH KATEGORIÍ,INSGESAMT ABGESCHLOSSENE KATEGORIEN,TOTAL DE CATEGORIAS CONCLUÍDAS,TOTAL DE CATEGORÍAS SUPERADAS,TOTALE CATEGORIE COMPLETATE
+top_category,Statistics label,TOP CATEGORY,NEJÚSPĚŠNĚJŠÍ KATEGORIE,BESTE KATEGORIE,CATEGORIA PRINCIPAL,CATEGORÍA PRINCIPAL,CATEGORIA PRINCIPALE
+no_top_category,Statistics empty value,NONE YET,ZATÍM ŽÁDNÁ,NOCH KEINE,AINDA NENHUMA,TODAVÍA NINGUNA,ANCORA NESSUNA

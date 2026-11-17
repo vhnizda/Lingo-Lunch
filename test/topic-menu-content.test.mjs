@@ -49,7 +49,7 @@ test('topic menu renders the translated cumulative completed-level total', async
 
   assert.match(html, /id="total-levels-label"/);
   assert.match(app, /total-levels-label'\)\.textContent = tr\('total_levels_cleared'\)/);
-  assert.match(app, /progress\.completedLevels \+= 1;/);
+  assert.match(app, /recordLevelCompletion\(readProgress\(\), state\.group, state\.mistakesThisLevel\)/);
   assert.match(css, /\.completed-levels-banner \{/);
 });
 

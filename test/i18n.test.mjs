@@ -13,6 +13,15 @@ test('translations format placeholders and plural forms for the active language'
   assert.equal(t('italian_standard', 'topic_word_count', { count: 2 }), '2 parole');
 });
 
+test('statistics labels are translated in every supported language', () => {
+  for (const { key } of languageOptions) {
+    assert.notEqual(t(key, 'perfect_levels_cleared'), 'perfect_levels_cleared');
+    assert.notEqual(t(key, 'total_categories_cleared'), 'total_categories_cleared');
+    assert.notEqual(t(key, 'top_category'), 'top_category');
+    assert.notEqual(t(key, 'no_top_category'), 'no_top_category');
+  }
+});
+
 test('language registry includes English with the local American flag asset', () => {
   assert.deepEqual(languageOptions.find((language) => language.key === 'english'), {
     key: 'english',

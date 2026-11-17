@@ -599,6 +599,38 @@ const messages = {
     "portuguese_pt": "Cuidados do bebé e rotinas",
     "spanish_standard": "Cuidado del bebé y rutinas",
     "italian_standard": "Cura del bebè e routine"
+  },
+  "perfect_levels_cleared": {
+    "english": "TOTAL LEVELS CLEARED WITH NO MISTAKES",
+    "czech": "CELKEM ÚROVNÍ DOKONČENÝCH BEZ CHYBY",
+    "german_standard": "INSGESAMT OHNE FEHLER ABGESCHLOSSENE LEVEL",
+    "portuguese_pt": "TOTAL DE NÍVEIS CONCLUÍDOS SEM ERROS",
+    "spanish_standard": "TOTAL DE NIVELES SUPERADOS SIN ERRORES",
+    "italian_standard": "TOTALE LIVELLI COMPLETATI SENZA ERRORI"
+  },
+  "total_categories_cleared": {
+    "english": "TOTAL CATEGORIES CLEARED",
+    "czech": "CELKEM DOKONČENÝCH KATEGORIÍ",
+    "german_standard": "INSGESAMT ABGESCHLOSSENE KATEGORIEN",
+    "portuguese_pt": "TOTAL DE CATEGORIAS CONCLUÍDAS",
+    "spanish_standard": "TOTAL DE CATEGORÍAS SUPERADAS",
+    "italian_standard": "TOTALE CATEGORIE COMPLETATE"
+  },
+  "top_category": {
+    "english": "TOP CATEGORY",
+    "czech": "NEJÚSPĚŠNĚJŠÍ KATEGORIE",
+    "german_standard": "BESTE KATEGORIE",
+    "portuguese_pt": "CATEGORIA PRINCIPAL",
+    "spanish_standard": "CATEGORÍA PRINCIPAL",
+    "italian_standard": "CATEGORIA PRINCIPALE"
+  },
+  "no_top_category": {
+    "english": "NONE YET",
+    "czech": "ZATÍM ŽÁDNÁ",
+    "german_standard": "NOCH KEINE",
+    "portuguese_pt": "AINDA NENHUMA",
+    "spanish_standard": "TODAVÍA NINGUNA",
+    "italian_standard": "ANCORA NESSUNA"
   }
 };
 

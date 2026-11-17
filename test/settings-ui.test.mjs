@@ -49,6 +49,12 @@ test('completed-level score opens a focus-managed Statistics dialog', async () =
   assert.match(html, /id="statistics-dialog"[^>]*role="dialog"[^>]*aria-modal="true"/);
   assert.match(html, /id="statistics-close" class="topic-review-close"[^>]*>×<\/button>/);
   assert.match(html, /id="statistics-completed-levels-total" class="completed-levels-score">0<\/strong>/);
+  assert.match(html, /id="statistics-perfect-levels-total" class="completed-levels-score">0<\/strong>/);
+  assert.match(html, /id="statistics-categories-cleared-total" class="completed-levels-score">0<\/strong>/);
+  assert.match(html, /id="statistics-top-category-total" class="completed-levels-score">/);
+  assert.match(app, /tr\('perfect_levels_cleared'\)/);
+  assert.match(app, /tr\('total_categories_cleared'\)/);
+  assert.match(app, /tr\('top_category'\)/);
   assert.match(app, /document\.querySelector\('#statistics-title'\)\.textContent = 'ALL GAME STATS';/);
   assert.match(app, /function openStatistics\(origin\)/);
   assert.match(app, /function closeStatistics\(\)/);
